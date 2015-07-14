@@ -1,19 +1,21 @@
 CC = gcc
 CFLAGS  = -g -Wall
+BIN = ./bin
+SRC = ./src
 
 default: viewfb
 
-viewfb: viewfb.o framebuffer.o touchscreen.o
-	$(CC) $(CFLAGS) -o viewfb viewfb.o framebuffer.o touchscreen.o -L/usr/X11R6/lib -lX11 -pthread
+viewfb: framebuffer.o touchscreen.o viewfb.o
+	$(CC) $(CFLAGS) -o $(BIN)/viewfb $(BIN)/viewfb.o $(BIN)/framebuffer.o $(BIN)/touchscreen.o -L/usr/X11R6/lib -lX11 -pthread
 
-viewfb.o:  viewfb.c framebuffer.h touchscreen.h
-	$(CC) $(CFLAGS) -c viewfb.c
+viewfb.o: $(SRC)/viewfb.c
+	$(CC) $(CFLAGS) -c $(SRC)/viewfb.c -o $(BIN)/viewfb.o
 
-framebuffer.o:  framebuffer.c
-	$(CC) $(CFLAGS) -c framebuffer.c
+framebuffer.o: $(SRC)/framebuffer.c
+	$(CC) $(CFLAGS) -c $(SRC)/framebuffer.c -o $(BIN)/framebuffer.o
 
-touchscreen.o:  touchscreen.c
-	$(CC) $(CFLAGS) -c touchscreen.c
+touchscreen.o: $(SRC)/touchscreen.c
+	$(CC) $(CFLAGS) -c $(SRC)/touchscreen.c -o $(BIN)/touchscreen.o
 
 clean:
-	$(RM) count *.o *~ viewfb
+	$(RM) $(BIN)/*
