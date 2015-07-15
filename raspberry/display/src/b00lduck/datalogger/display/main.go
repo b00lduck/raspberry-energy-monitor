@@ -2,15 +2,13 @@ package main
 
 import (
 	"os"
-	"b00lduck/datalogger/display/framebuffer"
 	"time"
 	"math/rand"
+	"b00lduck/datalogger/display/framebuffer"
 	"b00lduck/datalogger/display/touchscreen"
 )
 
 var mode int
-
-
 
 func draw(data []byte) {
 
