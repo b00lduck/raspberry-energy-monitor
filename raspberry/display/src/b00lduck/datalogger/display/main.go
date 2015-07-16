@@ -3,32 +3,45 @@ package main
 import (
 	"os"
 	"time"
-	"math/rand"
+	"image/draw"
 	"b00lduck/datalogger/display/framebuffer"
 	"b00lduck/datalogger/display/touchscreen"
+	"image"
+	"image/jpeg"
+	"b00lduck/datalogger/display/errorcheck"
 )
 
-var mode int
+var mode int = 3
 
-func draw(data []byte) {
+var displayBuffer* image.RGBA
 
-	switch mode {
-	case 0:
-		for i := range data {
-			data[i] = byte(rand.Int())
-		}
-	case 1:
-		for i := range data {
-			data[i] = 0
-		}
-	case 2:
-		for i := range data {
-			data[i] = 255
-		}
-	case 3:
-		for i := range data {
-			data[i] = byte(i)
-		}
+func drawDisplay(data []byte) {
+
+	srcCount := 0
+	targetCount := 0
+
+	for srcCount < 240*320*4 {
+		r := displayBuffer.Pix[srcCount]
+		srcCount++;
+		g := displayBuffer.Pix[srcCount]
+		srcCount++;
+		b := displayBuffer.Pix[srcCount]
+		srcCount++;
+		srcCount++;
+
+		r8 := uint16(r >> 3)
+		g8 := uint16(g >> 2)
+		b8 := uint16(b >> 3)
+
+		out := r8 << 11 + g8 << 5 + b8
+
+		outl := uint8(out >> 8)
+		outh := uint8(out & 0xff)
+
+		data[targetCount] = outh
+		targetCount++
+		data[targetCount] = outl
+		targetCount++
 	}
 
 }
@@ -45,6 +58,18 @@ func main() {
 	defer ts.Close()
 	go ts.Run()
 
+	displayBuffer = image.NewRGBA(image.Rect(0, 0, 320, 240))
+
+	f, err := os.Open("images/cats-q-c-320-240-3.jpg")
+	errorcheck.Check(err)
+
+	cat, err := jpeg.Decode(f)
+	errorcheck.Check(err)
+
+	draw.Draw(displayBuffer, displayBuffer.Bounds(), cat, image.ZP, draw.Src)
+
+
+
 	for {
 		select {
 			case event := <-ts.Event:
@@ -59,7 +84,7 @@ func main() {
 					}
 				}
 			default:
-				draw(data)
+				drawDisplay(data)
 				time.Sleep(20 * time.Millisecond)
 		}
 	}
