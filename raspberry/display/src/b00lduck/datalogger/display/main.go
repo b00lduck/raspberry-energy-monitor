@@ -9,6 +9,9 @@ import (
 	"image"
 	"image/jpeg"
 	"b00lduck/datalogger/display/errorcheck"
+	"strings"
+	"image/png"
+	"image/gif"
 )
 
 var mode int = 3
@@ -60,15 +63,16 @@ func main() {
 
 	displayBuffer = image.NewRGBA(image.Rect(0, 0, 320, 240))
 
-	f, err := os.Open("images/cats-q-c-320-240-3.jpg")
-	errorcheck.Check(err)
+	cat := loadImage("cats-q-c-320-240-3.jpg")
+	arrowUp := loadImage("arrow_up.gif")
+	arrowDown := loadImage("arrow_down.gif")
 
-	cat, err := jpeg.Decode(f)
-	errorcheck.Check(err)
+	draw.Draw(displayBuffer, cat.Bounds(), cat, image.ZP, draw.Src)
 
-	draw.Draw(displayBuffer, displayBuffer.Bounds(), cat, image.ZP, draw.Src)
-
-
+	for i := 0; i < 8; i ++ {
+		drawImage(displayBuffer, arrowUp, image.Pt(20 + i * 35,10))
+		drawImage(displayBuffer, arrowDown, image.Pt(20 + i * 35,120))
+	}
 
 	for {
 		select {
@@ -85,8 +89,37 @@ func main() {
 				}
 			default:
 				drawDisplay(data)
-				time.Sleep(20 * time.Millisecond)
+				time.Sleep(100 * time.Millisecond)
 		}
 	}
 
+}
+
+func drawImage(dst image.Image, src image.Image, pos image.Point) {
+
+	bounds := src.Bounds().Max
+
+	draw.Draw(displayBuffer, image.Rect(pos.X, pos.Y, pos.X + bounds.X, pos.Y + bounds.Y), src, image.ZP, draw.Over)
+}
+
+func loadImage(filename string) image.Image {
+
+	f, err := os.Open("images/" + filename)
+	errorcheck.Check(err)
+
+	var img image.Image = nil
+
+	lowerFilename := strings.ToLower(filename)
+	switch {
+		case strings.HasSuffix(lowerFilename, ".jpg"):
+			img, err = jpeg.Decode(f)
+		case strings.HasSuffix(lowerFilename, ".png"):
+			img, err = png.Decode(f)
+		case strings.HasSuffix(lowerFilename, ".gif"):
+			img, err = gif.Decode(f)
+	}
+
+	errorcheck.Check(err)
+
+	return img
 }
