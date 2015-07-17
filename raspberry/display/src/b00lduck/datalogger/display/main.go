@@ -75,25 +75,11 @@ func main() {
 		gui.AddButton(arrowDown, 20 + i * 35, 140 )
 	}
 
-	gui.Draw(displayBuffer)
+	go gui.Run(displayBuffer, &ts.Event)
 
 	for {
-		select {
-			case event := <-ts.Event:
-				if event.Type == touchscreen.TSEVENT_PUSH {
-					if event.X < 160 {
-						mode = 0
-					} else {
-						mode = 1
-					}
-					if event.Y > 120 {
-						mode += 2;
-					}
-				}
-			default:
-				drawDisplay(data)
-				time.Sleep(100 * time.Millisecond)
-		}
+		drawDisplay(data)
+		time.Sleep(100 * time.Millisecond)
 	}
 
 }
