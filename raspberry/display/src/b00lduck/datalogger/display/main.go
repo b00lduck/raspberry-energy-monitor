@@ -65,13 +65,14 @@ func main() {
 
 	cat := loadImage("cats-q-c-320-240-3.jpg")
 	arrowUp := loadImage("arrow_up.gif")
-	//arrowDown := loadImage("arrow_down.gif")
+	arrowDown := loadImage("arrow_down.gif")
 
 	gui := gui.NewGui()
 
 	gui.SetBackground(cat)
 	for i := 0; i < 8; i ++ {
-		gui.AddButton(arrowUp, 20 + i * 35, 10 )
+		gui.AddButton(arrowUp, 20 + i * 35, 60 )
+		gui.AddButton(arrowDown, 20 + i * 35, 140 )
 	}
 
 	gui.Draw(displayBuffer)
