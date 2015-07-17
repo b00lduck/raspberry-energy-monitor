@@ -3,7 +3,6 @@ package main
 import (
 	"os"
 	"time"
-	"image/draw"
 	"b00lduck/datalogger/display/framebuffer"
 	"b00lduck/datalogger/display/touchscreen"
 	"image"
@@ -12,6 +11,7 @@ import (
 	"strings"
 	"image/png"
 	"image/gif"
+	"b00lduck/datalogger/display/gui"
 )
 
 var mode int = 3
@@ -65,14 +65,16 @@ func main() {
 
 	cat := loadImage("cats-q-c-320-240-3.jpg")
 	arrowUp := loadImage("arrow_up.gif")
-	arrowDown := loadImage("arrow_down.gif")
+	//arrowDown := loadImage("arrow_down.gif")
 
-	draw.Draw(displayBuffer, cat.Bounds(), cat, image.ZP, draw.Src)
+	gui := gui.NewGui()
 
+	gui.SetBackground(cat)
 	for i := 0; i < 8; i ++ {
-		drawImage(displayBuffer, arrowUp, image.Pt(20 + i * 35,10))
-		drawImage(displayBuffer, arrowDown, image.Pt(20 + i * 35,120))
+		gui.AddButton(arrowUp, 20 + i * 35, 10 )
 	}
+
+	gui.Draw(displayBuffer)
 
 	for {
 		select {
@@ -93,13 +95,6 @@ func main() {
 		}
 	}
 
-}
-
-func drawImage(dst image.Image, src image.Image, pos image.Point) {
-
-	bounds := src.Bounds().Max
-
-	draw.Draw(displayBuffer, image.Rect(pos.X, pos.Y, pos.X + bounds.X, pos.Y + bounds.Y), src, image.ZP, draw.Over)
 }
 
 func loadImage(filename string) image.Image {
