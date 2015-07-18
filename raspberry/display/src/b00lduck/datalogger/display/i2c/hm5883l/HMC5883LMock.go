@@ -12,8 +12,8 @@ func CreateHMC5883LMock() (*HMC5883LMock) {
 func (dev *HMC5883LMock) ReadVector() (vector *Vector3, err error) {
 	vector = new(Vector3)
 	vector.X = 0
-	vector.Y = 32768
-	vector.Z = 65535
+	vector.Y = 32767
+	vector.Z = -32768
 	err = nil
 	return
 }

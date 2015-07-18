@@ -67,9 +67,11 @@ func main() {
 			xcount = 0;
 		}
 
-		tx := int(190 - (float32(vector.X) / 65535) * 140)
-		ty := int(190 - (float32(vector.Y) / 65535) * 140)
-		tz := int(190 - (float32(vector.Z) / 65535) * 140)
+		tx := int(120 + (float32(vector.X) / 32768) * 50)
+		ty := int(120 + (float32(vector.Y) / 32768) * 50)
+		tz := int(120 + (float32(vector.Z) / 32768) * 50)
+
+		fmt.Println(tx, ty, tz)
 
 		fb.Set(xcount, tx, color.RGBA{255,0,0,255})
 		fb.Set(xcount, ty, color.RGBA{0,255,0,255})

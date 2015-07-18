@@ -19,7 +19,7 @@ type HMC5883LI2C struct {
 }
 
 type Vector3 struct {
-	X,Y,Z uint16
+	X,Y,Z int16
 }
 
 func CreateHMC5883LI2c(busId byte) (dev *HMC5883LI2C, err error) {
@@ -74,7 +74,7 @@ func (dev *HMC5883LI2C) ReadVector() (vector *Vector3, err error) {
 	return
 }
 
-func (dev *HMC5883LI2C) Read16(reg byte) (uint16, error) {
+func (dev *HMC5883LI2C) Read16(reg byte) (int16, error) {
 
 	msb, err := dev.Read(reg)
 	if err != nil {
@@ -86,7 +86,7 @@ func (dev *HMC5883LI2C) Read16(reg byte) (uint16, error) {
 		return 0, err
 	}
 
-	return uint16(msb) << 8 + uint16(lsb), err
+	return int16(msb) * 0x100 + int16(lsb), err
 }
 
 func (dev *HMC5883LI2C) Read(reg byte) (ret int8, err error) {
