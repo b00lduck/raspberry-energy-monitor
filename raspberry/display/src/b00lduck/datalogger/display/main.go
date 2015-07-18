@@ -38,16 +38,18 @@ func main() {
 	go ts.Run()
 
 	background := loadImage("bg.png")
-	arrowUp := loadImage("arrow_up.gif")
-	arrowDown := loadImage("arrow_down.gif")
+	//arrowUp := loadImage("arrow_up.gif")
+	//arrowDown := loadImage("arrow_down.gif")
 
 	gui := gui.NewGui()
 
 	gui.SetBackground(background)
+	/*
 	for i := 0; i < 8; i ++ {
 		gui.AddButton(arrowUp, 20 + i * 35, 60 )
 		gui.AddButton(arrowDown, 20 + i * 35, 140 )
 	}
+	*/
 
 	go gui.Run(fb, &ts.Event)
 
