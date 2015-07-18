@@ -12,10 +12,9 @@ import (
 	"image/gif"
 	"b00lduck/datalogger/display/gui"
 	"b00lduck/datalogger/display/tools"
-	"b00lduck/datalogger/display/magnetometer"
+	"b00lduck/datalogger/display/i2c"
+	"fmt"
 )
-
-var mode int = 3
 
 var displayBuffer* image.RGBA
 
@@ -62,9 +61,8 @@ func main() {
 	defer ts.Close()
 	go ts.Run()
 
-	mm := magnetometer.Magnetometer{}
-	mm.Open("/dev/i2c-1")
-	mm.Read()
+	mm, err := i2c.New()
+	tools.ErrorCheck(err)
 
 	displayBuffer = image.NewRGBA(image.Rect(0, 0, 320, 240))
 
@@ -84,8 +82,8 @@ func main() {
 
 	for {
 		drawDisplay(data)
-		mm.Read()
 		time.Sleep(100 * time.Millisecond)
+		fmt.Println(mm.Read(8))
 	}
 
 }
