@@ -87,11 +87,9 @@ func main() {
 		//drawDisplay(data)
 		time.Sleep(100 * time.Millisecond)
 
-		x := uint16(mm.Read(3)) << 8 + uint16(mm.Read(4))
-		y := uint16(mm.Read(7)) << 8 + uint16(mm.Read(8))
-		z := uint16(mm.Read(5)) << 8 + uint16(mm.Read(6))
+		vector := mm.ReadVector()
 
-		fmt.Printf("X:%d Y:%d Z:%d\n", x, y, z)
+		fmt.Printf("X:%d Y:%d Z:%d\n", vector.X, vector.Y, vector.Z)
 	}
 
 }
