@@ -89,7 +89,7 @@ func (dev *HMC5883LI2C) Read16(reg byte) (int16, error) {
 		return 0, err
 	}
 
-	var x uint16 = uint16(lsb) + uint16(msb) << 8
+	var x uint16 = uint16(msb) + uint16(lsb) << 8
 
 	px := unsafe.Pointer(&x)
 
