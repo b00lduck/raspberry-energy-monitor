@@ -14,6 +14,8 @@ import (
 	"b00lduck/datalogger/display/tools"
 	"fmt"
 	"b00lduck/datalogger/display/i2c/hm5883l"
+//	"image/color"
+	"image/color"
 )
 
 func main() {
@@ -53,11 +55,26 @@ func main() {
 
 	go gui.Run(fb, &ts.Event)
 
+	xcount := 0
+
 	for {
-		time.Sleep(100 * time.Millisecond)
+		time.Sleep(50 * time.Millisecond)
 		vector, err := mm.ReadVector()
 		tools.ErrorCheck(err)
-		fmt.Printf("X:%d Y:%d Z:%d\n", vector.X, vector.Y, vector.Z)
+
+		xcount++;
+		if xcount >= 320 {
+			xcount = 0;
+		}
+
+		tx := int(190 - (float32(vector.X) / 65535) * 140)
+		ty := int(190 - (float32(vector.Y) / 65535) * 140)
+		tz := int(190 - (float32(vector.Z) / 65535) * 140)
+
+		fb.Set(xcount, tx, color.RGBA{255,0,0,255})
+		fb.Set(xcount, ty, color.RGBA{0,255,0,255})
+		fb.Set(xcount, tz, color.RGBA{0,0,255,255})
+
 	}
 
 }
