@@ -47,6 +47,8 @@ func NewGui() *Gui {
 
 func (g *Gui) Run(target draw.Image, event *chan touchscreen.TouchscreenEvent) {
 
+	g.Draw(target)
+
 	for {
 		select {
 		case e := <-*event:
@@ -66,7 +68,6 @@ func (g *Gui) Run(target draw.Image, event *chan touchscreen.TouchscreenEvent) {
 
 			}
 		default:
-			g.Draw(target)
 			time.Sleep(100 * time.Millisecond)
 		}
 	}

@@ -16,39 +16,6 @@ import (
 	"b00lduck/datalogger/display/i2c/hm5883l"
 )
 
-var displayBuffer* image.RGBA
-
-func drawDisplay(data []byte) {
-
-	srcCount := 0
-	targetCount := 0
-
-	for srcCount < 240*320*4 {
-		r := displayBuffer.Pix[srcCount]
-		srcCount++;
-		g := displayBuffer.Pix[srcCount]
-		srcCount++;
-		b := displayBuffer.Pix[srcCount]
-		srcCount++;
-		srcCount++;
-
-		r8 := uint16(r >> 3)
-		g8 := uint16(g >> 2)
-		b8 := uint16(b >> 3)
-
-		out := r8 << 11 + g8 << 5 + b8
-
-		outl := uint8(out >> 8)
-		outh := uint8(out & 0xff)
-
-		data[targetCount] = outh
-		targetCount++
-		data[targetCount] = outl
-		targetCount++
-	}
-
-}
-
 func main() {
 
 	var mm hmc5883l.HMC5883L
@@ -63,14 +30,12 @@ func main() {
 	fb := framebuffer.Framebuffer{}
 	fb.Open(os.Args[1])
 	defer fb.Close()
-	data := fb.Data()
+	//data := fb.Data()
 
 	ts := touchscreen.Touchscreen{}
 	ts.Open(os.Args[2])
 	defer ts.Close()
 	go ts.Run()
-
-	displayBuffer = image.NewRGBA(image.Rect(0, 0, 320, 240))
 
 	background := loadImage("bg.png")
 	arrowUp := loadImage("arrow_up.gif")
@@ -84,19 +49,12 @@ func main() {
 		gui.AddButton(arrowDown, 20 + i * 35, 140 )
 	}
 
-	//go gui.Run(displayBuffer, &ts.Event)
-
-	gui.Draw(displayBuffer)
-	drawDisplay(data)
+	go gui.Run(fb, &ts.Event)
 
 	for {
-		//drawDisplay(data)
 		time.Sleep(100 * time.Millisecond)
-
 		vector, err := mm.ReadVector()
-
 		tools.ErrorCheck(err)
-
 		fmt.Printf("X:%d Y:%d Z:%d\n", vector.X, vector.Y, vector.Z)
 	}
 
