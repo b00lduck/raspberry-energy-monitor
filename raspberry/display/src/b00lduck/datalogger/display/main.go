@@ -67,9 +67,9 @@ func main() {
 			xcount = 0;
 		}
 
-		tx := int(120 + (float32(vector.X) / 32768) * 50)
-		ty := int(120 + (float32(vector.Y) / 32768) * 50)
-		tz := int(120 + (float32(vector.Z) / 32768) * 50)
+		tx := int(120 + (float32(vector.X) / 2048) * 50)
+		ty := int(120 + (float32(vector.Y) / 2048) * 50)
+		tz := int(120 + (float32(vector.Z) / 2048) * 50)
 
 		fmt.Println(tx, ty, tz)
 
