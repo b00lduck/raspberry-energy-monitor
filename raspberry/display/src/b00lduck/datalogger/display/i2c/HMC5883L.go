@@ -14,22 +14,20 @@ type HMC5883L struct {
 func New() (dev *HMC5883L, err error) {
 	dev = new(HMC5883L)
 	dev.bus, err = Bus(1)
-
 	err = dev.Write(0, 0x10)
 	err = dev.Write(1, 0x20)
 	err = dev.Write(2, 0x00)
-
 	return
 }
 
-func (bp *HMC5883L) Read(reg byte) (int8) {
+func (dev *HMC5883L) Read(reg byte) (int8) {
 	var bytes []byte
-	bytes, _ = bp.bus.ReadByteBlock(ADDR, reg, 1)
+	bytes, _ = dev.bus.ReadByteBlock(ADDR, reg, 1)
 	return int8(bytes[0])
 }
 
-func (bp *HMC5883L) Write(reg byte, value int8) (err error) {
-	err = bp.bus.WriteByte(0x1e, 2, 1)
+func (dev *HMC5883L) Write(reg byte, value int8) (err error) {
+	err = dev.bus.WriteByte(0x1e, byte, value)
 	if err != nil {
 		return
 	}
