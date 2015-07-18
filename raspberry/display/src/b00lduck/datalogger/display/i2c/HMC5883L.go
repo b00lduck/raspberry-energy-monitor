@@ -22,14 +22,10 @@ func New() (dev *HMC5883L, err error) {
 	return
 }
 
-func (bp *HMC5883L) Read(reg byte) (value int8, err error) {
+func (bp *HMC5883L) Read(reg byte) (int8) {
 	var bytes []byte
-	bytes, err = bp.bus.ReadByteBlock(ADDR, reg, 1)
-	if err != nil {
-		return
-	}
-	value = int8(bytes[0])
-	return
+	bytes, _ = bp.bus.ReadByteBlock(ADDR, reg, 1)
+	return int8(bytes[0])
 }
 
 func (bp *HMC5883L) Write(reg byte, value int8) (err error) {
