@@ -78,10 +78,13 @@ func main() {
 		gui.AddButton(arrowDown, 20 + i * 35, 140 )
 	}
 
-	go gui.Run(displayBuffer, &ts.Event)
+	//go gui.Run(displayBuffer, &ts.Event)
+
+	gui.Draw(displayBuffer)
+	drawDisplay(data)
 
 	for {
-		drawDisplay(data)
+		//drawDisplay(data)
 		time.Sleep(100 * time.Millisecond)
 		mm.Write(2,1)
 		fmt.Println(mm.Read(8))
