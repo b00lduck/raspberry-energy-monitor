@@ -1,5 +1,8 @@
 package hmc5883l
-import "b00lduck/datalogger/display/i2c"
+import (
+	"b00lduck/datalogger/display/i2c"
+	"unsafe"
+)
 
 const (
 	ADDR          		= 0x1E
@@ -86,7 +89,13 @@ func (dev *HMC5883LI2C) Read16(reg byte) (int16, error) {
 		return 0, err
 	}
 
-	return int16(lsb) * 0x100 + int16(msb), err
+	var x uint16 = uint16(lsb) + uint16(msb) << 8
+
+	px := unsafe.Pointer(&x)
+
+	pxs := (*int16)(px)
+
+	return int16(*pxs), nil
 }
 
 func (dev *HMC5883LI2C) Read(reg byte) (ret int8, err error) {
