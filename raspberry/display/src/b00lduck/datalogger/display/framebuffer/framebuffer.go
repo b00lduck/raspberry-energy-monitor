@@ -3,7 +3,7 @@ package framebuffer
 import (
 	"os"
 	"syscall"
-	"b00lduck/datalogger/display/errorcheck"
+	"b00lduck/datalogger/display/tools"
 )
 
 const resx = 320
@@ -19,11 +19,11 @@ type Framebuffer struct {
 func (f *Framebuffer) Open(device string) {
 
 	file, err := os.OpenFile(device, os.O_RDWR, 0)
-	errorcheck.Check(err)
+	tools.ErrorCheck(err)
 
 	data, err := syscall.Mmap(int(file.Fd()), 0, screensize,
 		syscall.PROT_READ | syscall.PROT_WRITE, syscall.MAP_SHARED)
-	errorcheck.Check(err)
+	tools.ErrorCheck(err)
 
 	f.file = file
 	f.data = data

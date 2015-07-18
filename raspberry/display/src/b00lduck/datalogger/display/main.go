@@ -7,11 +7,12 @@ import (
 	"b00lduck/datalogger/display/touchscreen"
 	"image"
 	"image/jpeg"
-	"b00lduck/datalogger/display/errorcheck"
 	"strings"
 	"image/png"
 	"image/gif"
 	"b00lduck/datalogger/display/gui"
+	"b00lduck/datalogger/display/tools"
+	"b00lduck/datalogger/display/magnetometer"
 )
 
 var mode int = 3
@@ -61,6 +62,10 @@ func main() {
 	defer ts.Close()
 	go ts.Run()
 
+	mm := magnetometer.Magnetometer{}
+	mm.Open("/dev/i2c-1")
+	mm.Read()
+
 	displayBuffer = image.NewRGBA(image.Rect(0, 0, 320, 240))
 
 	cat := loadImage("cats-q-c-320-240-3.jpg")
@@ -79,6 +84,7 @@ func main() {
 
 	for {
 		drawDisplay(data)
+		mm.Read()
 		time.Sleep(100 * time.Millisecond)
 	}
 
@@ -87,7 +93,7 @@ func main() {
 func loadImage(filename string) image.Image {
 
 	f, err := os.Open("images/" + filename)
-	errorcheck.Check(err)
+	tools.ErrorCheck(err)
 
 	var img image.Image = nil
 
@@ -101,7 +107,7 @@ func loadImage(filename string) image.Image {
 			img, err = gif.Decode(f)
 	}
 
-	errorcheck.Check(err)
+	tools.ErrorCheck(err)
 
 	return img
 }

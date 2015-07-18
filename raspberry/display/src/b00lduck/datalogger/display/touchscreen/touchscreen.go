@@ -3,8 +3,8 @@ package touchscreen
 import (
 	"os"
 	"syscall"
-	"b00lduck/datalogger/display/errorcheck"
 	"encoding/binary"
+	"b00lduck/datalogger/display/tools"
 )
 
 const (
@@ -33,7 +33,7 @@ type Touchscreen struct {
 
 func (f *Touchscreen) Open(device string) {
 	file, err := os.OpenFile(device, os.O_RDONLY, 0)
-	errorcheck.Check(err)
+	tools.ErrorCheck(err)
 	f.file = file
 }
 
@@ -47,7 +47,7 @@ func (f *Touchscreen) Run() {
 
 		inputEvent := InputEvent{}
 		err := binary.Read(f.file, binary.LittleEndian, &inputEvent)
-		errorcheck.Check(err)
+		tools.ErrorCheck(err)
 
 		switch {
 		case inputEvent.Type == 1 && inputEvent.Value == 1:
