@@ -21,7 +21,7 @@ type Framebuffer struct {
 
 func (f *Framebuffer) Open(device string) {
 
-	fmt.Println("initializing framebuffer on device %s", device)
+	fmt.Printf("initializing framebuffer on device %s\n", device)
 
 	file, err := os.OpenFile(device, os.O_RDWR, 0)
 	tools.ErrorCheck(err)

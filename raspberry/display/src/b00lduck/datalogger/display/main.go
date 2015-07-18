@@ -68,9 +68,9 @@ func main() {
 			gui.Draw(fb)
 		}
 
-		tx := int(120 + (float32(vector.X) / 2048) * 50)
-		ty := int(120 + (float32(vector.Y) / 2048) * 50)
-		tz := int(120 + (float32(vector.Z) / 2048) * 50)
+		tx := int(120.0 + (float32(vector.X) / 2048.0) * 50.0)
+		ty := int(120.0 + (float32(vector.Y) / 2048.0) * 50.0)
+		tz := int(120.0 + (float32(vector.Z) / 2048.0) * 50.0)
 
 		fb.Set(xcount, tx, color.RGBA{255,0,0,255})
 		fb.Set(xcount, ty, color.RGBA{0,255,0,255})
