@@ -12,8 +12,8 @@ import (
 	"image/gif"
 	"b00lduck/datalogger/display/gui"
 	"b00lduck/datalogger/display/tools"
-	"b00lduck/datalogger/display/i2c"
 	"fmt"
+	"b00lduck/datalogger/display/i2c/hm5883l"
 )
 
 var displayBuffer* image.RGBA
@@ -51,6 +51,15 @@ func drawDisplay(data []byte) {
 
 func main() {
 
+	var mm hmc5883l.HMC5883L
+
+	mm, err := hmc5883l.CreateHMC5883LI2c(1)
+	if (err != nil) {
+		mm = hmc5883l.CreateHMC5883LMock()
+		fmt.Println("WARNING: HMC5883L magnetometer init failed, using mock instead. No real data will be available!")
+
+	}
+
 	fb := framebuffer.Framebuffer{}
 	fb.Open(os.Args[1])
 	defer fb.Close()
@@ -61,8 +70,6 @@ func main() {
 	defer ts.Close()
 	go ts.Run()
 
-	mm, err := i2c.New()
-	tools.ErrorCheck(err)
 
 	displayBuffer = image.NewRGBA(image.Rect(0, 0, 320, 240))
 
@@ -87,7 +94,9 @@ func main() {
 		//drawDisplay(data)
 		time.Sleep(100 * time.Millisecond)
 
-		vector := mm.ReadVector()
+		vector, err := mm.ReadVector()
+
+		tools.ErrorCheck(err)
 
 		fmt.Printf("X:%d Y:%d Z:%d\n", vector.X, vector.Y, vector.Z)
 	}

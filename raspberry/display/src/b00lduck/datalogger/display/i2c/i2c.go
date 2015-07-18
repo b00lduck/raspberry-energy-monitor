@@ -54,7 +54,7 @@ func init() {
 // Returns an instance to an I2CBus.  If we already have an I2CBus
 // created for the requested bus number, just return that, otherwise
 // set up a new one and open up its associated i2c-dev file
-func Bus(bus byte) (i2cbus *I2CBus, err error) {
+func Create(bus byte) (i2cbus *I2CBus, err error) {
 	busMapLock.Lock()
 	defer busMapLock.Unlock()
 
