@@ -65,6 +65,7 @@ func main() {
 		xcount++;
 		if xcount >= 320 {
 			xcount = 0;
+			gui.Draw(fb)
 		}
 
 		tx := int(120 + (float32(vector.X) / 2048) * 50)
