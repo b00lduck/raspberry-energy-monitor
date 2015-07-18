@@ -26,3 +26,11 @@ func (bp *HMC5883L) Read(reg byte) (value int8, err error) {
 	value = int8(bytes[0])
 	return
 }
+
+func (bp *HMC5883L) Write(reg byte, value int8) (err error) {
+	err = bp.bus.WriteByte(0x1e, 2, 1)
+	if err != nil {
+		return
+	}
+	return
+}

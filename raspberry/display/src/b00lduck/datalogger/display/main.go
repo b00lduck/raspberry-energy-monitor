@@ -83,7 +83,9 @@ func main() {
 	for {
 		drawDisplay(data)
 		time.Sleep(100 * time.Millisecond)
+		mm.Write(2,1)
 		fmt.Println(mm.Read(8))
+		fmt.Println(mm.Read(9))
 	}
 
 }
