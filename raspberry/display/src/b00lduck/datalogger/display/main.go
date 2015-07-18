@@ -91,7 +91,7 @@ func main() {
 		y := uint16(mm.Read(10)) << 8 + uint16(mm.Read(11))
 		z := uint16(mm.Read(12)) << 8 + uint16(mm.Read(13))
 
-		fmt.Printf("X:%d Y:%d Z:%d", x, y, z)
+		fmt.Printf("X:%d Y:%d Z:%d\n", x, y, z)
 	}
 
 }
