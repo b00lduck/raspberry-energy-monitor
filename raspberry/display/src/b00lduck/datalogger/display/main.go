@@ -86,9 +86,12 @@ func main() {
 	for {
 		//drawDisplay(data)
 		time.Sleep(100 * time.Millisecond)
-		mm.Write(2,1)
-		fmt.Println(mm.Read(8))
-		fmt.Println(mm.Read(9))
+
+		x := uint16(mm.Read(8)) << 8 + mm.Read(9)
+		y := uint16(mm.Read(10)) << 8 + mm.Read(11)
+		z := uint16(mm.Read(12)) << 8 + mm.Read(13)
+
+		fmt.Printf("X:%d Y:%d Z:%d", x, y, z)
 	}
 
 }
