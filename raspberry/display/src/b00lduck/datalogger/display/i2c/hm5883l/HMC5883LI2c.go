@@ -86,7 +86,7 @@ func (dev *HMC5883LI2C) Read16(reg byte) (int16, error) {
 		return 0, err
 	}
 
-	return int16(msb) * 0x100 + int16(lsb), err
+	return int16(lsb) * 0x100 + int16(msb), err
 }
 
 func (dev *HMC5883LI2C) Read(reg byte) (ret int8, err error) {
