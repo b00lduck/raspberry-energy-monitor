@@ -72,8 +72,6 @@ func main() {
 		ty := int(120 + (float32(vector.Y) / 2048) * 50)
 		tz := int(120 + (float32(vector.Z) / 2048) * 50)
 
-		fmt.Println(tx, ty, tz)
-
 		fb.Set(xcount, tx, color.RGBA{255,0,0,255})
 		fb.Set(xcount, ty, color.RGBA{0,255,0,255})
 		fb.Set(xcount, tz, color.RGBA{0,0,255,255})
