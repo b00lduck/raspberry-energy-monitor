@@ -96,10 +96,10 @@ func (dev *HMC5883LI2C) Read16(reg byte) (int16, error) {
 	return int16(*pxs), nil
 }
 
-func (dev *HMC5883LI2C) Read(reg byte) (ret int8, err error) {
+func (dev *HMC5883LI2C) Read(reg byte) (ret uint8, err error) {
 	var bytes []byte
 	bytes, err = dev.bus.ReadByteBlock(ADDR, reg, 1)
-	ret = int8(bytes[0])
+	ret = uint8(bytes[0])
 	return
 }
 
