@@ -42,8 +42,13 @@ func (g *Gui) GetDefaultPage() *Page {
 }
 
 func (g *Gui) SelectPage(name string) *Page {
-	fmt.Println("selecting page " + name)
+
+	if g.activePageName == name {
+		return g.pages[name]
+	}
+
 	g.dirty = true
+
 	if g.pages[name] != nil {
 		fmt.Println("success selecting page " + name)
 		g.activePageName = name
@@ -90,7 +95,7 @@ func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 
 		select {
 		case e := <- *tsEvent:
-			if e.Type == touchscreen.TSEVENT_PUSH {
+			if e.Type == touchscreen.TSEVENT_RELEASE {
 				g.processButtonsOfPage(e, DEFAULT_PAGE_NAME)
 				g.processButtonsOfPage(e, g.activePageName)
 			}

@@ -53,6 +53,7 @@ func main() {
 	g.AddPage("WAT_1")
 	g.AddPage("SYS_1")
 
+	g.SelectPage("SYS_1")
 
 	go g.Run(&ts.Event)
 
