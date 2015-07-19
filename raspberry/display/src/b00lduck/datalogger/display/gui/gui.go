@@ -95,7 +95,7 @@ func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 
 		select {
 		case e := <- *tsEvent:
-			if e.Type == touchscreen.TSEVENT_RELEASE {
+			if e.Type == touchscreen.TSEVENT_PUSH {
 				g.processButtonsOfPage(e, DEFAULT_PAGE_NAME)
 				g.processButtonsOfPage(e, g.activePageName)
 			}
