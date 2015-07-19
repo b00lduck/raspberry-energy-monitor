@@ -93,11 +93,16 @@ func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 
 	for {
 
+		oldEvent := touchscreen.TouchscreenEvent{touchscreen.TSEVENT_NULL, 0,0}
+
 		select {
 		case e := <- *tsEvent:
 			if e.Type == touchscreen.TSEVENT_PUSH {
-				g.processButtonsOfPage(e, DEFAULT_PAGE_NAME)
-				g.processButtonsOfPage(e, g.activePageName)
+				if oldEvent != e {
+					g.processButtonsOfPage(e, DEFAULT_PAGE_NAME)
+					g.processButtonsOfPage(e, g.activePageName)
+					oldEvent = e
+				}
 			}
 		default:
 			if (g.dirty) {
