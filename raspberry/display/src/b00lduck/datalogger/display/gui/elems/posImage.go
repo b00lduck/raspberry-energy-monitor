@@ -1,4 +1,4 @@
-package gui
+package elems
 import (
 	"image"
 	"image/draw"

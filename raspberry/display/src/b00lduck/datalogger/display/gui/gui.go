@@ -4,44 +4,42 @@ import (
 	"b00lduck/datalogger/display/touchscreen"
 	"fmt"
 	"time"
+	"b00lduck/datalogger/display/gui/pages"
+	"image"
 )
 
 const (
-	DEFAULT_PAGE_NAME = "DEFAULT"
+	MAIN_PAGE_NAME = "MAIN"
 )
 
 type Gui struct {
-	pages map[string]*Page
+	mainPage pages.Page
+	pages map[string]pages.Page
 	activePageName string
 	target *draw.Image
 	touchscreen *touchscreen.Touchscreen
-	butEvent chan Button
 	dirty bool
 }
 
-func NewGui(target draw.Image, touchscreen *touchscreen.Touchscreen, butEvent chan Button) *Gui {
+func NewGui(target draw.Image, touchscreen *touchscreen.Touchscreen) *Gui {
 	newGui := new(Gui)
-	newGui.pages = make (map[string]*Page,0)
+	newGui.pages = make (map[string]pages.Page,0)
 	newGui.activePageName = ""
 	newGui.target = &target
 	newGui.touchscreen = touchscreen
-	newGui.AddPage(DEFAULT_PAGE_NAME)
-	newGui.butEvent = butEvent
 	newGui.dirty = false
 	return newGui
 }
 
-func (g *Gui) AddPage(name string) *Page {
-	newPage := NewPage()
-	g.pages[name] = newPage
-	return newPage
+func (g *Gui) SetPage(name string, page pages.Page) {
+	g.pages[name] = page
 }
 
-func (g *Gui) GetDefaultPage() *Page {
-	return g.pages[DEFAULT_PAGE_NAME]
+func (g *Gui) SetMainPage(page pages.Page) {
+	g.pages[MAIN_PAGE_NAME] = page
 }
 
-func (g *Gui) SelectPage(name string) *Page {
+func (g *Gui) SelectPage(name string) pages.Page {
 
 	if g.activePageName == name {
 		return g.pages[name]
@@ -60,26 +58,15 @@ func (g *Gui) SelectPage(name string) *Page {
 }
 
 func (g *Gui) processButtonsOfPage(e touchscreen.TouchscreenEvent, name string) {
-
 	if name == "" {
 		return
 	}
-
 	page := g.pages[name]
-
-	for i := range page.buttons {
-
-		x := int(e.X)
-		y := int(e.Y)
-		min := page.buttons[i].img.Bounds().Min
-		max := page.buttons[i].img.Bounds().Max
-
-		if (x > min.X) && (x < max.X) && (y > min.Y) && (y < max.Y) {
-			g.butEvent <- *page.buttons[i]
+	for i := range page.Buttons() {
+		if page.Buttons()[i].IsHitBy(image.Pt(int(e.X), int(e.Y))) {
+			//g.butEvent <- *page.Buttons()[i]
 		}
-
 	}
-
 }
 
 func (g * Gui) drawPage(name string) {
@@ -99,14 +86,14 @@ func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 		case e := <- *tsEvent:
 			if e.Type == touchscreen.TSEVENT_PUSH {
 				if oldEvent != e {
-					g.processButtonsOfPage(e, DEFAULT_PAGE_NAME)
+					g.processButtonsOfPage(e, MAIN_PAGE_NAME)
 					g.processButtonsOfPage(e, g.activePageName)
 					oldEvent = e
 				}
 			}
 		default:
 			if (g.dirty) {
-				g.drawPage(DEFAULT_PAGE_NAME)
+				g.drawPage(MAIN_PAGE_NAME)
 				g.drawPage(g.activePageName)
 				g.dirty = false
 			} else {

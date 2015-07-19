@@ -4,14 +4,10 @@ import (
 	"os"
 	"b00lduck/datalogger/display/framebuffer"
 	"b00lduck/datalogger/display/touchscreen"
-	"image"
-	"image/jpeg"
-	"strings"
-	"image/png"
-	"image/gif"
 	"b00lduck/datalogger/display/gui"
-	"b00lduck/datalogger/display/tools"
 	"fmt"
+	"b00lduck/datalogger/display/gui/pages"
+	"time"
 )
 
 func main() {
@@ -27,76 +23,18 @@ func main() {
 	defer ts.Close()
 	go ts.Run()
 
-	background := loadImage("bg.png")
-	arrowUp := loadImage("arrow_up.gif")
-	arrowDown := loadImage("arrow_down.gif")
+	g := gui.NewGui(fb, ts)
 
-	butChan := make(chan gui.Button)
+	g.SetMainPage(pages.CreateMainPage())
+	g.SetPage("GAS_1", pages.CreateGasPage())
 
-	g := gui.NewGui(fb, ts, butChan)
-
-	defaultPage := g.GetDefaultPage()
-	defaultPage.SetBackground(background)
-
-	buttonGas := defaultPage.AddButton(loadImage("button_gas.png"), 0, 199)
-	buttonElc := defaultPage.AddButton(loadImage("button_elc.png"), 80, 199)
-	buttonWat := defaultPage.AddButton(loadImage("button_wat.png"), 160, 199)
-	buttonSys := defaultPage.AddButton(loadImage("button_sys.png"), 240, 199)
-
-	gas1Page := g.AddPage("GAS_1")
-	for i := 0; i < 8; i ++ {
-		gas1Page.AddButton(arrowUp, 20 + i * 35, 60 )
-		gas1Page.AddButton(arrowDown, 20 + i * 35, 140 )
-	}
-
-	g.AddPage("ELC_1")
-	g.AddPage("WAT_1")
-	g.AddPage("SYS_1")
-
-	g.SelectPage("SYS_1")
+	g.SelectPage("GAS_1")
 
 	go g.Run(&ts.Event)
 
 	for {
-		b := <- butChan
-
-		switch b{
-		case *buttonGas:
-			fmt.Println("GAS")
-			g.SelectPage("GAS_1")
-		case *buttonElc:
-			fmt.Println("ELC")
-			g.SelectPage("ELC_1")
-		case *buttonWat:
-			fmt.Println("WAT")
-			g.SelectPage("WAT_1")
-		case *buttonSys:
-			fmt.Println("SYS")
-			g.SelectPage("SYS_1")
-		}
-
+		time.Sleep(1 * time.Second)
 	}
 
 }
 
-func loadImage(filename string) image.Image {
-
-	f, err := os.Open("images/" + filename)
-	tools.ErrorCheck(err)
-
-	var img image.Image = nil
-
-	lowerFilename := strings.ToLower(filename)
-	switch {
-		case strings.HasSuffix(lowerFilename, ".jpg"):
-			img, err = jpeg.Decode(f)
-		case strings.HasSuffix(lowerFilename, ".png"):
-			img, err = png.Decode(f)
-		case strings.HasSuffix(lowerFilename, ".gif"):
-			img, err = gif.Decode(f)
-	}
-
-	tools.ErrorCheck(err)
-
-	return img
-}
