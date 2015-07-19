@@ -1,8 +1,13 @@
 package pages
-import "fmt"
+import (
+	"fmt"
+	"image/draw"
+	"image"
+)
 
 type GasPage struct {
 	BasePage
+	img image.Image
 }
 
 func CreateGasPage() Page {
@@ -17,10 +22,23 @@ func CreateGasPage() Page {
 		gasPage.BasePage.AddButton(arrowUp, 20 + i * 35, 60 , func() {
 			fmt.Printf("Digit %d >UP< pressed", i)
 		})
-		gasPage.BasePage.AddButton(arrowDown, 20 + i * 35, 120 , func() {
+		gasPage.BasePage.AddButton(arrowDown, 20 + i * 35, 150 , func() {
 			fmt.Printf("Digit %d >DOWN< pressed", i)
-		})	}
+		})
+	}
+
+	gasPage.img = LoadImage("count_digits_grey.png")
 
 	return gasPage
+
+}
+
+func (p GasPage) Draw(target *draw.Image) {
+
+	p.BaseDraw(target)
+
+	rect := image.Rect(35, 100, 285, 180)
+
+	draw.Draw(*target, rect, p.img, image.ZP, draw.Over)
 
 }

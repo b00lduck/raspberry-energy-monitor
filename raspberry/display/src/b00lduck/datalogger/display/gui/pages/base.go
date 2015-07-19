@@ -28,6 +28,10 @@ func NewBasePage() (page BasePage) {
 }
 
 func (page BasePage) Draw(target *draw.Image) {
+	page.BaseDraw(target)
+}
+
+func (page BasePage) BaseDraw(target *draw.Image) {
 
 	if page.background != nil {
 		draw.Draw(*target, (*target).Bounds(), page.background, image.ZP, draw.Src)
