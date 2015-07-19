@@ -46,6 +46,12 @@ func (page *BasePage) AddButton(img image.Image, x, y int, action func()) *elems
 	return newButton
 }
 
+func (page *BasePage) AddMenuButton(img image.Image, x, y int, newPage string) *elems.Button {
+	newButton := elems.NewMenuButton(img, x, y, newPage)
+	page.buttons = append(page.buttons, newButton)
+	return newButton
+}
+
 func (page *BasePage) SetBackground(img image.Image) {
 	page.background = img
 }

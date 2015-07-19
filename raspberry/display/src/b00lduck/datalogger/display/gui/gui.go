@@ -63,8 +63,13 @@ func (g *Gui) processButtonsOfPage(e touchscreen.TouchscreenEvent, name string) 
 	}
 	page := g.pages[name]
 	for i := range page.Buttons() {
-		if page.Buttons()[i].IsHitBy(image.Pt(int(e.X), int(e.Y))) {
-			//g.butEvent <- *page.Buttons()[i]
+		button := page.Buttons()[i]
+		if button.IsHitBy(image.Pt(int(e.X), int(e.Y))) {
+			if button.IsMenuButton {
+				g.SelectPage(button.ChangeToPage)
+			} else {
+				button.Action()
+			}
 		}
 	}
 }

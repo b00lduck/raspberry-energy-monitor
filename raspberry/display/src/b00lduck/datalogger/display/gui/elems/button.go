@@ -6,7 +6,9 @@ import (
 
 type Button struct {
 	img *PosImage
-	action func()
+	Action func()
+	IsMenuButton bool
+	ChangeToPage string
 }
 
 func (b *Button) Draw(target draw.Image) {
@@ -14,7 +16,12 @@ func (b *Button) Draw(target draw.Image) {
 }
 
 func NewButton(img image.Image, x, y int, action func()) *Button {
-	newButton := Button { NewPosImage(img, x, y), action}
+	newButton := Button { NewPosImage(img, x, y), action, false, ""}
+	return &newButton
+}
+
+func NewMenuButton(img image.Image, x, y int, page string) *Button {
+	newButton := Button { NewPosImage(img, x, y), nil, true, page}
 	return &newButton
 }
 
@@ -24,7 +31,6 @@ func (b *Button) IsHitBy(p image.Point) bool {
 	max := b.img.Bounds().Max
 
 	if (p.X > min.X) && (p.X < max.X) && (p.Y > min.Y) && (p.Y < max.Y) {
-		b.action()
 		return true
 	}
 	return false

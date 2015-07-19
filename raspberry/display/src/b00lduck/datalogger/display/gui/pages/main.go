@@ -2,7 +2,6 @@ package pages
 
 import (
 	"b00lduck/datalogger/display/gui/elems"
-	"fmt"
 )
 
 type MainPage struct {
@@ -19,18 +18,10 @@ func CreateMainPage() Page {
 	mainPage.BasePage = NewBasePage()
 
 	mainPage.BasePage.SetBackground(LoadImage("bg.png"))
-	mainPage.ButtonGas = mainPage.BasePage.AddButton(LoadImage("button_gas.png"), 0, 199, func() {
-		fmt.Println("GAS")
-	})
-	mainPage.ButtonElc = mainPage.BasePage.AddButton(LoadImage("button_elc.png"), 80, 199, func() {
-		fmt.Println("ELC")
-	})
-	mainPage.ButtonWat = mainPage.BasePage.AddButton(LoadImage("button_wat.png"), 160, 199, func() {
-		fmt.Println("WAT")
-	})
-	mainPage.ButtonSys = mainPage.BasePage.AddButton(LoadImage("button_sys.png"), 240, 199, func() {
-		fmt.Println("SYS")
-	})
+	mainPage.ButtonGas = mainPage.BasePage.AddMenuButton(LoadImage("button_gas.png"), 0, 199, "GAS_1")
+	mainPage.ButtonElc = mainPage.BasePage.AddMenuButton(LoadImage("button_elc.png"), 80, 199, "ELC_1")
+	mainPage.ButtonWat = mainPage.BasePage.AddMenuButton(LoadImage("button_wat.png"), 160, 199, "WAT_1")
+	mainPage.ButtonSys = mainPage.BasePage.AddMenuButton(LoadImage("button_sys.png"), 240, 199, "SYS_1")
 
 	return mainPage
 
