@@ -2,7 +2,6 @@ package main
 
 import (
 	"os"
-	"time"
 	"b00lduck/datalogger/display/framebuffer"
 	"b00lduck/datalogger/display/touchscreen"
 	"image"
@@ -13,68 +12,67 @@ import (
 	"b00lduck/datalogger/display/gui"
 	"b00lduck/datalogger/display/tools"
 	"fmt"
-	"b00lduck/datalogger/display/i2c/hm5883l"
-//	"image/color"
-	"image/color"
 )
 
 func main() {
 
-	var mm hmc5883l.HMC5883L
+	fmt.Println("START")
 
-	mm, err := hmc5883l.CreateHMC5883LI2c(1)
-	if (err != nil) {
-		mm = hmc5883l.CreateHMC5883LMock()
-		fmt.Println("WARNING: HMC5883L magnetometer init failed, using mock instead. No real data will be available!")
-
-	}
-
-	fb := framebuffer.Framebuffer{}
+	fb := new(framebuffer.Framebuffer)
 	fb.Open(os.Args[1])
 	defer fb.Close()
-	//data := fb.Data()
 
-	ts := touchscreen.Touchscreen{}
+	ts := new(touchscreen.Touchscreen)
 	ts.Open(os.Args[2])
 	defer ts.Close()
 	go ts.Run()
 
 	background := loadImage("bg.png")
-	//arrowUp := loadImage("arrow_up.gif")
-	//arrowDown := loadImage("arrow_down.gif")
+	arrowUp := loadImage("arrow_up.gif")
+	arrowDown := loadImage("arrow_down.gif")
 
-	gui := gui.NewGui()
+	butChan := make(chan gui.Button)
 
-	gui.SetBackground(background)
-	/*
+	g := gui.NewGui(fb, ts, butChan)
+
+	defaultPage := g.GetDefaultPage()
+	defaultPage.SetBackground(background)
+
+	buttonGas := defaultPage.AddButton(arrowUp, 0, 199)
+	buttonEle := defaultPage.AddButton(arrowUp, 80, 199)
+	buttonWat := defaultPage.AddButton(arrowUp, 160, 199)
+	buttonSys := defaultPage.AddButton(arrowUp, 240, 199)
+
+	gas1Page := g.AddPage("GAS_1")
 	for i := 0; i < 8; i ++ {
-		gui.AddButton(arrowUp, 20 + i * 35, 60 )
-		gui.AddButton(arrowDown, 20 + i * 35, 140 )
+		gas1Page.AddButton(arrowUp, 20 + i * 35, 60 )
+		gas1Page.AddButton(arrowDown, 20 + i * 35, 140 )
 	}
-	*/
 
-	go gui.Run(fb, &ts.Event)
+	g.AddPage("ELE_1")
+	g.AddPage("WAT_1")
+	g.AddPage("SYS_1")
 
-	xcount := 0
+
+	go g.Run(&ts.Event)
 
 	for {
-		time.Sleep(50 * time.Millisecond)
-		vector, err := mm.ReadVector()
-		tools.ErrorCheck(err)
+		b := <- butChan
 
-		xcount++;
-		if xcount >= 320 {
-			xcount = 0;
-			gui.Draw(fb)
+		switch b{
+		case *buttonGas:
+			fmt.Println("GAS")
+			g.SelectPage("GAS_1")
+		case *buttonEle:
+			fmt.Println("ELE")
+			g.SelectPage("ELE_1")
+		case *buttonWat:
+			fmt.Println("WAT")
+			g.SelectPage("WAT_1")
+		case *buttonSys:
+			fmt.Println("SYS")
+			g.SelectPage("SYS_1")
 		}
-
-		tx := int(120.0 + (float32(vector.X) / 2048.0) * 50.0)
-		ty := int(120.0 + (float32(vector.Y) / 2048.0) * 50.0)
-		tz := int(120.0 + (float32(vector.Z) / 2048.0) * 50.0)
-
-		fb.Set(xcount, tx, color.RGBA{255,0,0,255})
-		fb.Set(xcount, ty, color.RGBA{0,255,0,255})
-		fb.Set(xcount, tz, color.RGBA{0,0,255,255})
 
 	}
 

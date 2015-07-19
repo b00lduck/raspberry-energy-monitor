@@ -1,75 +1,108 @@
 package gui
 import (
-	"image"
-	"image/color"
 	"image/draw"
-	"time"
 	"b00lduck/datalogger/display/touchscreen"
 	"fmt"
+	"time"
+)
+
+const (
+	DEFAULT_PAGE_NAME = "DEFAULT"
 )
 
 type Gui struct {
-	background image.Image
-	buttons []*Button
+	pages map[string]*Page
+	activePageName string
+	target *draw.Image
+	touchscreen *touchscreen.Touchscreen
+	butEvent chan Button
+	dirty bool
 }
 
-func (g *Gui) Draw(target draw.Image) {
+func NewGui(target draw.Image, touchscreen *touchscreen.Touchscreen, butEvent chan Button) *Gui {
+	newGui := new(Gui)
+	newGui.pages = make (map[string]*Page,0)
+	newGui.activePageName = ""
+	newGui.target = &target
+	newGui.touchscreen = touchscreen
+	newGui.AddPage(DEFAULT_PAGE_NAME)
+	newGui.butEvent = butEvent
+	newGui.dirty = false
+	return newGui
+}
 
-	if g.background == nil {
-		// no background
-		black := image.Uniform{color.Black}
-		draw.Draw(target, target.Bounds(), &black, image.ZP, draw.Src)
-	} else {
-		// draw background
-		draw.Draw(target, target.Bounds(), g.background, image.ZP, draw.Src)
+func (g *Gui) AddPage(name string) *Page {
+	newPage := NewPage()
+	g.pages[name] = newPage
+	return newPage
+}
+
+func (g *Gui) GetDefaultPage() *Page {
+	return g.pages[DEFAULT_PAGE_NAME]
+}
+
+func (g *Gui) SelectPage(name string) *Page {
+	fmt.Println("selecting page " + name)
+	g.dirty = true
+	if g.pages[name] != nil {
+		fmt.Println("success selecting page " + name)
+		g.activePageName = name
+		return g.pages[name]
+	}
+	fmt.Println("fail selecting page " + name)
+	g.activePageName = ""
+	return nil
+}
+
+func (g *Gui) processButtonsOfPage(e touchscreen.TouchscreenEvent, name string) {
+
+	if name == "" {
+		return
 	}
 
-	// draw all buttons
-	for b := range g.buttons {
-		g.buttons[b].Draw(target)
+	page := g.pages[name]
+
+	for i := range page.buttons {
+
+		x := int(e.X)
+		y := int(e.Y)
+		min := page.buttons[i].img.Bounds().Min
+		max := page.buttons[i].img.Bounds().Max
+
+		if (x > min.X) && (x < max.X) && (y > min.Y) && (y < max.Y) {
+			g.butEvent <- *page.buttons[i]
+		}
+
 	}
+
 }
 
-func (g *Gui) AddButton(img image.Image, x int, y int) {
-	newButton := NewButton(img, x, y)
-	g.buttons = append(g.buttons, newButton)
+func (g * Gui) drawPage(name string) {
+	if name == "" {
+		return
+	}
+	g.pages[name].Draw(g.target)
 }
 
-func (g *Gui) SetBackground(img image.Image) {
-	g.background = img
-}
-
-func NewGui() *Gui {
-	newGui := Gui{}
-	newGui.buttons = make([]*Button, 0)
-	return &newGui
-}
-
-func (g *Gui) Run(target draw.Image, event *chan touchscreen.TouchscreenEvent) {
-
-	g.Draw(target)
+func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 
 	for {
+
 		select {
-		case e := <-*event:
+		case e := <- *tsEvent:
 			if e.Type == touchscreen.TSEVENT_PUSH {
-				for i := range g.buttons {
-
-					x := int(e.X)
-					y := int(e.Y)
-					min := g.buttons[i].img.Bounds().Min
-					max := g.buttons[i].img.Bounds().Max
-
-					if (x > min.X) && (x < max.X) && (y > min.Y) && (y < max.Y) {
-						fmt.Printf("BUTTON %d PRESSED\n", i)
-					}
-
-				}
-
+				g.processButtonsOfPage(e, DEFAULT_PAGE_NAME)
+				g.processButtonsOfPage(e, g.activePageName)
 			}
 		default:
-			time.Sleep(100 * time.Millisecond)
+			if (g.dirty) {
+				g.drawPage(DEFAULT_PAGE_NAME)
+				g.drawPage(g.activePageName)
+				g.dirty = false
+			} else {
+				time.Sleep(25 * time.Millisecond)
+			}
 		}
-	}
 
+	}
 }
