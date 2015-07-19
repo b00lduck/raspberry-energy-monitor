@@ -91,9 +91,9 @@ func (g * Gui) drawPage(name string) {
 
 func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 
-	for {
+	oldEvent := touchscreen.TouchscreenEvent{touchscreen.TSEVENT_NULL, 0,0}
 
-		oldEvent := touchscreen.TouchscreenEvent{touchscreen.TSEVENT_NULL, 0,0}
+	for {
 
 		select {
 		case e := <- *tsEvent:
