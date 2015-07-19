@@ -38,10 +38,10 @@ func main() {
 	defaultPage := g.GetDefaultPage()
 	defaultPage.SetBackground(background)
 
-	buttonGas := defaultPage.AddButton(arrowUp, 0, 199)
-	buttonEle := defaultPage.AddButton(arrowUp, 80, 199)
-	buttonWat := defaultPage.AddButton(arrowUp, 160, 199)
-	buttonSys := defaultPage.AddButton(arrowUp, 240, 199)
+	buttonGas := defaultPage.AddButton(loadImage("button_gas.png"), 0, 199)
+	buttonElc := defaultPage.AddButton(loadImage("button_elc.png"), 80, 199)
+	buttonWat := defaultPage.AddButton(loadImage("button_wat.png"), 160, 199)
+	buttonSys := defaultPage.AddButton(loadImage("button_sys.png"), 240, 199)
 
 	gas1Page := g.AddPage("GAS_1")
 	for i := 0; i < 8; i ++ {
@@ -49,10 +49,11 @@ func main() {
 		gas1Page.AddButton(arrowDown, 20 + i * 35, 140 )
 	}
 
-	g.AddPage("ELE_1")
+	g.AddPage("ELC_1")
 	g.AddPage("WAT_1")
 	g.AddPage("SYS_1")
 
+	g.SelectPage("SYS_1")
 
 	go g.Run(&ts.Event)
 
@@ -63,9 +64,9 @@ func main() {
 		case *buttonGas:
 			fmt.Println("GAS")
 			g.SelectPage("GAS_1")
-		case *buttonEle:
-			fmt.Println("ELE")
-			g.SelectPage("ELE_1")
+		case *buttonElc:
+			fmt.Println("ELC")
+			g.SelectPage("ELC_1")
 		case *buttonWat:
 			fmt.Println("WAT")
 			g.SelectPage("WAT_1")

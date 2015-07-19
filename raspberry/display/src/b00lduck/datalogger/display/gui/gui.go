@@ -42,8 +42,13 @@ func (g *Gui) GetDefaultPage() *Page {
 }
 
 func (g *Gui) SelectPage(name string) *Page {
-	fmt.Println("selecting page " + name)
+
+	if g.activePageName == name {
+		return g.pages[name]
+	}
+
 	g.dirty = true
+
 	if g.pages[name] != nil {
 		fmt.Println("success selecting page " + name)
 		g.activePageName = name
@@ -86,13 +91,18 @@ func (g * Gui) drawPage(name string) {
 
 func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 
+	oldEvent := touchscreen.TouchscreenEvent{touchscreen.TSEVENT_NULL, 0,0}
+
 	for {
 
 		select {
 		case e := <- *tsEvent:
 			if e.Type == touchscreen.TSEVENT_PUSH {
-				g.processButtonsOfPage(e, DEFAULT_PAGE_NAME)
-				g.processButtonsOfPage(e, g.activePageName)
+				if oldEvent != e {
+					g.processButtonsOfPage(e, DEFAULT_PAGE_NAME)
+					g.processButtonsOfPage(e, g.activePageName)
+					oldEvent = e
+				}
 			}
 		default:
 			if (g.dirty) {
