@@ -33,7 +33,7 @@ int main(int argc, char * argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    rc = ts_init("/dev/uinput");
+    rc = ts_init();
 
     if (rc != 0) {
         exit(EXIT_FAILURE);

@@ -37,7 +37,7 @@ func CreateGasPage() Page {
 	gasPage.imgBlk = LoadImage("count_digits_grey.png")
 	gasPage.imgRed = LoadImage("count_digits_red.png")
 
-	return gasPage
+	return &gasPage
 
 }
 
@@ -54,13 +54,7 @@ func (p GasPage) DrawDigit(target draw.Image, src image.Image, digit uint8, pos 
 
 }
 
-func (p GasPage) Draw(target *draw.Image) {
-
-	fmt.Println(p.Counter)
-
-	p.Counter = p.Counter + 1
-
-	fmt.Println(p.Counter)
+func (p *GasPage) Draw(target *draw.Image) {
 
 	p.BaseDraw(target)
 
@@ -76,4 +70,9 @@ func (p GasPage) Draw(target *draw.Image) {
 
 	}
 
+}
+
+func (p *GasPage) Process() bool {
+	p.Counter++
+	return true
 }

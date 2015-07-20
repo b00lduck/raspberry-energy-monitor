@@ -25,7 +25,6 @@ func main() {
 
 	g := gui.NewGui(fb, ts)
 
-
 	g.SetMainPage(pages.CreateMainPage())
 	gasPage := pages.CreateGasPage()
 	g.SetPage("GAS_1", gasPage)
@@ -35,7 +34,7 @@ func main() {
 	go g.Run(&ts.Event)
 
 	for {
-		g.SelectPage("GAS_1")
+		g.Process()
 		time.Sleep(1 * time.Second)
 	}
 

@@ -20,7 +20,7 @@ int ts_init(char *device) {
     int ret;
 
 	// Open the file for writing
-	ts_fd = open(device, O_WRONLY | O_NONBLOCK);
+	ts_fd = open("/dev/uinput", O_WRONLY | O_NONBLOCK);
 	if (!ts_fd) {
 	    printf("Error: cannot open touchscreen device.\n");
 	    return 1;
@@ -92,7 +92,7 @@ int ts_init(char *device) {
     ret = ioctl(ts_fd, UI_DEV_CREATE);
 
     int i = strtol("0666", 0, 8);
-    if (chmod (device, i) < 0) {
+    if (chmod ("/dev/input/event11", i) < 0) {
         printf("Error: cannot chmod %s to 666", device);
         return 1;
     }

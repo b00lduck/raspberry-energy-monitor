@@ -13,6 +13,7 @@ import (
 
 type Page interface {
 	Draw(target *draw.Image)
+	Process() bool
 	Buttons() []*elems.Button
 }
 
@@ -42,6 +43,14 @@ func (page BasePage) BaseDraw(target *draw.Image) {
 		page.buttons[b].Draw(*target)
 	}
 
+}
+
+func (page BasePage) Process() bool {
+	return page.BaseProcess()
+}
+
+func (page BasePage) BaseProcess() bool{
+	return false
 }
 
 func (page *BasePage) AddButton(img image.Image, x, y int, action func()) *elems.Button {

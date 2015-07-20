@@ -8,13 +8,9 @@ import (
 	"image"
 )
 
-const (
-	MAIN_PAGE_NAME = "MAIN"
-)
-
 type Gui struct {
-	mainPage pages.Page
-	pages map[string]pages.Page
+	mainPage *pages.Page
+	pages map[string]*pages.Page
 	activePageName string
 	target *draw.Image
 	touchscreen *touchscreen.Touchscreen
@@ -23,7 +19,7 @@ type Gui struct {
 
 func NewGui(target draw.Image, touchscreen *touchscreen.Touchscreen) *Gui {
 	newGui := new(Gui)
-	newGui.pages = make (map[string]pages.Page,0)
+	newGui.pages = make (map[string]*pages.Page,0)
 	newGui.activePageName = ""
 	newGui.target = &target
 	newGui.touchscreen = touchscreen
@@ -32,11 +28,11 @@ func NewGui(target draw.Image, touchscreen *touchscreen.Touchscreen) *Gui {
 }
 
 func (g *Gui) SetPage(name string, page pages.Page) {
-	g.pages[name] = page
+	g.pages[name] = &page
 }
 
 func (g *Gui) SetMainPage(page pages.Page) {
-	g.pages[MAIN_PAGE_NAME] = page
+	g.mainPage = &page
 }
 
 func (g *Gui) SelectPage(name string) {
@@ -57,13 +53,13 @@ func (g *Gui) SelectPage(name string) {
 	g.activePageName = ""
 }
 
-func (g *Gui) processButtonsOfPage(e touchscreen.TouchscreenEvent, name string) {
-	if name == "" {
+func (g *Gui) processButtonsOfPage(e touchscreen.TouchscreenEvent, page *pages.Page) {
+	if page == nil {
 		return
 	}
-	page := g.pages[name]
-	for i := range page.Buttons() {
-		button := page.Buttons()[i]
+	page2 := *page
+	for i := range page2.Buttons() {
+		button := page2.Buttons()[i]
 		if button.IsHitBy(image.Pt(int(e.X), int(e.Y))) {
 			if button.IsMenuButton {
 				g.SelectPage(button.ChangeToPage)
@@ -78,7 +74,27 @@ func (g * Gui) drawPage(name string) {
 	if name == "" {
 		return
 	}
-	g.pages[name].Draw(g.target)
+	page := *g.pages[name]
+	page.Draw(g.target)
+}
+
+func (g *Gui) Process() {
+
+	mp := *g.mainPage
+	dirty := mp.Process()
+
+	for i := range g.pages {
+		p := *g.pages[i]
+		if p.Process() {
+			dirty = true
+		}
+
+	}
+
+	if dirty {
+		g.dirty = true
+	}
+
 }
 
 func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
@@ -91,15 +107,24 @@ func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 		case e := <- *tsEvent:
 			if e.Type == touchscreen.TSEVENT_PUSH {
 				if oldEvent != e {
-					g.processButtonsOfPage(e, MAIN_PAGE_NAME)
-					g.processButtonsOfPage(e, g.activePageName)
+					g.processButtonsOfPage(e, g.mainPage)
+					g.processButtonsOfPage(e, g.pages[g.activePageName])
 					oldEvent = e
 				}
 			}
 		default:
 			if (g.dirty) {
-				g.drawPage(MAIN_PAGE_NAME)
-				g.drawPage(g.activePageName)
+
+				mainPage := g.mainPage
+				if (mainPage != nil) {
+					(*mainPage).Draw(g.target)
+				}
+
+				currentPage := g.pages[g.activePageName]
+				if (currentPage != nil) {
+					(*currentPage).Draw(g.target)
+				}
+
 				g.dirty = false
 			} else {
 				time.Sleep(25 * time.Millisecond)
