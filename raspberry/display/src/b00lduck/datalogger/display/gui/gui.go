@@ -39,10 +39,11 @@ func (g *Gui) SetMainPage(page pages.Page) {
 	g.pages[MAIN_PAGE_NAME] = page
 }
 
-func (g *Gui) SelectPage(name string) pages.Page {
+func (g *Gui) SelectPage(name string) {
 
 	if g.activePageName == name {
-		return g.pages[name]
+		fmt.Println("page stays page " + name)
+		return
 	}
 
 	g.dirty = true
@@ -50,11 +51,10 @@ func (g *Gui) SelectPage(name string) pages.Page {
 	if g.pages[name] != nil {
 		fmt.Println("success selecting page " + name)
 		g.activePageName = name
-		return g.pages[name]
+		return
 	}
 	fmt.Println("fail selecting page " + name)
 	g.activePageName = ""
-	return nil
 }
 
 func (g *Gui) processButtonsOfPage(e touchscreen.TouchscreenEvent, name string) {

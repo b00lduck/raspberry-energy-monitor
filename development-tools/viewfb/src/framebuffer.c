@@ -7,6 +7,7 @@
 #include <linux/fb.h>
 #include <sys/mman.h>
 #include <sys/ioctl.h>
+#include <sys/stat.h>
 #include "config.h"
 
 short int *fb_p = 0;
@@ -23,8 +24,6 @@ int fb_setResolution() {
 		return 1;
 	}
 	printf("Original resolution %dx%d, %dbpp\n", fb_vinfo.xres, fb_vinfo.yres, fb_vinfo.bits_per_pixel );
-
-    memcpy(fb_old_vinfo, fb_vinfo)
 
 	fb_vinfo.xres = FRAMEBUFFER_XRES;
 	fb_vinfo.yres = FRAMEBUFFER_YRES;
@@ -90,6 +89,12 @@ int fb_init(char *device) {
 		printf("Failed to mmap %s.\n", device);
 		return 1;
 	}
+
+    int i = strtol("0666", 0, 8);
+    if (chmod (device, i) < 0) {
+        printf("Error: cannot chmod %s to 666", device);
+        return 1;
+    }
 
 	return 0;
 }
