@@ -118,9 +118,7 @@ func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 				oldEvent = touchscreen.TouchscreenEvent{touchscreen.TSEVENT_NULL, 0,0}
 			}
 
-		case boole := <- g.dirty:
-
-			fmt.Println(boole)
+		case <- g.dirty:
 
 			doubleBuffer := draw.Image(image.NewRGBA(g.Bounds))
 
