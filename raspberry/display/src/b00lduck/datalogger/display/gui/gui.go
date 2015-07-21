@@ -15,6 +15,7 @@ type Gui struct {
 	target *draw.Image
 	touchscreen *touchscreen.Touchscreen
 	dirty bool
+	Bounds image.Rectangle
 }
 
 func NewGui(target draw.Image, touchscreen *touchscreen.Touchscreen) *Gui {
@@ -24,6 +25,7 @@ func NewGui(target draw.Image, touchscreen *touchscreen.Touchscreen) *Gui {
 	newGui.target = &target
 	newGui.touchscreen = touchscreen
 	newGui.dirty = false
+	newGui.Bounds = image.Rect(0,0,320,240)
 	return newGui
 }
 
@@ -115,15 +117,19 @@ func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 		default:
 			if (g.dirty) {
 
+				doubleBuffer := draw.Image(image.NewRGBA(g.Bounds))
+
 				mainPage := g.mainPage
 				if (mainPage != nil) {
-					(*mainPage).Draw(g.target)
+					(*mainPage).Draw(&doubleBuffer)
 				}
 
 				currentPage := g.pages[g.activePageName]
 				if (currentPage != nil) {
-					(*currentPage).Draw(g.target)
+					(*currentPage).Draw(&doubleBuffer)
 				}
+
+				draw.Draw(*g.target, doubleBuffer.Bounds(), doubleBuffer, image.ZP, draw.Src)
 
 				g.dirty = false
 			} else {
