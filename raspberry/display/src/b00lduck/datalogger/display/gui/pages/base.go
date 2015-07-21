@@ -12,20 +12,26 @@ import (
 )
 
 type Page interface {
-	Draw(target *draw.Image)
+	Draw(*draw.Image)
 	Process() bool
 	Buttons() []*elems.Button
+	SetDirtyChan(*chan bool)
 }
 
 type BasePage struct {
 	background image.Image
 	buttons []*elems.Button
+	DirtyChan *chan bool
 }
 
 func NewBasePage() (page BasePage) {
 	page = *new(BasePage)
 	page.buttons = make([]*elems.Button, 0)
 	return
+}
+
+func (page *BasePage) SetDirtyChan(dirtyChan *chan bool) {
+	page.DirtyChan = dirtyChan
 }
 
 func (page BasePage) Draw(target *draw.Image) {
@@ -72,7 +78,6 @@ func (page *BasePage) SetBackground(img image.Image) {
 func (page BasePage) Buttons() []*elems.Button {
 	return page.buttons
 }
-
 
 func LoadImage(filename string) image.Image {
 

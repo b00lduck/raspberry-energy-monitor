@@ -3,7 +3,6 @@ import (
 	"image/draw"
 	"b00lduck/datalogger/display/touchscreen"
 	"fmt"
-	"time"
 	"b00lduck/datalogger/display/gui/pages"
 	"image"
 )
@@ -14,7 +13,7 @@ type Gui struct {
 	activePageName string
 	target *draw.Image
 	touchscreen *touchscreen.Touchscreen
-	dirty bool
+	dirty chan bool
 	Bounds image.Rectangle
 }
 
@@ -24,17 +23,19 @@ func NewGui(target draw.Image, touchscreen *touchscreen.Touchscreen) *Gui {
 	newGui.activePageName = ""
 	newGui.target = &target
 	newGui.touchscreen = touchscreen
-	newGui.dirty = false
+	newGui.dirty = make(chan bool, 1)
 	newGui.Bounds = image.Rect(0,0,320,240)
 	return newGui
 }
 
 func (g *Gui) SetPage(name string, page pages.Page) {
 	g.pages[name] = &page
+	page.SetDirtyChan(&g.dirty)
 }
 
 func (g *Gui) SetMainPage(page pages.Page) {
 	g.mainPage = &page
+	page.SetDirtyChan(&g.dirty)
 }
 
 func (g *Gui) SelectPage(name string) {
@@ -44,7 +45,7 @@ func (g *Gui) SelectPage(name string) {
 		return
 	}
 
-	g.dirty = true
+	g.dirty <- true
 
 	if g.pages[name] != nil {
 		fmt.Println("success selecting page " + name)
@@ -94,7 +95,7 @@ func (g *Gui) Process() {
 	}
 
 	if dirty {
-		g.dirty = true
+		g.dirty <- true
 	}
 
 }
@@ -113,28 +114,28 @@ func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 					g.processButtonsOfPage(e, g.pages[g.activePageName])
 					oldEvent = e
 				}
-			}
-		default:
-			if (g.dirty) {
-
-				doubleBuffer := draw.Image(image.NewRGBA(g.Bounds))
-
-				mainPage := g.mainPage
-				if (mainPage != nil) {
-					(*mainPage).Draw(&doubleBuffer)
-				}
-
-				currentPage := g.pages[g.activePageName]
-				if (currentPage != nil) {
-					(*currentPage).Draw(&doubleBuffer)
-				}
-
-				draw.Draw(*g.target, doubleBuffer.Bounds(), doubleBuffer, image.ZP, draw.Src)
-
-				g.dirty = false
 			} else {
-				time.Sleep(25 * time.Millisecond)
+				oldEvent = touchscreen.TouchscreenEvent{touchscreen.TSEVENT_NULL, 0,0}
 			}
+
+		case boole := <- g.dirty:
+
+			fmt.Println(boole)
+
+			doubleBuffer := draw.Image(image.NewRGBA(g.Bounds))
+
+			mainPage := g.mainPage
+			if (mainPage != nil) {
+				(*mainPage).Draw(&doubleBuffer)
+			}
+
+			currentPage := g.pages[g.activePageName]
+			if (currentPage != nil) {
+				(*currentPage).Draw(&doubleBuffer)
+			}
+
+			draw.Draw(*g.target, doubleBuffer.Bounds(), doubleBuffer, image.ZP, draw.Src)
+
 		}
 
 	}
