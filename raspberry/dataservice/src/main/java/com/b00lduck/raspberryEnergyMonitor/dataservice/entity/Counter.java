@@ -1,9 +1,7 @@
 package com.b00lduck.raspberryEnergyMonitor.dataservice.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Daniel Zerlett (daniel@zerlett.eu)
@@ -17,5 +15,30 @@ public class Counter {
 	private Long id;
 
 	private String name;
+
+	private String unit;
+
+	@OneToMany(mappedBy = "counter")
+	List<CounterEvent> counterEvents;
+
+    public Long getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(final String name) {
+		this.name = name;
+	}
+
+	public String getUnit() {
+		return unit;
+	}
+
+	public void setUnit(final String unit) {
+		this.unit = unit;
+	}
 
 }

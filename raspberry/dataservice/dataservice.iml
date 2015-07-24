@@ -95,5 +95,7 @@
     <orderEntry type="library" exported="" name="Gradle: org.jboss:jandex:1.1.0.Final" level="project" />
     <orderEntry type="library" exported="" name="Gradle: xml-apis:xml-apis:1.0.b2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: mysql:mysql-connector-java:5.1.6" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.flywaydb:flyway-core:3.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: joda-time:joda-time:2.3" level="project" />
   </component>
 </module>
