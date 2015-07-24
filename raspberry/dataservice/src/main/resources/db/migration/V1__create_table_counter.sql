@@ -16,8 +16,8 @@ CREATE TABLE `counter_event` (
   `counter_id` bigint(20) NOT NULL,
   `type` int(3) NOT NULL,
   `timestamp` TIMESTAMP DEFAULT NOW(),
-  `delta` decimal(12,6) NOT NULL,
-  `absolute` decimal(12,6) NOT NULL,
+  `delta` decimal(20,6) NOT NULL,
+  `absolute` decimal(20,6) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_COUNTER` (`counter_id`),
   CONSTRAINT `FK_COUNTER` FOREIGN KEY (`counter_id`) REFERENCES `counter` (`id`)

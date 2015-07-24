@@ -27,10 +27,9 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-rest")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("mysql:mysql-connector-java:5.1.6")
-    compile("org.flywaydb:flyway-core:3.0")
-    compile("joda-time:joda-time:2.3")
-
-    compile 'joda-time:joda-time-hibernate:1.4'
+    compile 'org.flywaydb:flyway-core:3.0'
+    compile 'joda-time:joda-time:2.3'
+    compile 'org.jadira.usertype:usertype.core:4.0.0.GA'
 
     testCompile("junit:junit")
 }

@@ -19,7 +19,7 @@ public class Counter {
 	private String unit;
 
 	@OneToMany(mappedBy = "counter")
-	List<CounterEvent> counterEvents;
+	private List<CounterEvent> counterEvents;
 
     public Long getId() {
 		return id;

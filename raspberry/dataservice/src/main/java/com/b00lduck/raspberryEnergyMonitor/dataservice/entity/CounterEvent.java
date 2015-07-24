@@ -21,7 +21,7 @@ public class CounterEvent {
 	@JoinColumn(name="counter_id", nullable = false)
 	private Counter counter;
 
-	@Type(type = "org.joda.time.contrib.hibernate.PersistentDateTime")
+	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	private DateTime timestamp;
 
 	private CounterEventType type;
