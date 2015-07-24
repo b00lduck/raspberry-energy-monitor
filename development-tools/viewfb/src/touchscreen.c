@@ -5,6 +5,7 @@
 #include <fcntl.h>
 #include <linux/input.h>
 #include <sys/ioctl.h>
+#include <sys/stat.h>
 #include <linux/uinput.h>
 #include <errno.h>
 
@@ -19,7 +20,7 @@ int ts_init(char *device) {
     int ret;
 
 	// Open the file for writing
-	ts_fd = open(device, O_WRONLY | O_NONBLOCK);
+	ts_fd = open("/dev/uinput", O_WRONLY | O_NONBLOCK);
 	if (!ts_fd) {
 	    printf("Error: cannot open touchscreen device.\n");
 	    return 1;
@@ -75,8 +76,6 @@ int ts_init(char *device) {
         return 1;
     }
 
-
-
 	printf("The touchscreen event types were set successfully.\n");
 
     struct uinput_user_dev uidev;
@@ -91,6 +90,12 @@ int ts_init(char *device) {
     ret = write(ts_fd, &uidev, sizeof(uidev));
 
     ret = ioctl(ts_fd, UI_DEV_CREATE);
+
+    int i = strtol("0666", 0, 8);
+    if (chmod ("/dev/input/event11", i) < 0) {
+        printf("Error: cannot chmod %s to 666", device);
+        return 1;
+    }
 
 	return 0;
 }

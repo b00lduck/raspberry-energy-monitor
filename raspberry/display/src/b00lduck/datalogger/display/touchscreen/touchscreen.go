@@ -42,7 +42,7 @@ func (f *Touchscreen) Close() {
 }
 
 func (f *Touchscreen) Run() {
-	f.Event = make(chan TouchscreenEvent)
+	f.Event = make(chan TouchscreenEvent, 1)
 	for {
 
 		inputEvent := InputEvent{}
