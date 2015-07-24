@@ -94,5 +94,6 @@
     <orderEntry type="library" exported="" name="Gradle: antlr:antlr:2.7.7" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.jboss:jandex:1.1.0.Final" level="project" />
     <orderEntry type="library" exported="" name="Gradle: xml-apis:xml-apis:1.0.b2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: mysql:mysql-connector-java:5.1.6" level="project" />
   </component>
 </module>
