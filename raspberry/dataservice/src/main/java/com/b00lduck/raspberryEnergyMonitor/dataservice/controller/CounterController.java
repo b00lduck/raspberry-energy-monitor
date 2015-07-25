@@ -8,17 +8,19 @@ import com.b00lduck.raspberryEnergyMonitor.dataservice.repository.CounterReposit
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.transaction.Transactional;
 import java.math.BigDecimal;
 
 /**
  * @author Daniel Zerlett (daniel@zerlett.eu)
- * @created 24.07.2015
+ * created 24.07.2015
  */
 @RepositoryRestController
 public class CounterController {
@@ -30,18 +32,31 @@ public class CounterController {
 	private CounterEventRepository counterEventRepository;
 
 	@RequestMapping(method = RequestMethod.POST, value = "/counters/{id}/tick")
-	public void tickCounter(@PathVariable final Long id) {
+	@ResponseBody
+	@Transactional
+	public ResponseEntity<Counter> tickCounter(@PathVariable final Long id) {
 
 		final Counter counter = counterRepository.findOne(id);
 
+		if (null == counter) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+
+		final BigDecimal delta = new BigDecimal("0.01");
+
 		final CounterEvent counterEvent = new CounterEvent();
 		counterEvent.setCounter(counter);
-		counterEvent.setAbsolute(new BigDecimal("1234567.8943"));
-		counterEvent.setType(CounterEventType.COUNT);
-		counterEvent.setDelta(new BigDecimal("0.001"));
+		counterEvent.setType(CounterEventType.TICK);
+		counterEvent.setValue(delta);
 		counterEvent.setTimestamp(new DateTime());
-
 		counterEventRepository.save(counterEvent);
+
+		final BigDecimal newValue = counter.getValue().add(delta);
+		counter.setValue(newValue);
+		counter.setLastTick(counterEvent.getTimestamp());
+		counterRepository.save(counter);
+
+		return new ResponseEntity<>(counter, HttpStatus.OK);
 
 	}
 

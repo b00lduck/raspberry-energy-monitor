@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 /**
  * @author Daniel Zerlett (daniel@zerlett.eu)
- * @created 24.07.2015
+ * created 24.07.2015
  */
 @Entity
 public class CounterEvent {
@@ -26,9 +26,7 @@ public class CounterEvent {
 
 	private CounterEventType type;
 
-	private BigDecimal delta;
-
-	private BigDecimal absolute;
+	private BigDecimal value;
 
 	public Long getId() {
 		return id;
@@ -50,14 +48,6 @@ public class CounterEvent {
 		this.type = type;
 	}
 
-	public BigDecimal getDelta() {
-		return delta;
-	}
-
-	public void setDelta(final BigDecimal delta) {
-		this.delta = delta;
-	}
-
 	public DateTime getTimestamp() {
 		return timestamp;
 	}
@@ -66,11 +56,12 @@ public class CounterEvent {
 		this.timestamp = timestamp;
 	}
 
-	public BigDecimal getAbsolute() {
-		return absolute;
+	public BigDecimal getValue() {
+		return value;
 	}
 
-	public void setAbsolute(final BigDecimal absolute) {
-		this.absolute = absolute;
+	public void setValue(final BigDecimal value) {
+		this.value = value;
 	}
+
 }

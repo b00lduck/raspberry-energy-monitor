@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 /**
  * @author Daniel Zerlett (daniel@zerlett.eu)
- * @created 24.07.2015
+ * created 24.07.2015
  */
 public interface CounterEventRepository extends CrudRepository<CounterEvent, Long> {
 
