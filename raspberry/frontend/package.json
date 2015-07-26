@@ -1,0 +1,28 @@
+{
+  "name": "rem-frontend",
+  "version": "1.0.0",
+  "description": "raspberry-energy-monitor frontend",
+  "contributors": [
+    {
+      "name": "Daniel Zerlett"
+    }
+  ],
+  "keywords": [
+    "angularjs",
+    "typescript"
+  ],
+  "dependencies": {
+    "superstatic": "^2.2.1"
+  },
+  "devDependencies": {
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-debug": "^2.0.1",
+    "gulp-inject": "^1.5.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-tslint": "^3.1.1-beta",
+    "gulp-typescript": "^2.8.0",
+    "gulp-tsd": "^0.0.4",
+    "tsd": "^0.6.3"
+  }
+}
