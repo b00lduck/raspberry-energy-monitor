@@ -2,27 +2,40 @@
   "name": "rem-frontend",
   "version": "1.0.0",
   "description": "raspberry-energy-monitor frontend",
-  "contributors": [
-    {
+  "contributors": [{
       "name": "Daniel Zerlett"
-    }
-  ],
-  "keywords": [
-    "angularjs",
-    "typescript"
-  ],
-  "dependencies": {
-    "superstatic": "^2.2.1"
-  },
+  }],
   "devDependencies": {
-    "del": "^1.2.0",
-    "gulp": "^3.9.0",
-    "gulp-debug": "^2.0.1",
-    "gulp-inject": "^1.5.0",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-tslint": "^3.1.1-beta",
-    "gulp-typescript": "^2.8.0",
-    "gulp-tsd": "^0.0.4",
-    "tsd": "^0.6.3"
+    "bower": "latest",
+    "grunt": "latest",
+    "grunt-connect-proxy": "latest",
+    "grunt-contrib-connect": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-jslint": "latest",
+    "grunt-istanbul":"latest",
+    "grunt-karma": "latest",
+    "grunt-protractor-runner": "latest",
+    "grunt-protractor-webdriver":"latest",
+    "grunt-wiredep": "latest",
+    "grunt-html2js": "latest",
+    "karma": "latest",
+    "karma-chrome-launcher": "latest",
+    "karma-coverage": "latest",
+    "karma-jasmine": "latest",
+    "karma-ng-html2js-preprocessor": "latest",
+    "karma-phantomjs-launcher": "latest",
+    "load-grunt-tasks": "latest",
+    "protractor":"latest",
+    "time-grunt": "latest",
+    "wiredep": "latest"
+  },
+  "engine": "node >= 0.10.0",
+  "scripts": {
+    "postinstall": "bower install -F"
   }
 }
+

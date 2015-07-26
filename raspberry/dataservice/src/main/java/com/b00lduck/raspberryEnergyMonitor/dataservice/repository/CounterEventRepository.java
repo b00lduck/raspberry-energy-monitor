@@ -17,5 +17,4 @@ public interface CounterEventRepository extends CrudRepository<CounterEvent, Lon
 	//@Query("select c from CounterEvent")
 	//List<CounterEvent> findTimeRange(DateTime startDate, DateTime endDate);
 
-
 }

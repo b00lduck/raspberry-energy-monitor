@@ -1,0 +1,3585 @@
+[ {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71602000,
+        "secondOfDay" : 71602,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 22,
+        "millis" : 1437933202000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.010000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/1"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/1/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71604000,
+        "secondOfDay" : 71604,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 24,
+        "millis" : 1437933204000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.020000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/2"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/2/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71605000,
+        "secondOfDay" : 71605,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 25,
+        "millis" : 1437933205000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.030000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/3"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/3/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71605000,
+        "secondOfDay" : 71605,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 25,
+        "millis" : 1437933205000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.040000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/4"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/4/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71606000,
+        "secondOfDay" : 71606,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 26,
+        "millis" : 1437933206000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.050000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/5"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/5/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71606000,
+        "secondOfDay" : 71606,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 26,
+        "millis" : 1437933206000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.060000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/6"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/6/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71607000,
+        "secondOfDay" : 71607,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 27,
+        "millis" : 1437933207000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.070000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/7"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/7/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71607000,
+        "secondOfDay" : 71607,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 27,
+        "millis" : 1437933207000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.080000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/8"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/8/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71608000,
+        "secondOfDay" : 71608,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 28,
+        "millis" : 1437933208000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.090000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/9"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/9/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71609000,
+        "secondOfDay" : 71609,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 29,
+        "millis" : 1437933209000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.100000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/10"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/10/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71611000,
+        "secondOfDay" : 71611,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 31,
+        "millis" : 1437933211000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.110000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/11"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/11/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71612000,
+        "secondOfDay" : 71612,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 32,
+        "millis" : 1437933212000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.120000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/12"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/12/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71614000,
+        "secondOfDay" : 71614,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 34,
+        "millis" : 1437933214000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.130000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/13"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/13/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71616000,
+        "secondOfDay" : 71616,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 36,
+        "millis" : 1437933216000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.140000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/14"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/14/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71618000,
+        "secondOfDay" : 71618,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 38,
+        "millis" : 1437933218000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.150000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/15"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/15/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71619000,
+        "secondOfDay" : 71619,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 39,
+        "millis" : 1437933219000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.160000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/16"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/16/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71621000,
+        "secondOfDay" : 71621,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 41,
+        "millis" : 1437933221000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.170000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/17"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/17/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71622000,
+        "secondOfDay" : 71622,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 42,
+        "millis" : 1437933222000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.180000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/18"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/18/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71623000,
+        "secondOfDay" : 71623,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 43,
+        "millis" : 1437933223000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.190000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/19"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/19/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71624000,
+        "secondOfDay" : 71624,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 44,
+        "millis" : 1437933224000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.200000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/20"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/20/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71624000,
+        "secondOfDay" : 71624,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 44,
+        "millis" : 1437933224000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.210000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/21"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/21/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71625000,
+        "secondOfDay" : 71625,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 45,
+        "millis" : 1437933225000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.220000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/22"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/22/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71625000,
+        "secondOfDay" : 71625,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 45,
+        "millis" : 1437933225000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.230000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/23"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/23/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71625000,
+        "secondOfDay" : 71625,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 45,
+        "millis" : 1437933225000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.240000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/24"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/24/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71626000,
+        "secondOfDay" : 71626,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 46,
+        "millis" : 1437933226000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.250000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/25"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/25/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71626000,
+        "secondOfDay" : 71626,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 46,
+        "millis" : 1437933226000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.260000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/26"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/26/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71626000,
+        "secondOfDay" : 71626,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 46,
+        "millis" : 1437933226000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.270000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/27"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/27/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71626000,
+        "secondOfDay" : 71626,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 46,
+        "millis" : 1437933226000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.280000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/28"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/28/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71627000,
+        "secondOfDay" : 71627,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 47,
+        "millis" : 1437933227000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.290000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/29"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/29/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71627000,
+        "secondOfDay" : 71627,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 47,
+        "millis" : 1437933227000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.300000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/30"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/30/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71627000,
+        "secondOfDay" : 71627,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 47,
+        "millis" : 1437933227000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.310000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/31"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/31/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71627000,
+        "secondOfDay" : 71627,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 47,
+        "millis" : 1437933227000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.320000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/32"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/32/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71627000,
+        "secondOfDay" : 71627,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 47,
+        "millis" : 1437933227000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.330000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/33"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/33/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71627000,
+        "secondOfDay" : 71627,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 47,
+        "millis" : 1437933227000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.340000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/34"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/34/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71627000,
+        "secondOfDay" : 71627,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 47,
+        "millis" : 1437933227000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.350000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/35"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/35/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71628000,
+        "secondOfDay" : 71628,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 48,
+        "millis" : 1437933228000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.360000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/36"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/36/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71628000,
+        "secondOfDay" : 71628,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 48,
+        "millis" : 1437933228000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.370000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/37"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/37/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71628000,
+        "secondOfDay" : 71628,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 48,
+        "millis" : 1437933228000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.380000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/38"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/38/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71628000,
+        "secondOfDay" : 71628,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 48,
+        "millis" : 1437933228000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.390000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/39"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/39/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71628000,
+        "secondOfDay" : 71628,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 48,
+        "millis" : 1437933228000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.400000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/40"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/40/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71629000,
+        "secondOfDay" : 71629,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 49,
+        "millis" : 1437933229000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.410000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/41"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/41/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71629000,
+        "secondOfDay" : 71629,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 49,
+        "millis" : 1437933229000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.420000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/42"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/42/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71629000,
+        "secondOfDay" : 71629,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 49,
+        "millis" : 1437933229000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.430000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/43"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/43/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71629000,
+        "secondOfDay" : 71629,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 49,
+        "millis" : 1437933229000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.440000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/44"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/44/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71630000,
+        "secondOfDay" : 71630,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 50,
+        "millis" : 1437933230000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.450000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/45"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/45/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71630000,
+        "secondOfDay" : 71630,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 50,
+        "millis" : 1437933230000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.460000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/46"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/46/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71630000,
+        "secondOfDay" : 71630,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 50,
+        "millis" : 1437933230000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.470000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/47"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/47/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71631000,
+        "secondOfDay" : 71631,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 51,
+        "millis" : 1437933231000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.480000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/48"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/48/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71631000,
+        "secondOfDay" : 71631,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 51,
+        "millis" : 1437933231000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.490000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/49"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/49/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71632000,
+        "secondOfDay" : 71632,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 52,
+        "millis" : 1437933232000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.500000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/50"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/50/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71633000,
+        "secondOfDay" : 71633,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 53,
+        "millis" : 1437933233000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.510000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/51"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/51/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71633000,
+        "secondOfDay" : 71633,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 53,
+        "millis" : 1437933233000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.520000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/52"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/52/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71634000,
+        "secondOfDay" : 71634,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 54,
+        "millis" : 1437933234000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.530000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/53"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/53/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71635000,
+        "secondOfDay" : 71635,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 55,
+        "millis" : 1437933235000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.540000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/54"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/54/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71635000,
+        "secondOfDay" : 71635,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 55,
+        "millis" : 1437933235000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.550000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/55"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/55/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71636000,
+        "secondOfDay" : 71636,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 56,
+        "millis" : 1437933236000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.560000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/56"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/56/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71637000,
+        "secondOfDay" : 71637,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 57,
+        "millis" : 1437933237000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.570000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/57"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/57/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71639000,
+        "secondOfDay" : 71639,
+        "minuteOfDay" : 1193,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 53,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 59,
+        "millis" : 1437933239000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.580000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/58"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/58/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71640000,
+        "secondOfDay" : 71640,
+        "minuteOfDay" : 1194,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 54,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 0,
+        "millis" : 1437933240000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.590000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/59"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/59/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71642000,
+        "secondOfDay" : 71642,
+        "minuteOfDay" : 1194,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 54,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 2,
+        "millis" : 1437933242000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.600000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/60"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/60/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71645000,
+        "secondOfDay" : 71645,
+        "minuteOfDay" : 1194,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 54,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 5,
+        "millis" : 1437933245000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.610000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/61"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/61/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71648000,
+        "secondOfDay" : 71648,
+        "minuteOfDay" : 1194,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 54,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 8,
+        "millis" : 1437933248000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.620000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/62"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/62/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71650000,
+        "secondOfDay" : 71650,
+        "minuteOfDay" : 1194,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 54,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 10,
+        "millis" : 1437933250000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.630000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/63"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/63/counter"
+        }
+      }
+    }, {
+      "timestamp" : {
+        "dayOfMonth" : 26,
+        "dayOfWeek" : 7,
+        "era" : 1,
+        "dayOfYear" : 207,
+        "year" : 2015,
+        "yearOfEra" : 2015,
+        "monthOfYear" : 7,
+        "yearOfCentury" : 15,
+        "weekyear" : 2015,
+        "millisOfDay" : 71653000,
+        "secondOfDay" : 71653,
+        "minuteOfDay" : 1194,
+        "centuryOfEra" : 20,
+        "hourOfDay" : 19,
+        "minuteOfHour" : 54,
+        "weekOfWeekyear" : 30,
+        "millisOfSecond" : 0,
+        "secondOfMinute" : 13,
+        "millis" : 1437933253000,
+        "zone" : {
+          "fixed" : false,
+          "uncachedZone" : {
+            "cachable" : true,
+            "fixed" : false,
+            "id" : "Europe/Berlin"
+          },
+          "id" : "Europe/Berlin"
+        },
+        "chronology" : {
+          "zone" : {
+            "fixed" : false,
+            "uncachedZone" : {
+              "cachable" : true,
+              "fixed" : false,
+              "id" : "Europe/Berlin"
+            },
+            "id" : "Europe/Berlin"
+          }
+        },
+        "afterNow" : false,
+        "beforeNow" : true,
+        "equalNow" : false
+      },
+      "type" : "TICK",
+      "delta" : 0.010000,
+      "reading" : 0.640000,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/counterEvents/64"
+        },
+        "counter" : {
+          "href" : "http://localhost:8080/counterEvents/64/counter"
+        }
+      }
+    } ]

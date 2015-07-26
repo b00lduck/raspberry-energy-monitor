@@ -44,15 +44,19 @@ public class CounterController {
 
 		final BigDecimal delta = new BigDecimal("0.01");
 
+
+
+		final BigDecimal newValue = counter.getReading().add(delta);
+
 		final CounterEvent counterEvent = new CounterEvent();
 		counterEvent.setCounter(counter);
 		counterEvent.setType(CounterEventType.TICK);
-		counterEvent.setValue(delta);
+		counterEvent.setDelta(delta);
+		counterEvent.setReading(newValue);
 		counterEvent.setTimestamp(new DateTime());
 		counterEventRepository.save(counterEvent);
 
-		final BigDecimal newValue = counter.getValue().add(delta);
-		counter.setValue(newValue);
+		counter.setReading(newValue);
 		counter.setLastTick(counterEvent.getTimestamp());
 		counterRepository.save(counter);
 

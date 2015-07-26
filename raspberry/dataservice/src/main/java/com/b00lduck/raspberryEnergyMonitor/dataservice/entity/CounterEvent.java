@@ -26,7 +26,9 @@ public class CounterEvent {
 
 	private CounterEventType type;
 
-	private BigDecimal value;
+	private BigDecimal delta;
+
+	private BigDecimal reading;
 
 	public Long getId() {
 		return id;
@@ -56,12 +58,20 @@ public class CounterEvent {
 		this.timestamp = timestamp;
 	}
 
-	public BigDecimal getValue() {
-		return value;
+	public BigDecimal getDelta() {
+		return delta;
 	}
 
-	public void setValue(final BigDecimal value) {
-		this.value = value;
+	public void setDelta(BigDecimal delta) {
+		this.delta = delta;
+	}
+
+	public BigDecimal getReading() {
+		return reading;
+	}
+
+	public void setReading(BigDecimal reading) {
+		this.reading = reading;
 	}
 
 }

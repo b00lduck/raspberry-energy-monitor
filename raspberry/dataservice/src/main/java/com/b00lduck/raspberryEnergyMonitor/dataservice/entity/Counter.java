@@ -1,14 +1,10 @@
 package com.b00lduck.raspberryEnergyMonitor.dataservice.entity;
 
 import org.hibernate.annotations.Type;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.joda.time.DateTime;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.List;
 
 /**
  * @author Daniel Zerlett (daniel@zerlett.eu)
@@ -25,7 +21,7 @@ public class Counter {
 
 	private String unit;
 
-	private BigDecimal value;
+	private BigDecimal reading;
 
 	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	private DateTime lastTick;
@@ -50,20 +46,20 @@ public class Counter {
 		this.unit = unit;
 	}
 
-	public BigDecimal getValue() {
-		return value;
-	}
-
-	public void setValue(final BigDecimal value) {
-		this.value = value;
-	}
-
 	public DateTime getLastTick() {
 		return lastTick;
 	}
 
 	public void setLastTick(final DateTime lastTick) {
 		this.lastTick = lastTick;
+	}
+
+	public BigDecimal getReading() {
+		return reading;
+	}
+
+	public void setReading(BigDecimal reading) {
+		this.reading = reading;
 	}
 
 }
