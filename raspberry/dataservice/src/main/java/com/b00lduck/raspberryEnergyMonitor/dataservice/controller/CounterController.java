@@ -44,8 +44,6 @@ public class CounterController {
 
 		final BigDecimal delta = new BigDecimal("0.01");
 
-
-
 		final BigDecimal newValue = counter.getReading().add(delta);
 
 		final CounterEvent counterEvent = new CounterEvent();

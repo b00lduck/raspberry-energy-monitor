@@ -21,10 +21,11 @@
     "angular-route": "1.4.3",
     "angular-ui-bootstrap-bower": "0.12.1",
     "d3": "3.4.1",
-    "nvd3": "~v1.1.15-beta",
-    "angularjs-nvd3-directives": "~0.0.7"
+    "nvd3": "1.8.1",
+    "angular-nvd3": "1.0.0-rc.2"
   },
   "resolutions": {
-    "angular": "1.4.3"
+    "angular": "1.4.3",
+    "nvd3": "1.8.1"
   }
 }
