@@ -1,6 +1,6 @@
 package com.b00lduck.raspberryEnergyMonitor.dataservice;
 
-import com.b00lduck.raspberryEnergyMonitor.dataservice.filter.CORSFilter;
+import com.b00lduck.raspberryEnergyMonitor.dataservice.filter.CorsFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
@@ -19,7 +19,7 @@ public class Application {
 	@Bean
 	public FilterRegistrationBean commonsRequestLoggingFilter() {
 		final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-		registrationBean.setFilter(new CORSFilter());
+		registrationBean.setFilter(new CorsFilter());
 		return registrationBean;
 	}
 

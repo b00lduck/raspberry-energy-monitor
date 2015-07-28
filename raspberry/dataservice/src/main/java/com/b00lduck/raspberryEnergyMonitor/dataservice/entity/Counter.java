@@ -23,7 +23,6 @@ public class Counter {
 
 	private BigDecimal reading;
 
-	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	private DateTime lastTick;
 
     public Long getId() {
