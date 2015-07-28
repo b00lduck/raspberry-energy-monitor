@@ -23,5 +23,4 @@ public class Application {
 		return registrationBean;
 	}
 
-
 }
