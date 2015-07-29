@@ -1,0 +1,1 @@
+This folder contains software to be run on the Raspberry PI.
