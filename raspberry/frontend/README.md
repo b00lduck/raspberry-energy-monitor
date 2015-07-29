@@ -2,8 +2,8 @@
 
 ## Used technologies:
 
- * angularjs
- * typescript
- * gulp
- 
+ * angularjs 1.4
+ * gradle
+ * d3
+
 
