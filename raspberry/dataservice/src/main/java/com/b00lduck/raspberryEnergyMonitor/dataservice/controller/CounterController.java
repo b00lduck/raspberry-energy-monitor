@@ -39,7 +39,7 @@ public class CounterController {
 		final Counter counter = counterRepository.findOne(id);
 
 		if (null == counter) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<Counter>(HttpStatus.NOT_FOUND);
 		}
 
 		final BigDecimal delta = new BigDecimal("0.01");
@@ -51,14 +51,14 @@ public class CounterController {
 		counterEvent.setType(CounterEventType.TICK);
 		counterEvent.setDelta(delta);
 		counterEvent.setReading(newValue);
-		counterEvent.setTimestamp(new DateTime());
+		counterEvent.setTimestamp(new DateTime().getMillis());
 		counterEventRepository.save(counterEvent);
 
 		counter.setReading(newValue);
 		counter.setLastTick(counterEvent.getTimestamp());
 		counterRepository.save(counter);
 
-		return new ResponseEntity<>(counter, HttpStatus.OK);
+		return new ResponseEntity<Counter>(counter, HttpStatus.OK);
 
 	}
 

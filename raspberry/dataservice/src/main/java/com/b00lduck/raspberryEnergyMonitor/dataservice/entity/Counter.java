@@ -23,7 +23,7 @@ public class Counter {
 
 	private BigDecimal reading;
 
-	private DateTime lastTick;
+	private Long lastTick;
 
     public Long getId() {
 		return id;
@@ -45,11 +45,11 @@ public class Counter {
 		this.unit = unit;
 	}
 
-	public DateTime getLastTick() {
+	public Long getLastTick() {
 		return lastTick;
 	}
 
-	public void setLastTick(final DateTime lastTick) {
+	public void setLastTick(final Long lastTick) {
 		this.lastTick = lastTick;
 	}
 

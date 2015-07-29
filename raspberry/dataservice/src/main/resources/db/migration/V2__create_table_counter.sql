@@ -4,6 +4,6 @@ CREATE TABLE `counter` (
   `name` varchar(255) NOT NULL,
   `unit` varchar(255) NOT NULL,
   `reading` decimal(20,6) DEFAULT 0,
-  `last_tick` DATETIME(3),
+  `last_tick` BIGINT,
   PRIMARY KEY (`id`)
 );

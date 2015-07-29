@@ -21,7 +21,7 @@ public class CounterEvent {
 	@JoinColumn(name="counter_id", nullable = false)
 	private Counter counter;
 
-	private DateTime timestamp;
+	private Long timestamp;
 
 	private CounterEventType type;
 
@@ -49,11 +49,11 @@ public class CounterEvent {
 		this.type = type;
 	}
 
-	public DateTime getTimestamp() {
+	public Long getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(final DateTime timestamp) {
+	public void setTimestamp(final Long timestamp) {
 		this.timestamp = timestamp;
 	}
 

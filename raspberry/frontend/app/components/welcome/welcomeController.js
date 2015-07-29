@@ -20,7 +20,7 @@ angular.module('welcome', ['nvd3'])
 
                     for (i = 0; i < len; i++) {
                         ret.push({
-                            "x": data[i].timestamp.millis,
+                            "x": data[i].timestamp,
                             "y": data[i].reading
                         });
                     }
