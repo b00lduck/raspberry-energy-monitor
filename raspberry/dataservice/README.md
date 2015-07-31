@@ -7,4 +7,4 @@
  * Spring Data
  * Spring Data Rest
  * Hibernate 4
- * mySQL 5.6.5
+ * mySQL 5.5
