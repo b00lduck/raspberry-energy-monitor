@@ -1,6 +1,7 @@
 *.iml
 .idea/
 
+tmp
 node_modules/
 app/bower_components
 jslint/*.log

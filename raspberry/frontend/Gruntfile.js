@@ -7,15 +7,6 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
 
 
-    function frontendRedirectorMiddleware(req, res, next) {
-        if (req.url.substr(0,9) === "/frontend") {
-            req.url = req.url.replace("/frontend", "");
-        } else {
-            req.url = "notfound";
-        }
-        next();
-    }
-
     function nocacheHeaderMiddleware(req, res, next) {
         res.setHeader('Expires', 'Thu, 01 Jan 1970 00:00:00 GMT');
         res.setHeader('Pragma', 'no-cache');
@@ -28,10 +19,10 @@ module.exports = function (grunt) {
             options: {
                 port: 9000,
                 open: {
-                    target: 'http://localhost:9000/frontend'
+                    target: 'http://localhost:9000'
                 },
                 middleware: function (connect, options) {
-                    return [nocacheHeaderMiddleware, frontendRedirectorMiddleware, connect.static(folder)];
+                    return [nocacheHeaderMiddleware, connect.static(folder)];
                 }
             }
         };
@@ -191,18 +182,7 @@ module.exports = function (grunt) {
                         dest: './dist/resources/fonts',
                         cwd: './app/bower_components/bootstrap/dist/fonts'
                     },
-                    {
-                        expand: true,
-                        src: '**',
-                        dest: './dist/resources/css/',
-                        cwd: './app/bower_components/angular-ui-grid/dist/fonts'
-                    },
-                    {   'dist/index.html': 'app/index-dist.html'  },
-                    {   'dist/resources/css/ui-grid.eot': 'app/bower_components/angular-ui-grid/ui-grid.eot' },
-                    {   'dist/resources/css/ui-grid.svg': 'app/bower_components/angular-ui-grid/ui-grid.svg' },
-                    {   'dist/resources/css/ui-grid.ttf': 'app/bower_components/angular-ui-grid/ui-grid.ttf' },
-                    {   'dist/resources/css/ui-grid.woff': 'app/bower_components/angular-ui-grid/ui-grid.woff' },
-                    {   'dist/i18n/de-DE.json': 'app/i18n/de-DE.json' }
+                    {   'dist/index.html': 'app/index-dist.html'  }
                 ]
             }
         },
@@ -216,9 +196,6 @@ module.exports = function (grunt) {
                     'dist/resources/css/frontend.min.css': [
                         'app/bower_components/bootstrap/dist/css/bootstrap.css',
                         'app/bower_components/bootstrap/dist/css/bootstrap-theme.css',
-                        'app/bower_components/angular-ui-grid/ui-grid.css',
-                        'app/bower_components/angular-ui-tree/dist/angular-ui-tree.min.css',
-                        'app/bower_components/ng-tags-input/ng-tags-input.css',
                         'app/resources/css/styles.css'
                     ]
                 }

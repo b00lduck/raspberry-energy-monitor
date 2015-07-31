@@ -3,14 +3,14 @@
 
 angular.module('welcome', ['nvd3'])
 
-    .controller('WelcomeController', ['$scope', '$http',
-        function ($scope, $http) {
+    .controller('WelcomeController', ['$scope', '$http', 'API_BASEURL',
+        function ($scope, $http, API_BASEURL) {
 
             function getData() {
 
                 var ret = [];
 
-                $http.get("http://localhost:8080/counterEvents").then(function(payload) {
+                $http.get(API_BASEURL + "counterEvents").then(function(payload) {
 
                     console.log(payload);
 

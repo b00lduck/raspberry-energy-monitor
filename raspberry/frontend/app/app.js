@@ -1,7 +1,7 @@
 /*jslint unparam: true, node: true */
 'use strict';
 
-var app = angular.module('app', ['ngRoute', 'welcome']);
+var app = angular.module('app', ['ngRoute', 'welcome', 'templates']);
 
 app.config(['$routeProvider', function ($routeProvider) {
 
