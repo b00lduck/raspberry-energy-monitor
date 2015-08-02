@@ -55,13 +55,13 @@ func (f Framebuffer) Set(x, y int, c color.Color) {
 	f.data[offset], f.data[offset + 1] = f.convertToFb(c)
 }
 
-func (f Framebuffer) convertToRgba(msb, lsb uint8) color.Color {
-	val := uint16(lsb << 8) + uint16(msb)
-	r := (val & 0x001F) << 11
-	g := (val & 0x07E0) << 5
-	b := (val & 0xF800)
-	a := uint16(0xFFFF)
-	return color.RGBA64{r,g,b,a}
+func (f Framebuffer) convertToRgba(lsb, msb uint8) color.Color {
+	val := uint16(msb) << 8 + uint16(lsb)
+	b := uint8 ((val & 0x001F) << 3)
+	g := uint8 ((val & 0x07E0) >> 3)
+	r := uint8 ((val & 0xF800) >> 8)
+	a := uint8 (0xFF)
+	return color.RGBA{r,g,b,a}
 }
 
 func (f Framebuffer) At(x, y int) color.Color {

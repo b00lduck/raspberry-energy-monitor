@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"b00lduck/datalogger/display/gui/pages"
 	"time"
+	"b00lduck/datalogger/display/webserver"
 )
 
 func main() {
@@ -24,14 +25,14 @@ func main() {
 	go ts.Run()
 
 	g := gui.NewGui(fb, ts)
-
 	g.SetMainPage(pages.CreateMainPage())
 	gasPage := pages.CreateGasPage()
 	g.SetPage("GAS_1", gasPage)
-
 	g.SelectPage("GAS_1")
-
 	go g.Run(&ts.Event)
+
+	ws := webserver.NewWebserver(fb)
+	go ws.Run()
 
 	for {
 		g.Process()
