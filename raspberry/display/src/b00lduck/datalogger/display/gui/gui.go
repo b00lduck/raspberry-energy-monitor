@@ -23,7 +23,7 @@ func NewGui(target draw.Image, touchscreen *touchscreen.Touchscreen) *Gui {
 	newGui.activePageName = ""
 	newGui.target = &target
 	newGui.touchscreen = touchscreen
-	newGui.dirty = make(chan bool, 1)
+	newGui.dirty = make(chan bool, 64)
 	newGui.Bounds = image.Rect(0,0,320,240)
 	return newGui
 }
@@ -108,6 +108,7 @@ func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 
 		select {
 		case e := <- *tsEvent:
+			fmt.Println("EVENT RECEIVED")
 			if e.Type == touchscreen.TSEVENT_PUSH {
 				if oldEvent != e {
 					g.processButtonsOfPage(e, g.mainPage)

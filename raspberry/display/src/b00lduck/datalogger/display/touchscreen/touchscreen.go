@@ -42,7 +42,10 @@ func (f *Touchscreen) Close() {
 }
 
 func (f *Touchscreen) Run() {
-	f.Event = make(chan TouchscreenEvent, 1)
+	f.Event = make(chan TouchscreenEvent, 64)
+
+	pushed := false
+
 	for {
 
 		inputEvent := InputEvent{}
@@ -59,7 +62,14 @@ func (f *Touchscreen) Run() {
 		case inputEvent.Type == 3 && inputEvent.Code == 1:
 			f.tempEvent.X = int32(float32(inputEvent.Value) / 3827.0 * 320.0) - 13;
 		case inputEvent.Type == 0:
-			f.Event <- f.tempEvent
+			switch {
+			    case f.tempEvent.Type == TSEVENT_PUSH && !pushed:
+				    pushed = true
+      				    f.Event <- f.tempEvent
+			    case f.tempEvent.Type == TSEVENT_RELEASE:
+				    pushed = false
+      				    f.Event <- f.tempEvent
+			}
 		}
 
 	}
