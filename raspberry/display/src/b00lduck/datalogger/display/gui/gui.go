@@ -83,8 +83,6 @@ func (g * Gui) drawPage(name string) {
 
 func (g *Gui) Process() {
 
-	fmt.Println("processing GUI")
-
 	mp := *g.mainPage
 	dirty := mp.Process()
 
