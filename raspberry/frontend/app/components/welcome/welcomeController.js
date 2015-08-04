@@ -3,16 +3,14 @@
 
 angular.module('welcome', ['nvd3'])
 
-    .controller('WelcomeController', ['$scope', '$http', 'API_BASEURL', '$interval',
-        function ($scope, $http, API_BASEURL, $interval) {
+    .controller('WelcomeController', ['$scope', '$http', 'API_BASEURL', 'DISPLAY_URL', 'CLICK_URL', '$interval',
+        function ($scope, $http, API_BASEURL, DISPLAY_URL, CLICK_URL, $interval) {
 
             function getData() {
 
                 var ret = [];
 
                 $http.get(API_BASEURL + "counterEvents").then(function(payload) {
-
-                    console.log(payload);
 
                     var data = payload.data._embedded.counterEvents,
                         i,
@@ -69,18 +67,15 @@ angular.module('welcome', ['nvd3'])
                             return d3.format('.02f')(d);
                         },
                         axisLabelDistance: 30
-                    },
-                    callback: function(chart){
-                        console.log("!!! lineChart callback !!!");
                     }
                 },
                 title: {
                     enable: true,
-                    text: 'Title for Line Chart'
+                    text: 'Title'
                 },
                 subtitle: {
                     enable: true,
-                    text: 'Subtitle for simple line chart. Lorem ipsum dolor sit amet, at eam blandit sadipscing, vim adhuc sanctus disputando ex, cu usu affert alienum urbanitas.',
+                    text: 'Subtitle',
                     css: {
                         'text-align': 'center',
                         'margin': '10px 13px 0px 7px'
@@ -88,7 +83,7 @@ angular.module('welcome', ['nvd3'])
                 },
                 caption: {
                     enable: true,
-                    html: '<b>Figure 1.</b> Lorem ipsum dolor sit amet, at eam blandit sadipscing, <span style="text-decoration: underline;">vim adhuc sanctus disputando ex</span>, cu usu affert alienum urbanitas. <i>Cum in purto erat, mea ne nominavi persecuti reformidans.</i> Docendi blandit abhorreant ea has, minim tantas alterum pro eu. <span style="color: darkred;">Exerci graeci ad vix, elit tacimates ea duo</span>. Id mel eruditi fuisset. Stet vidit patrioque in pro, eum ex veri verterem abhorreant, id unum oportere intellegam nec<sup>[1, <a href="https://github.com/krispo/angular-nvd3" target="_blank">2</a>, 3]</sup>.',
+                    html: '<b>Description</b>',
                     css: {
                         'text-align': 'justify',
                         'margin': '10px 13px 0px 7px'
@@ -99,13 +94,13 @@ angular.module('welcome', ['nvd3'])
             $scope.hello = "Hello, Controller!";
 
             $interval(function() {
-                $scope.imageUrl = "http://localhost:8081/display" + '?' + new Date().getTime();
+                $scope.imageUrl = DISPLAY_URL + '?' + new Date().getTime();
             }, 500);
 
             $scope.doClick = function(event) {
                 var x = event.offsetX,
                     y = event.offsetY;
-                $http.get("http://localhost:8081/click?x=" + x + "&y=" + y);
+                $http.get(CLICK_URL + "?x=" + x + "&y=" + y);
             };
 
             getData();
