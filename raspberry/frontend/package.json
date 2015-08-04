@@ -31,7 +31,8 @@
     "load-grunt-tasks": "latest",
     "protractor":"latest",
     "time-grunt": "latest",
-    "wiredep": "latest"
+    "wiredep": "latest",
+    "serve-static": "latest"
   },
   "engine": "node >= 0.10.0",
   "scripts": {

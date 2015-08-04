@@ -6,6 +6,7 @@ module.exports = function (grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
+    var serveStatic = require('serve-static');
 
     function nocacheHeaderMiddleware(req, res, next) {
         res.setHeader('Expires', 'Thu, 01 Jan 1970 00:00:00 GMT');
@@ -22,7 +23,7 @@ module.exports = function (grunt) {
                     target: 'http://localhost:9000'
                 },
                 middleware: function (connect, options) {
-                    return [nocacheHeaderMiddleware, connect.static(folder)];
+                    return [nocacheHeaderMiddleware, serveStatic(folder)];
                 }
             }
         };
