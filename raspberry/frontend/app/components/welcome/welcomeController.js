@@ -3,8 +3,8 @@
 
 angular.module('welcome', ['nvd3'])
 
-    .controller('WelcomeController', ['$scope', '$http', 'API_BASEURL',
-        function ($scope, $http, API_BASEURL) {
+    .controller('WelcomeController', ['$scope', '$http', 'API_BASEURL', '$interval',
+        function ($scope, $http, API_BASEURL, $interval) {
 
             function getData() {
 
@@ -97,6 +97,16 @@ angular.module('welcome', ['nvd3'])
             };
 
             $scope.hello = "Hello, Controller!";
+
+            $interval(function() {
+                $scope.imageUrl = "http://localhost:8081/display" + '?' + new Date().getTime();
+            }, 500);
+
+            $scope.doClick = function(event) {
+                var x = event.offsetX,
+                    y = event.offsetY;
+                $http.get("http://localhost:8081/click?x=" + x + "&y=" + y);
+            };
 
             getData();
 
