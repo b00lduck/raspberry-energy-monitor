@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"strconv"
 	"image/png"
-	"b00lduck/datalogger/display/tools"
+	"b00lduck/tools"
 	"b00lduck/datalogger/display/touchscreen"
 )
 

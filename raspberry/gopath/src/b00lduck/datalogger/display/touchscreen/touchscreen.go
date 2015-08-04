@@ -4,7 +4,7 @@ import (
 	"os"
 	"syscall"
 	"encoding/binary"
-	"b00lduck/datalogger/display/tools"
+	"b00lduck/tools"
 )
 
 const (

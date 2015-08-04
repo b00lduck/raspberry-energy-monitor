@@ -3,7 +3,7 @@ package framebuffer
 import (
 	"os"
 	"syscall"
-	"b00lduck/datalogger/display/tools"
+	"b00lduck/tools"
 	"image/color"
 	"image"
 	"fmt"

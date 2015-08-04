@@ -3,7 +3,7 @@ import (
 	"image"
 	"image/draw"
 	"os"
-	"b00lduck/datalogger/display/tools"
+	"b00lduck/tools"
 	"strings"
 	"image/jpeg"
 	"image/png"
