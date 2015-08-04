@@ -23,7 +23,7 @@ func CreateGasPage() Page {
 	gasPage := *new(GasPage)
 	gasPage.BasePage = NewBasePage()
 
-	gasPage.Counter = 22374096
+	gasPage.Counter = 22374090
 
 	for i := 0; i < 8; i ++ {
 		gasPage.BasePage.AddButton(arrowUp, 20 + i * 35, 60 , gasPage.incHandler(i))

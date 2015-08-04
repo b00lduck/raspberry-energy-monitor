@@ -48,7 +48,7 @@ func (w *Webserver) clickHandler(writer http.ResponseWriter, r *http.Request) {
 
 	x,e := readParameter(r, "x")
 	if e != nil {
-		http.Error(writer, "Malformed parameter y", http.StatusBadRequest)
+		http.Error(writer, "Malformed parameter x", http.StatusBadRequest)
 		return
 	}
 
