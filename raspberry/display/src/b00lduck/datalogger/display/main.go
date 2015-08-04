@@ -31,7 +31,7 @@ func main() {
 	g.SelectPage("GAS_1")
 	go g.Run(&ts.Event)
 
-	ws := webserver.NewWebserver(fb)
+	ws := webserver.NewWebserver(fb, &ts.Event)
 	go ws.Run()
 
 	for {

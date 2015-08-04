@@ -83,7 +83,7 @@ func (p *GasPage) Draw(target *draw.Image) {
 }
 
 func (p *GasPage) Process() bool {
-	p.Counter++
+	p.Counter += 10
 	return true
 }
 
