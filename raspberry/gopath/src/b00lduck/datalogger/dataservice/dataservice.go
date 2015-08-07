@@ -7,6 +7,7 @@ import (
 	"b00lduck/tools"
 	"b00lduck/datalogger/dataservice/orm"
 	"b00lduck/datalogger/dataservice/initialization"
+	"b00lduck/datalogger/dataservice/rest"
 )
 
 func main() {
@@ -22,6 +23,12 @@ func main() {
 	counterChecker := initialization.NewCounterChecker(&db)
 	counterChecker.CheckCounters()
 
+	ws := rest.NewWebserver(&db)
+	ws.Run()
+
+	for {
+
+	}
 }
 
 
