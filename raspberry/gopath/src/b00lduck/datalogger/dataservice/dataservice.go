@@ -8,6 +8,7 @@ import (
 	"b00lduck/datalogger/dataservice/orm"
 	"b00lduck/datalogger/dataservice/initialization"
 	"b00lduck/datalogger/dataservice/rest"
+	"time"
 )
 
 func main() {
@@ -23,11 +24,10 @@ func main() {
 	counterChecker := initialization.NewCounterChecker(&db)
 	counterChecker.CheckCounters()
 
-	ws := rest.NewWebserver(&db)
-	ws.Run()
+	go rest.StartServer(&db)
 
 	for {
-
+		time.Sleep(1 * time.Second)
 	}
 }
 
