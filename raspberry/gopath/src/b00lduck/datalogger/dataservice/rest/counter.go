@@ -1,42 +1,46 @@
 package rest
+
 import (
 	"github.com/gocraft/web"
 	"b00lduck/datalogger/dataservice/orm"
-	"encoding/json"
-	"b00lduck/tools"
-	"strconv"
-	"log"
+	"time"
+	"fmt"
 )
 
 func (c *Context) CounterHandler(rw web.ResponseWriter, req *web.Request) {
-
 	var counters []orm.Counter
-
 	db.Find(&counters)
-
-	buffer, err := json.Marshal(counters)
-	tools.ErrorCheck(err)
-
-	rw.Header().Set("Content-Type", "application/json; charset=utf-8")
-	_, err = rw.Write(buffer)
-	tools.ErrorCheck(err)
-
+	marshal(rw, counters)
 }
 
-func (c *Context) CounterHandlerId(rw web.ResponseWriter, req *web.Request) {
+func (c *Context) CounterByIdHandler(rw web.ResponseWriter, req *web.Request) {
 
-	id, _ := strconv.ParseUint(req.PathParams["id"], 10, 8)
-
-	log.Print("Counter ID:", req.PathParams["id"])
+	id,err := parseUintParameter(rw, req, "id")
+	if (err != nil) {
+		return
+	}
 
 	var counter orm.Counter
-	db.Where("id = ?", id).First(&counter)
+	db.Preload("CounterEvents").Where("id = ?", id).First(&counter)
+	marshal(rw, counter)
+}
 
-	buffer, err := json.Marshal(counter)
-	tools.ErrorCheck(err)
+func (c *Context) CounterByIdTickHandler(rw web.ResponseWriter, req *web.Request) {
 
-	rw.Header().Set("Content-Type", "application/json; charset=utf-8")
-	_, err = rw.Write(buffer)
-	tools.ErrorCheck(err)
+	id,err := parseUintParameter(rw, req, "id")
+	if (err != nil) {
+		return
+	}
 
+	fmt.Println(time.StampMilli)
+
+	counterEvent := orm.CounterEvent{
+		CounterID: uint(id),
+		Timestamp: time.Now().UnixNano(),
+		EventType: 1,
+		Delta:     10,
+		Reading:   12345}
+
+	db.Create(&counterEvent)
+	marshal(rw, counterEvent)
 }

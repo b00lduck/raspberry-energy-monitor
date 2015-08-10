@@ -1,14 +1,14 @@
 package orm
 import (
 	"github.com/jinzhu/gorm"
-	"time"
 )
 
 type Counter struct {
 	gorm.Model
-	Code		string
-	Name		string
-	Unit 		string
-	Reading		float32
-	LastTick	time.Time
+	Code			string			`sql:"index"`
+	Name			string			`sql:"index"`
+	Unit 			string
+	Reading			uint64
+	LastTick		int64
+	CounterEvents	[]CounterEvent
 }

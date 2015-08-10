@@ -21,6 +21,8 @@ func main() {
 
 	db.AutoMigrate(&orm.Counter{}, &orm.CounterEvent{})
 
+	db.Model(&orm.CounterEvent{}).AddForeignKey("counter_id", "counter(id)", "RESTRICT", "RESTRICT")
+
 	counterChecker := initialization.NewCounterChecker(&db)
 	counterChecker.CheckCounters()
 
