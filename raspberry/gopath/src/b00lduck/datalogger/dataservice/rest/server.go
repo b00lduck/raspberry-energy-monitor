@@ -3,16 +3,25 @@ import (
 	"github.com/jinzhu/gorm"
 	"net/http"
 	"b00lduck/tools"
-	"b00lduck/datalogger/dataservice/rest/context"
-	"b00lduck/datalogger/dataservice/rest/handler"
+	"github.com/gocraft/web"
 )
 
-func StartServer(db *gorm.DB) {
+var db *gorm.DB
 
-	context := context.NewContext(db)
+type Context struct {
+}
 
-	http.Handle("/counter", HttpHandler{context, handler.CounterHandler})
+func StartServer(database *gorm.DB) {
 
-	e := http.ListenAndServe(":8080", nil)
+	db = database
+
+	router := web.New(Context{}).
+	Middleware(web.LoggerMiddleware).
+	//Middleware(web.ShowErrorsMiddleware).
+
+	Get("/counter", (*Context).CounterHandler).
+	Get("/counter/:id", (*Context).CounterHandlerId)
+
+	e := http.ListenAndServe(":8080", router)
 	tools.ErrorCheck(e)
 }
