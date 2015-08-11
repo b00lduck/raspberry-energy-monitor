@@ -10,22 +10,22 @@ angular.module('welcome', ['nvd3'])
 
                 var ret = [];
 
-                $http.get(API_BASEURL + "counterEvents").then(function(payload) {
+                $http.get(API_BASEURL + "counter/1/events").then(function(payload) {
 
-                    var data = payload.data._embedded.counterEvents,
+                    var data = payload.data,
                         i,
                         len = data.length;
 
                     for (i = 0; i < len; i++) {
                         ret.push({
-                            "x": data[i].timestamp,
-                            "y": data[i].reading
+                            "x": data[i].Timestamp,
+                            "y": data[i].Reading
                         });
                     }
 
                     $scope.data = [{
                         values: ret,
-                        key: 'Sine Wave',
+                        key: 'm³',
                         color: '#ff7f0e'
                     }];
 
@@ -59,12 +59,19 @@ angular.module('welcome', ['nvd3'])
                         tooltipHide: function(e){ console.log("tooltipHide"); }
                     },
                     xAxis: {
-                        axisLabel: 'Time (ms)'
+                        axisLabel: 'Time (UTC)',
+                        tickFormat: function(d){
+                            var c = new Date(d),
+                                time = c.getHours() + ":" + c.getMinutes(),
+                                date = c.getDate() + "." + (c.getMonth() + 1) + "." + c.getFullYear();
+
+                            return  time + " " + date;
+                        }
                     },
                     yAxis: {
-                        axisLabel: 'Voltage (v)',
+                        axisLabel: 'Counter (m³)',
                         tickFormat: function(d){
-                            return d3.format('.02f')(d);
+                            return d3.format('.03f')(d);
                         },
                         axisLabelDistance: 30
                     }
@@ -93,9 +100,9 @@ angular.module('welcome', ['nvd3'])
 
             $scope.hello = "Hello, Controller!";
 
-            $interval(function() {
-                $scope.imageUrl = DISPLAY_URL + '?' + new Date().getTime();
-            }, 500);
+            //$interval(function() {
+            //   $scope.imageUrl = DISPLAY_URL + '?' + new Date().getTime();
+            //}, 500);
 
             $scope.doClick = function(event) {
                 var x = event.offsetX,
