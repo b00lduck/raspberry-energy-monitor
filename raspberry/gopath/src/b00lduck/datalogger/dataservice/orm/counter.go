@@ -8,7 +8,6 @@ type Counter struct {
 	Code			string			`sql:"index"`
 	Name			string			`sql:"index"`
 	Unit 			string
-	Reading			uint64
-	LastTick		int64
-	CounterEvents	[]CounterEvent
+	Reading			uint64			// Reading multiplied by 1000
+	LastTick		int64			// Timestamp of last tick
 }

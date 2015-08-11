@@ -4,16 +4,17 @@ import (
 	"github.com/gocraft/web"
 	"b00lduck/datalogger/dataservice/orm"
 	"time"
-	"fmt"
 	"github.com/jinzhu/gorm"
 )
 
+// Get all counters
 func (c *Context) CounterHandler(rw web.ResponseWriter, req *web.Request) {
 	var counters []orm.Counter
 	db.Find(&counters)
 	marshal(rw, counters)
 }
 
+// Get specific counter by id
 func (c *Context) CounterByIdHandler(rw web.ResponseWriter, req *web.Request) {
 
 	id,err := parseUintPathParameter(rw, req, "id")
@@ -26,18 +27,16 @@ func (c *Context) CounterByIdHandler(rw web.ResponseWriter, req *web.Request) {
 	marshal(rw, counter)
 }
 
+// Tick counter by id
 func (c *Context) CounterByIdTickHandler(rw web.ResponseWriter, req *web.Request) {
 
 	id,err := parseUintPathParameter(rw, req, "id")
 	if (err != nil) {
 		return
 	}
-
-	fmt.Println(time.StampMilli)
-
 	counterEvent := orm.CounterEvent{
 		CounterID: uint(id),
-		Timestamp: time.Now().UnixNano(),
+		Timestamp: time.Now().UnixNano() / 1000000,
 		EventType: 1,
 		Delta:     10,
 		Reading:   12345}
@@ -46,6 +45,8 @@ func (c *Context) CounterByIdTickHandler(rw web.ResponseWriter, req *web.Request
 	marshal(rw, counterEvent)
 }
 
+// Get counter events in a optionally given time range
+// Query parameters: start,end
 func (c *Context) CounterByIdEventsHandler(rw web.ResponseWriter, req *web.Request) {
 
 	id,err := parseUintPathParameter(rw, req, "id")
@@ -78,6 +79,5 @@ func (c *Context) CounterByIdEventsHandler(rw web.ResponseWriter, req *web.Reque
 	}
 
 	q.Order("timestamp").Find(&counterEvents)
-
 	marshal(rw, counterEvents)
 }

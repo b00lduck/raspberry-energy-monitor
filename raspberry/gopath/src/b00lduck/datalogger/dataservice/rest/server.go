@@ -23,6 +23,7 @@ func StartServer(database *gorm.DB) {
 	router := web.New(Context{}).
 	Middleware(web.LoggerMiddleware).
 	Middleware((*Context).QueryVarsMiddleware).
+	Middleware(CorsMiddleware).
 
 	Get ("/counter", 			(*Context).CounterHandler).
 	Get ("/counter/:id", 		(*Context).CounterByIdHandler).
@@ -44,6 +45,13 @@ func (c *Context) QueryVarsMiddleware(rw web.ResponseWriter, r *web.Request, nex
 	}
 
 	c.values = &values
+	next(rw, r)
+}
+
+func CorsMiddleware(rw web.ResponseWriter, r *web.Request, next web.NextMiddlewareFunc) {
+
+	rw.Header().Set("Access-Control-Allow-Origin", "*")
+
 	next(rw, r)
 }
 
