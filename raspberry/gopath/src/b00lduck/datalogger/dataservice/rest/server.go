@@ -7,11 +7,13 @@ import (
 	"encoding/json"
 	"log"
 	"strconv"
+	"net/url"
 )
 
 var db *gorm.DB
 
 type Context struct {
+	values *url.Values
 }
 
 func StartServer(database *gorm.DB) {
@@ -20,14 +22,29 @@ func StartServer(database *gorm.DB) {
 
 	router := web.New(Context{}).
 	Middleware(web.LoggerMiddleware).
+	Middleware((*Context).QueryVarsMiddleware).
 
 	Get ("/counter", 			(*Context).CounterHandler).
 	Get ("/counter/:id", 		(*Context).CounterByIdHandler).
 	Post("/counter/:id/tick", 	(*Context).CounterByIdTickHandler).
-	Get ("/counterEvent", 		(*Context).CounterEventHandler)
+	Get ("/counter/:id/events",	(*Context).CounterByIdEventsHandler)
 
 	e := http.ListenAndServe(":8080", router)
 	tools.ErrorCheck(e)
+}
+
+func (c *Context) QueryVarsMiddleware(rw web.ResponseWriter, r *web.Request, next web.NextMiddlewareFunc) {
+
+	values, err := parseQueryParams(rw, r)
+	if err != nil {
+		log.Println(err)
+		rw.WriteHeader(http.StatusBadRequest)
+		rw.Write([]byte("Malformed URL"))
+		return
+	}
+
+	c.values = &values
+	next(rw, r)
 }
 
 func marshal(rw web.ResponseWriter, v interface{}) {
@@ -48,16 +65,52 @@ func marshal(rw web.ResponseWriter, v interface{}) {
 
 }
 
-func parseUintParameter(rw web.ResponseWriter, req *web.Request, name string) (id uint64, err error) {
+func parseUintFromString(s string) (ret uint64, err error) {
+	ret, err = strconv.ParseUint(s, 10, 64)
+	return
+}
 
-	sId := req.PathParams[name]
-	id, err = strconv.ParseUint(sId, 10, 8)
+func (c *Context) parseUintQueryParameter(rw web.ResponseWriter, name string) (ret uint64, err error) {
+
+	s := c.values.Get(name)
+	if s == "" {
+		return 0, nil
+	}
+
+	ret,err = parseUintFromString(s)
+	if err != nil {
+		log.Println("Error parsing uint64 " + name +": " + s)
+		log.Println(err)
+		rw.WriteHeader(http.StatusBadRequest)
+		rw.Write([]byte("Malformed parameter " + name))
+	}
+
+	return
+}
+
+func parseUintPathParameter(rw web.ResponseWriter, req *web.Request, name string) (id uint64, err error) {
+
+	s := req.PathParams[name]
+	id,err = parseUintFromString(s)
 
 	if (err != nil) {
-		log.Println("Error parsing id: " + sId)
+		log.Println("Error parsing uint64 " + name +": " + s)
+		log.Println(err)
 		rw.WriteHeader(http.StatusBadRequest)
-		rw.Write([]byte("Malformed parameter 'id'"))
+		rw.Write([]byte("Malformed path parameter"))
 	}
+
+	return
+}
+
+func parseQueryParams(rw web.ResponseWriter, req *web.Request) (values url.Values, err error) {
+
+	u,err := url.Parse(req.RequestURI)
+	if err != nil {
+		return
+	}
+
+	values,err = url.ParseQuery(u.RawQuery)
 
 	return
 }
