@@ -90,9 +90,9 @@ angular.module('welcome', ['nvd3'])
 
             $scope.hello = "Hello, Controller!";
 
-            //$interval(function() {
-            //   $scope.imageUrl = DISPLAY_URL + '?' + new Date().getTime();
-            //}, 500);
+            $interval(function() {
+               $scope.imageUrl = DISPLAY_URL + '?' + new Date().getTime();
+            }, 500);
 
             $scope.doClick = function(event) {
                 var x = event.offsetX,
