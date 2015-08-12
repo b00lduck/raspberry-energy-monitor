@@ -23,6 +23,11 @@ angular.module('welcome', ['nvd3'])
                         });
                     }
 
+                    ret.push({
+                        "x": new Date().getTime(),
+                        "y": data[i-1].Reading
+                    });
+
                     $scope.data = [{
                         values: ret,
                         key: 'm³',
@@ -66,35 +71,20 @@ angular.module('welcome', ['nvd3'])
                                 date = c.getDate() + "." + (c.getMonth() + 1) + "." + c.getFullYear();
 
                             return  time + " " + date;
-                        }
+                        },
+                        axisLabelDistance: 190
                     },
                     yAxis: {
                         axisLabel: 'Counter (m³)',
                         tickFormat: function(d){
-                            return d3.format('.03f')(d);
+                            return d3.format('.03f')(d / 1000);
                         },
-                        axisLabelDistance: 30
+                        axisLabelDistance: 50
                     }
                 },
                 title: {
                     enable: true,
-                    text: 'Title'
-                },
-                subtitle: {
-                    enable: true,
-                    text: 'Subtitle',
-                    css: {
-                        'text-align': 'center',
-                        'margin': '10px 13px 0px 7px'
-                    }
-                },
-                caption: {
-                    enable: true,
-                    html: '<b>Description</b>',
-                    css: {
-                        'text-align': 'justify',
-                        'margin': '10px 13px 0px 7px'
-                    }
+                    text: 'Erdgas'
                 }
             };
 
