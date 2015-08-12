@@ -6,6 +6,8 @@ import (
 	"time"
 	"github.com/jinzhu/gorm"
 	"net/http"
+	"fmt"
+	"io/ioutil"
 )
 
 // Get all counters
@@ -24,7 +26,7 @@ func (c *Context) CounterByIdHandler(rw web.ResponseWriter, req *web.Request) {
 	}
 
 	var counter orm.Counter
-	db.Preload("CounterEvents").Where("id = ?", id).First(&counter)
+	db.Where("id = ?", id).First(&counter)
 	marshal(rw, counter)
 }
 
@@ -45,15 +47,64 @@ func (c *Context) CounterByIdTickHandler(rw web.ResponseWriter, req *web.Request
 		return
 	}
 
-	newReading := counter.Reading + counter.TickAmount
+	newReading := counter.Reading + uint64(counter.TickAmount)
 	counter.Reading = newReading
 	db.Save(counter)
 
 	counterEvent := orm.CounterEvent{
 		CounterID: uint(id),
 		Timestamp: time.Now().UnixNano() / 1000000,
-		EventType: 1,
-		Delta:     10,
+		EventType: orm.TICK,
+		Delta:     counter.TickAmount,
+		Reading:   newReading}
+
+	db.Create(&counterEvent)
+	marshal(rw, counterEvent)
+}
+
+// Correct counter by id
+func (c *Context) CounterByIdCorrectHandler(rw web.ResponseWriter, req *web.Request) {
+
+	id,err := parseUintPathParameter(rw, req, "id")
+	if (err != nil) {
+		return
+	}
+
+	var counter orm.Counter
+	db.First(&counter, id)
+
+	if (counter.ID == 0) {
+		rw.WriteHeader(http.StatusNotFound)
+		rw.Write([]byte("Counter not found"))
+		return
+	}
+
+	hah, err := ioutil.ReadAll(req.Body);
+	fmt.Println(hah)
+	if err != nil {
+		fmt.Println(err)
+		rw.WriteHeader(http.StatusInternalServerError)
+		rw.Write([]byte("Error reading body"))
+		return
+	}
+
+	newReading,err := parseUintFromString(string(hah))
+	if err != nil {
+		fmt.Println(err)
+		rw.WriteHeader(http.StatusBadRequest)
+		rw.Write([]byte("Malformed value"))
+		return
+	}
+
+	delta := newReading - counter.Reading
+	counter.Reading = newReading
+	db.Save(counter)
+
+	counterEvent := orm.CounterEvent{
+		CounterID: uint(id),
+		Timestamp: time.Now().UnixNano() / 1000000,
+		EventType: orm.ABS_CORR,
+		Delta:     uint32(delta),
 		Reading:   newReading}
 
 	db.Create(&counterEvent)

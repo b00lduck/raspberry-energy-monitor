@@ -28,6 +28,7 @@ func StartServer(database *gorm.DB) {
 	Get ("/counter", 			(*Context).CounterHandler).
 	Get ("/counter/:id", 		(*Context).CounterByIdHandler).
 	Post("/counter/:id/tick", 	(*Context).CounterByIdTickHandler).
+	Put ("/counter/:id/corr", 	(*Context).CounterByIdCorrectHandler).
 	Get ("/counter/:id/events",	(*Context).CounterByIdEventsHandler)
 
 	e := http.ListenAndServe(":8080", router)
