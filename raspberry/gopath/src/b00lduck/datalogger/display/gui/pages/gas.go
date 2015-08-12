@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"b00lduck/datalogger/dataservice/orm"
 	"io/ioutil"
+	"strings"
 )
 
 type GasPage struct {
@@ -27,7 +28,7 @@ func CreateGasPage() Page {
 	gasPage := *new(GasPage)
 	gasPage.BasePage = NewBasePage()
 
-	gasPage.Counter = 22374090
+	gasPage.Counter = 0
 
 	for i := 0; i < 8; i ++ {
 		gasPage.BasePage.AddButton(arrowUp, 20 + i * 35, 60 , gasPage.incHandler(i))
@@ -137,8 +138,26 @@ func (p *GasPage) changeCounter(digit int, direction bool) {
 		}
 	}
 
+	p.sendCounterValue()
+
 	*(p.BasePage.DirtyChan) <- true
 
+}
+
+func (p *GasPage) sendCounterValue() {
+	client := &http.Client{}
+	sval := fmt.Sprintf("%d", p.Counter)
+	fmt.Println(sval)
+	request, err := http.NewRequest("PUT", "http://localhost:8080/counter/1/corr", strings.NewReader(sval))
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	request.ContentLength = int64(len(sval))
+	_, err = client.Do(request)
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
 func pow10(n int) (ret int32) {
