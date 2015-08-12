@@ -9,9 +9,9 @@ type CounterChecker struct {
 }
 
 var counters = []orm.Counter {
-	{ Code:	"GAS_1", Name: "Erdgas", Unit: "m³"},
-	{ Code:	"WAT_1", Name: "Wasser Hauptzähler", Unit: "m³"},
-	{ Code:	"ELE_1", Name: "Strom", Unit: "kWh"}}
+	{ Code:	"GAS_1", Name: "Erdgas", Unit: "m³", TickAmount: 10},
+	{ Code:	"WAT_1", Name: "Wasser Hauptzähler", Unit: "m³", TickAmount: 10},
+	{ Code:	"ELE_1", Name: "Strom", Unit: "kWh", TickAmount: 10}}
 
 func NewCounterChecker(db *gorm.DB) (counterChecker *CounterChecker) {
 	counterChecker = new(CounterChecker)

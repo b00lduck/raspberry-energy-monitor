@@ -5,6 +5,7 @@ import (
 	"b00lduck/datalogger/dataservice/orm"
 	"time"
 	"github.com/jinzhu/gorm"
+	"net/http"
 )
 
 // Get all counters
@@ -34,12 +35,26 @@ func (c *Context) CounterByIdTickHandler(rw web.ResponseWriter, req *web.Request
 	if (err != nil) {
 		return
 	}
+
+	var counter orm.Counter
+	db.First(&counter, id)
+
+	if (counter.ID == 0) {
+		rw.WriteHeader(http.StatusNotFound)
+		rw.Write([]byte("Counter not found"))
+		return
+	}
+
+	newReading := counter.Reading + counter.TickAmount
+	counter.Reading = newReading
+	db.Save(counter)
+
 	counterEvent := orm.CounterEvent{
 		CounterID: uint(id),
 		Timestamp: time.Now().UnixNano() / 1000000,
 		EventType: 1,
 		Delta:     10,
-		Reading:   12345}
+		Reading:   newReading}
 
 	db.Create(&counterEvent)
 	marshal(rw, counterEvent)
