@@ -4,6 +4,10 @@ import (
 	"image/draw"
 	"image"
 	"strconv"
+	"net/http"
+	"encoding/json"
+	"b00lduck/datalogger/dataservice/orm"
+	"io/ioutil"
 )
 
 type GasPage struct {
@@ -83,7 +87,31 @@ func (p *GasPage) Draw(target *draw.Image) {
 }
 
 func (p *GasPage) Process() bool {
-	p.Counter += 10
+
+	var contents []byte
+
+	response, err := http.Get("http://localhost:8080/counter/1")
+	if err != nil {
+		fmt.Println(err)
+		return false
+	}
+
+	defer response.Body.Close()
+	contents, err = ioutil.ReadAll(response.Body)
+	if err != nil {
+		fmt.Println(err)
+		return false
+	}
+
+	counter := orm.Counter{}
+	err = json.Unmarshal(contents, &counter)
+	if err != nil {
+		fmt.Println(err)
+		return false
+	}
+
+	p.Counter = int32(counter.Reading)
+
 	return true
 }
 
