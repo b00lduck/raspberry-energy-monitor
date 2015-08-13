@@ -1,7 +1,54 @@
 <div>
 
-    <img ng-click="doClick($event)" ng-src="{{imageUrl}}">
+    <my-display></my-display>
 
-    <nvd3 options="options" data="data"></nvd3>
+    <my-diagram title="Erdgas" counter="1"></my-diagram>
 
+    <!--
+
+    <div class="row">
+        <div class="col-md-6">
+            <p class="input-group">
+                <input type="text"
+                       class="form-control"
+                       datepicker-popup="dd.MM.yyyy"
+                       ng-model="dt"
+                       is-open="status.opened"
+                       min-date="2015-07-01"
+                       datepicker-options="dateOptions"
+                       ng-required="true"
+                       close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+              </span>
+            </p>
+        </div>
+
+        <p>{{status.opened}}</p>
+
+        <p>{{status}}</p>
+        <!--
+        <div class="col-md-6">
+            <p class="input-group">
+                <input type="date"
+                       class="form-control"
+                       datepicker-popup
+                       ng-model="dt"
+                       is-open="status.opened"
+                       min-date="minDate"
+                       max-date="'2020-06-22'"
+                       datepicker-options="dateOptions"
+                       date-disabled="disabled(date, mode)"
+                       ng-required="true"
+                       close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+        </div>
+    </div>
+
+-->
 </div>
