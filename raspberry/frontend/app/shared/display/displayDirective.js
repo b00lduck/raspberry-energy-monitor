@@ -18,6 +18,8 @@ angular.module('display', [])
 
         function($scope, $interval, $http, DISPLAY_URL, CLICK_URL) {
 
+            console.log(DISPLAY_URL);
+
             $interval(function() {
                 $scope.imageUrl = DISPLAY_URL + '?' + new Date().getTime();
             }, 500);
