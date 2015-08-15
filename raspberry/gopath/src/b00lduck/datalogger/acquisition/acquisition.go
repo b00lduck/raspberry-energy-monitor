@@ -22,7 +22,6 @@ func main() {
 		panic(err)
     }
     defer led.Close()
-
     if err := led.SetDirection(embd.In); err != nil {
 		panic(err)
     }
@@ -48,7 +47,7 @@ func main() {
 		if count >= 3 {
 			state = true
 			count = 0
-			count()
+			sendTick()
 		}
 
 		time.Sleep(10 * time.Millisecond)
@@ -56,7 +55,7 @@ func main() {
     }
 }
 
-func count() {
+func sendTick() {
 
 	client := &http.Client{}
 	request, err := http.NewRequest("POST", "http://localhost:8080/counter/1/tick", strings.NewReader(""))
@@ -73,4 +72,3 @@ func count() {
 	}
 
 }
-
