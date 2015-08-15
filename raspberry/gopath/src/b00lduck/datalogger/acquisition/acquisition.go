@@ -13,17 +13,23 @@ func main() {
 	embd.InitGPIO()
 	defer embd.CloseGPIO()
 
-	embd.SetDirection(17, embd.In)
-	embd.PullUp(17)
+	pin,err := embd.NewDigitalPin(17)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	pin.SetDirection(embd.In)
+	pin.PullUp()
 
 	for {
 
-		in,_ := embd.DigitalRead(17)
-
+		in,err := pin.Read()
+		if err != nil {
+			fmt.Println(err)
+		}
 		fmt.Println(in)
-
 		time.Sleep(1000 * time.Millisecond)
-
 	}
 
 }
