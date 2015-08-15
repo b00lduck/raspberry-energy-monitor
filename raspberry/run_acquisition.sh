@@ -10,4 +10,6 @@ cd $GOPATH
 
 /home/pi/go/bin/go get ./...
 
+echo 17 > /sys/class/gpio/unexport
+
 /home/pi/go/bin/go run $GOPATH/src/b00lduck/datalogger/acquisition/acquisition.go
