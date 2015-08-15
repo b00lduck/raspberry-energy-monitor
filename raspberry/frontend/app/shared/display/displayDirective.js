@@ -18,11 +18,11 @@ angular.module('display', [])
 
         function($scope, $interval, $http, DISPLAY_URL, CLICK_URL) {
 
-            console.log(DISPLAY_URL);
-
-            $interval(function() {
+            function refresh() {
                 $scope.imageUrl = DISPLAY_URL + '?' + new Date().getTime();
-            }, 500);
+            }
+
+            $interval(refresh, 1000);
 
             $scope.doClick = function(event) {
                 var x = event.offsetX,
