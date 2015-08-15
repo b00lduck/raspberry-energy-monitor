@@ -34,7 +34,7 @@ func main() {
 			panic(err)
 		}
 
-		if pin == true {
+		if pin == 1 {
 			if state == false {
 				count++
 			}
