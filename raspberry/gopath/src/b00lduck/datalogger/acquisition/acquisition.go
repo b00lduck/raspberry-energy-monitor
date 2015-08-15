@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/kidoman/embd"
-	_ "github.com/kidoman/embd/host/rpi"
+	_ "github.com/kidoman/embd/host/all"
 	"fmt"
 	"time"
 )
@@ -10,28 +10,36 @@ import (
 
 func main() {
 
-	embd.InitGPIO()
-	defer embd.CloseGPIO()
+    if err := embd.InitGPIO(); err != nil {
+	panic(err)
+    }
+    defer embd.CloseGPIO()
 
-	pin,err := embd.NewDigitalPin(17)
+    led, err := embd.NewDigitalPin(17)
+    if err != nil {
+	panic(err)
+    }
+    defer led.Close()
 
-	if err != nil {
-		fmt.Println(err)
+    if err := led.SetDirection(embd.In); err != nil {
+	panic(err)
+    }
+
+//    if err := led.PullUp(); err != nil {
+//	panic(err)
+//    }
+
+    for {
+	
+        pin,err := led.Read()
+	if  err != nil {
+    	    panic(err)
 	}
+	fmt.Println(pin)
 
-	pin.SetDirection(embd.In)
-	pin.PullUp()
+	time.Sleep(1 * time.Second)
 
-	for {
-
-		in,err := pin.Read()
-		if err != nil {
-			fmt.Println(err)
-		}
-		fmt.Println(in)
-		time.Sleep(1000 * time.Millisecond)
-	}
-
+    }
 }
 
 

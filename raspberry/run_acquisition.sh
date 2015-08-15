@@ -8,6 +8,6 @@ echo "GOROOT is $GOROOT"
 
 cd $GOPATH
 
-go get ./...
+/home/pi/go/bin/go get ./...
 
 /home/pi/go/bin/go run $GOPATH/src/b00lduck/datalogger/acquisition/acquisition.go
