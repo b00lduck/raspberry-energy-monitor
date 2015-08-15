@@ -9,7 +9,7 @@ type CounterChecker struct {
 }
 
 var counters = []orm.Counter {
-	{ Code:	"GAS_1", Name: "Erdgas", Unit: "m³", TickAmount: 10},
+	{ Code:	"GAS_1", Name: "Erdgas", Unit: "m³", TickAmount: 100},
 	{ Code:	"WAT_1", Name: "Wasser Hauptzähler", Unit: "m³", TickAmount: 10},
 	{ Code:	"ELE_1", Name: "Strom", Unit: "kWh", TickAmount: 10}}
 
