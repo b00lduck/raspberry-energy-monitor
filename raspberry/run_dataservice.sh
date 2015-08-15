@@ -10,7 +10,7 @@ cd $GOPATH
 
 go get ./...
 
-/home/pi/go/bin/go run $GOPATH/src/b00lduck/datalogger/display/display.go /dev/fb1 /dev/input/touchscreen
+/home/pi/go/bin/go run $GOPATH/src/b00lduck/datalogger/dataservice/dataservice.go
 
 
 
