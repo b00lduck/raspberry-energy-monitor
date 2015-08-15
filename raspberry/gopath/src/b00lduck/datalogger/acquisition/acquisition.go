@@ -45,10 +45,11 @@ func main() {
 
 		if count >= 3 {
 			state = true
+			count = 0
 			fmt.Println("COUNT")
 		}
 
-		time.Sleep(10 * time.Millisecond)
+		time.Sleep(100 * time.Millisecond)
 
     }
 }
