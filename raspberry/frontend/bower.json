@@ -22,7 +22,8 @@
     "angular-ui-bootstrap-bower": "0.12.1",
     "d3": "3.4.1",
     "nvd3": "1.8.1",
-    "angular-nvd3": "1.0.0-rc.2"
+    "angular-nvd3": "1.0.0-rc.2",
+    "sprintf": "1.0.3"
   },
   "resolutions": {
     "angular": "1.4.3",

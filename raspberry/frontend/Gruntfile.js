@@ -124,6 +124,7 @@ module.exports = function (grunt) {
                         'app/bower_components/d3/d3.js',
                         'app/bower_components/nvd3/build/nv.d3.js',
                         'app/bower_components/angular-nvd3/dist/angular-nvd3.js',
+                        'app/bower_components/sprintf/src/sprintf.js',
                         // endbower
                         'tmp/templates.js'
                     ]
@@ -197,6 +198,7 @@ module.exports = function (grunt) {
                     'dist/resources/css/frontend.min.css': [
                         'app/bower_components/bootstrap/dist/css/bootstrap.css',
                         'app/bower_components/bootstrap/dist/css/bootstrap-theme.css',
+                        'app/bower_components/nvd3/build/nv.d3.css',
                         'app/resources/css/styles.css'
                     ]
                 }
