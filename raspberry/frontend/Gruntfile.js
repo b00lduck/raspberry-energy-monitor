@@ -217,7 +217,7 @@ module.exports = function (grunt) {
                 directives: {
                     browser: true,
                     predef: [
-                        'jQuery', 'angular'
+                        'jQuery', 'angular', 'sprintf'
                     ]
                 },
                 options: {

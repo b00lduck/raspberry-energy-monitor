@@ -15,9 +15,11 @@ angular.module('welcome', ['nvd3', 'ui.bootstrap', 'diagram', 'display'])
                 startingDay: 1
             };
 
+            /*
             $scope.open = function($event) {
                 $scope.status.opened = true;
             };
+            */
 
         }]);
 
