@@ -28,17 +28,12 @@ angular.module('diagram', ['nvd3', 'dateTools', 'data'])
                 return counterUnit + '/' + $scope.intervalType;
             }
 
-            function getTooltip(data) {
-                var content,
-                    cssClass;
-                if (undefined === data.index) {
-                    content = getLineTooltip(data);
-                    cssClass = "lineTip"
-                } else {
-                    content = getBarTooltip(data);
-                    cssClass = "barTip";
-                }
-                return '<div class="' + cssClass + '">' + content + '</div>';
+            function formatReading(x) {
+                return sprintf("%0.1f", x / 1000);
+            }
+
+            function formatRate(x) {
+                return sprintf("%0.2f", x / 1000);
             }
 
             function getLineTooltip(data) {
@@ -56,12 +51,17 @@ angular.module('diagram', ['nvd3', 'dateTools', 'data'])
                     "Average: " + formatRate(data.data.y) + getRateUnit();
             }
 
-            function formatReading(x) {
-                return sprintf("%0.1f", x / 1000);
-            }
-
-            function formatRate(x) {
-                return sprintf("%0.2f", x / 1000);
+            function getTooltip(data) {
+                var content,
+                    cssClass;
+                if (undefined === data.index) {
+                    content = getLineTooltip(data);
+                    cssClass = "lineTip";
+                } else {
+                    content = getBarTooltip(data);
+                    cssClass = "barTip";
+                }
+                return '<div class="' + cssClass + '">' + content + '</div>';
             }
 
             function createTickArray(value, lastValue, intervalType) {
@@ -70,23 +70,22 @@ angular.module('diagram', ['nvd3', 'dateTools', 'data'])
                 while (currentValue < lastValue) {
                     currentValue = DateToolsService.getNextFullInterval(currentValue, intervalType);
                     ret.push(currentValue);
-                    currentValue += + 1;
+                    currentValue += 1;
                 }
                 return ret;
             }
 
             function getTickValues(d) {
-                const maxTickValues = 5,
-                      hour = 3600000,
-                      day = hour * 24,
-                      week = day * 7;
-                var values = d[0].values,
+                var maxTickValues = 5,
+                    hour = 3600000,
+                    day = hour * 24,
+                    week = day * 7,
+                    values = d[0].values,
                     len = values.length,
                     firstValue = values[0].x,
                     lastValue = values[len - 1].x,
                     range = lastValue - firstValue,
-                    currentValue = firstValue,
-                    ret = [];
+                    currentValue = firstValue;
 
                 // tick mode    range max
                 // ---------------------------------
@@ -100,21 +99,25 @@ angular.module('diagram', ['nvd3', 'dateTools', 'data'])
 
                 if (range < maxTickValues * hour) {
                     return createTickArray(currentValue, lastValue, "hour");
-                } else if (range < maxTickValues * hour * 3) {
+                }
+                if (range < maxTickValues * hour * 3) {
                     return createTickArray(currentValue, lastValue, "3hour");
-                } else if (range < maxTickValues * hour * 6) {
+                }
+                if (range < maxTickValues * hour * 6) {
                     return createTickArray(currentValue, lastValue, "6hour");
-                } else if (range < maxTickValues * day) {
+                }
+                if (range < maxTickValues * day) {
                     return createTickArray(currentValue, lastValue, "day");
-                } else if (range < maxTickValues * day * 2) {
+                }
+                if (range < maxTickValues * day * 2) {
                     return createTickArray(currentValue, lastValue, "2day");
-                } else if (range < maxTickValues * week) {
+                }
+                if (range < maxTickValues * week) {
                     return createTickArray(currentValue, lastValue, "week");
-                } else if (range < maxTickValues * week * 2) {
+                }
+                if (range < maxTickValues * week * 2) {
                     return createTickArray(currentValue, lastValue, "2week");
                 }
-
-                return;
             }
 
             function setOptions() {

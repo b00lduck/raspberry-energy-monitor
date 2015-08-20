@@ -57,10 +57,10 @@ angular.module('dateTools', [])
              * Unimplemented:: switching years and months
              */
             getMillisByIntervalType: function (intervalType) {
-                const hour = 3600000,
-                      day = hour * 24,
-                      week = day * 7,
-                      year = day * 365;
+                var hour = 3600000,
+                    day = hour * 24,
+                    week = day * 7,
+                    year = day * 365;
                 switch (intervalType) {
                 case "hour":
                     return hour;
