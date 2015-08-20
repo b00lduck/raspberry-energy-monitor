@@ -61,7 +61,6 @@ angular.module('diagram', ['nvd3'])
 
                 if (i >= len || data[i].Timestamp > end) {
                     // no data in this interval
-                    console.log("No data in this interval");
                     return 0;
                 }
 
@@ -72,7 +71,6 @@ angular.module('diagram', ['nvd3'])
                 }
 
                 if (data[i].Timestamp > end) {
-                    console.log("No data in this interval");
                     return 0;
                 }
 
@@ -109,7 +107,6 @@ angular.module('diagram', ['nvd3'])
                     x;
 
                 for (i = 0; i < numIntervals; i++ ) {
-                    console.log("interval " + i);
                     x = firstIntervalStart + i * singleInterval;
                     ret.push({
                         x: x,
