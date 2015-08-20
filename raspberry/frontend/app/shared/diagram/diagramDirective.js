@@ -42,39 +42,37 @@ angular.module('diagram', ['nvd3'])
                 return data[data.length - 1].Timestamp;
             }
 
-            function getNextFullHour(date) {
-                var ret = new Date(date);
-                ret.setHours(ret.getHours() + 1);
-                ret.setMinutes(0);
-                ret.setSeconds(0);
-                ret.setMilliseconds(0);
-                return ret.getTime();
+            function getPreviousFullInterval(date, interval) {
+                var x = Math.floor(date /interval) * interval;
+                return x;
             }
 
-            function getPerHourConsumption(start, data) {
+            function getPerIntervalConsumption(start, data, interval) {
 
                 var i = 0,
                     len = data.length,
-                    end = start + 3599999,
+                    end = start + interval - 1,
                     startValue,
                     endValue;
 
-                while(data[i].Timestamp < start && i < len) {
+                while(i < len && data[i].Timestamp < start) {
                     i++;
                 }
 
-                if (data[i].Timestamp > end) {
+                if (i >= len || data[i].Timestamp > end) {
                     // no data in this interval
+                    console.log("No data in this interval");
                     return 0;
                 }
 
                 startValue = data[i].Reading;
 
-                while(data[i+1].Timestamp < end && i+1 < len) {
+                while(i+1 < len && data[i+1].Timestamp < end) {
                     i++;
                 }
 
                 if (data[i].Timestamp > end) {
+                    console.log("No data in this interval");
                     return 0;
                 }
 
@@ -95,33 +93,27 @@ angular.module('diagram', ['nvd3'])
                     });
                 }
 
-                if (0 < i) {
-                    ret.push({
-                        "x": new Date().getTime(),
-                        "y": data[i-1].Reading
-                    });
-                }
                 return ret;
 
             }
 
-            function createDeltaValues(data) {
+            function createDeltaValues(data, singleInterval) {
 
                 var startDate = findStartDate(data),
                     endDate = findEndDate(data),
-                    firstHour = getNextFullHour(startDate),
-                    interval = endDate - firstHour,
-                    numHours = Math.floor(interval / 3600000),
+                    firstIntervalStart = getPreviousFullInterval(startDate, singleInterval),
+                    displayInterval = endDate - firstIntervalStart,
+                    numIntervals = Math.floor(displayInterval / singleInterval),
                     i,
                     ret = [],
                     x;
 
-                for (i = 0; i < numHours; i++ ) {
-                    console.log(i);
-                    x = firstHour + i * 3600000;
+                for (i = 0; i < numIntervals; i++ ) {
+                    console.log("interval " + i);
+                    x = firstIntervalStart + i * singleInterval;
                     ret.push({
                         x: x,
-                        y: getPerHourConsumption(x, data)
+                        y: getPerIntervalConsumption(x, data, singleInterval)
                     });
                 }
 
@@ -134,7 +126,7 @@ angular.module('diagram', ['nvd3'])
                 $http.get(API_BASEURL + "counter/" + $scope.counter + "/events").then(function(payload) {
 
                     var counterValues = createCounterValues(payload.data),
-                        deltaValues = createDeltaValues(payload.data);
+                        deltaValues = createDeltaValues(payload.data, 3600000 * 24);
 
                     $scope.data = [{
                         values: counterValues,
@@ -197,7 +189,7 @@ angular.module('diagram', ['nvd3'])
                     y1Axis: {
                         axisLabel: 'Rate (m³/h)',
                         tickFormat: function(d){
-                            return sprintf("%d", d);
+                            return sprintf("%0.1f", d / 1000);
                         },
                         axisLabelDistance: 0
                     },
