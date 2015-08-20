@@ -4,6 +4,14 @@
 </file>
 <file name="app/app-config.js">
 </file>
+<file name="app/shared/data/counterDataService.js">
+</file>
+<file name="app/shared/dateTools/dateTools.js">
+</file>
+<file name="app/shared/diagram/diagramDirective.js">
+</file>
+<file name="app/shared/display/displayDirective.js">
+</file>
 <file name="app/components/welcome/welcomeController.js">
 </file>
 </jslint>
