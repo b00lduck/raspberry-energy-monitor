@@ -74,7 +74,7 @@ angular.module('data', ['dateTools'])
                     firstIntervalStartsAt = DateToolsService.getPreviousFullInterval(getFirstDataTimestamp(data),
                         intervalType),
                     displayInterval = getLastDataTimestamp(data) - firstIntervalStartsAt,
-                    numIntervals = Math.floor(displayInterval / singleInterval),
+                    numIntervals = Math.ceil(displayInterval / singleInterval),
                     i,
                     ret = [],
                     x;
