@@ -12,7 +12,7 @@ angular.module('dateTools', [])
              * i.e.: 13:37 or 05:42
              **/
             timeFormat: function (c) {
-                return sprintf("%02d:%02d", c.getHours(), c.getMinutes());
+                return sprintf("%02d:%02d", c.getUTCHours(), c.getMinutes());
             },
 
             /**
@@ -29,7 +29,7 @@ angular.module('dateTools', [])
              */
             timeDateFormatMilli: function (d) {
                 var date = new Date(d);
-                return this.timeFormat(date) + " " + this.dateFormat(date);
+                return this.dateFormat(date) + " " + this.timeFormat(date);
             },
 
             /**
@@ -43,19 +43,41 @@ angular.module('dateTools', [])
             },
 
             /**
+             * Get the millisecond timestamp of the start of the first interval of given type
+             * before the given timestamp.
+             */
+            getNextFullInterval: function (date, intervalType) {
+                var interval = this.getMillisByIntervalType(intervalType),
+                    offset = this.getOffsetByIntervalType(intervalType);
+                return Math.ceil(date / interval) * interval + offset;
+            },
+
+            /**
              * Get length of interval type in milliseconds.
              * Unimplemented:: switching years and months
              */
             getMillisByIntervalType: function (intervalType) {
+                const hour = 3600000,
+                      day = hour * 24,
+                      week = day * 7,
+                      year = day * 365;
                 switch (intervalType) {
                 case "hour":
-                    return 3600000;
+                    return hour;
+                case "3hour":
+                    return hour * 3;
+                case "6hour":
+                    return hour * 3;
                 case "day":
-                    return 3600000 * 24;
+                    return day;
+                case "2day":
+                    return day * 2;
                 case "week":
-                    return 3600000 * 24 * 7;
+                    return week;
+                case "2week":
+                    return week * 2;
                 case "year":
-                    return 3600000 * 24 * 365;
+                    return year;
                 default:
                     console.log("invalid interval type " + intervalType);
                     return;
