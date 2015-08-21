@@ -3,7 +3,6 @@ package rest
 import (
 	"github.com/gocraft/web"
 	"b00lduck/datalogger/dataservice/orm"
-	"time"
 	"github.com/jinzhu/gorm"
 	"net/http"
 	"fmt"
@@ -26,7 +25,14 @@ func (c *Context) CounterByIdHandler(rw web.ResponseWriter, req *web.Request) {
 	}
 
 	var counter orm.Counter
-	db.Where("id = ?", id).First(&counter)
+	db.First(&counter, id)
+
+	if (counter.ID == 0) {
+		rw.WriteHeader(http.StatusNotFound)
+		rw.Write([]byte("Counter not found"))
+		return
+	}
+
 	marshal(rw, counter)
 }
 
@@ -47,18 +53,12 @@ func (c *Context) CounterByIdTickHandler(rw web.ResponseWriter, req *web.Request
 		return
 	}
 
-	newReading := counter.Reading + uint64(counter.TickAmount)
-	counter.Reading = newReading
+	counterEvent := orm.NewTickCounterEvent(counter)
+	db.Create(&counterEvent)
+
+	counter.Reading = counterEvent.Reading
 	db.Save(counter)
 
-	counterEvent := orm.CounterEvent{
-		CounterID: uint(id),
-		Timestamp: time.Now().UnixNano() / 1000000,
-		EventType: orm.TICK,
-		Delta:     counter.TickAmount,
-		Reading:   newReading}
-
-	db.Create(&counterEvent)
 	marshal(rw, counterEvent)
 }
 
@@ -96,16 +96,11 @@ func (c *Context) CounterByIdCorrectHandler(rw web.ResponseWriter, req *web.Requ
 		return
 	}
 
-	delta := newReading - counter.Reading
+	delta := int64(newReading) - int64(counter.Reading)
 	counter.Reading = newReading
 	db.Save(counter)
 
-	counterEvent := orm.CounterEvent{
-		CounterID: uint(id),
-		Timestamp: time.Now().UnixNano() / 1000000,
-		EventType: orm.ABS_CORR,
-		Delta:     uint32(delta),
-		Reading:   newReading}
+	counterEvent := orm.NewAbsCorrCounterEvent(counter, delta)
 
 	db.Create(&counterEvent)
 	marshal(rw, counterEvent)
@@ -117,6 +112,15 @@ func (c *Context) CounterByIdEventsHandler(rw web.ResponseWriter, req *web.Reque
 
 	id,err := parseUintPathParameter(rw, req, "id")
 	if (err != nil) {
+		return
+	}
+
+	var counter orm.Counter
+	db.First(&counter, id)
+
+	if (counter.ID == 0) {
+		rw.WriteHeader(http.StatusNotFound)
+		rw.Write([]byte("Counter not found"))
 		return
 	}
 
@@ -145,5 +149,11 @@ func (c *Context) CounterByIdEventsHandler(rw web.ResponseWriter, req *web.Reque
 	}
 
 	q.Order("timestamp").Find(&counterEvents)
+
+	lastEvent := orm.NewLastCounterEvent(counter)
+	if lastEvent.Timestamp > end {
+		counterEvents = append(counterEvents, lastEvent)
+	}
+
 	marshal(rw, counterEvents)
 }
