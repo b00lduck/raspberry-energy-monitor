@@ -18,7 +18,7 @@ type GasPage struct {
 	Counter int32
 }
 
-func CreateGasPage() Page {
+func NewGasPage() Page {
 
 	fmt.Println("CREATE GAS PAGE")
 
