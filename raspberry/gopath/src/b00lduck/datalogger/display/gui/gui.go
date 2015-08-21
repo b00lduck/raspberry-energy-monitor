@@ -20,7 +20,7 @@ type Gui struct {
 }
 
 // Screensaver
-const TIMEOUT = 5
+const DISPLAY_TIMEOUT = 5
 
 func NewGui(target draw.Image, touchscreen *touchscreen.Touchscreen) *Gui {
 	newGui := new(Gui)
@@ -89,13 +89,13 @@ func (g * Gui) drawPage(name string) {
 
 func (g *Gui) Process() {
 
-	if (g.timeout > TIMEOUT) {
+	if (g.timeout > DISPLAY_TIMEOUT) {
 		return
 	}
 
 	g.timeout += 1
 
-	if (g.timeout == TIMEOUT + 1) {
+	if (g.timeout == DISPLAY_TIMEOUT + 1) {
 		g.dirty <- true
 		return
 	}
@@ -114,7 +114,6 @@ func (g *Gui) Process() {
 	if dirty {
 		g.dirty <- true
 	}
-
 }
 
 func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
@@ -122,12 +121,11 @@ func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 	oldEvent := touchscreen.TouchscreenEvent{touchscreen.TSEVENT_NULL, 0,0}
 
 	for {
-
 		select {
 		case e := <- *tsEvent:
 			if e.Type == touchscreen.TSEVENT_PUSH {
 				if oldEvent != e {
-					if (g.timeout > TIMEOUT) {
+					if (g.timeout > DISPLAY_TIMEOUT) {
 						g.dirty <- true
 					} else {
 						g.processButtonsOfPage(e, g.mainPage)
@@ -142,7 +140,7 @@ func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 
 		case <- g.dirty:
 
-			if g.timeout > TIMEOUT {
+			if g.timeout > DISPLAY_TIMEOUT {
 				draw.Draw(*g.target, g.Bounds, image.NewUniform(image.Black), image.ZP, draw.Src)
 			} else {
 				doubleBuffer := draw.Image(image.NewRGBA(g.Bounds))
