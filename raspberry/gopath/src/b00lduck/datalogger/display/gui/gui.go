@@ -9,17 +9,23 @@ import (
 
 type Gui struct {
 	mainPage *pages.Page
+	clearPage pages.Page
 	pages map[string]*pages.Page
 	activePageName string
 	target *draw.Image
 	touchscreen *touchscreen.Touchscreen
 	dirty chan bool
 	Bounds image.Rectangle
+	timeout int32
 }
+
+// Screensaver
+const DISPLAY_TIMEOUT = 5
 
 func NewGui(target draw.Image, touchscreen *touchscreen.Touchscreen) *Gui {
 	newGui := new(Gui)
 	newGui.pages = make (map[string]*pages.Page,0)
+	newGui.clearPage = pages.NewClearPage()
 	newGui.activePageName = ""
 	newGui.target = &target
 	newGui.touchscreen = touchscreen
@@ -83,6 +89,17 @@ func (g * Gui) drawPage(name string) {
 
 func (g *Gui) Process() {
 
+	if (g.timeout > DISPLAY_TIMEOUT) {
+		return
+	}
+
+	g.timeout += 1
+
+	if (g.timeout == DISPLAY_TIMEOUT + 1) {
+		g.dirty <- true
+		return
+	}
+
 	mp := *g.mainPage
 	dirty := mp.Process()
 
@@ -97,7 +114,6 @@ func (g *Gui) Process() {
 	if dirty {
 		g.dirty <- true
 	}
-
 }
 
 func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
@@ -105,14 +121,17 @@ func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 	oldEvent := touchscreen.TouchscreenEvent{touchscreen.TSEVENT_NULL, 0,0}
 
 	for {
-
 		select {
 		case e := <- *tsEvent:
-			fmt.Println("EVENT RECEIVED")
 			if e.Type == touchscreen.TSEVENT_PUSH {
 				if oldEvent != e {
-					g.processButtonsOfPage(e, g.mainPage)
-					g.processButtonsOfPage(e, g.pages[g.activePageName])
+					if (g.timeout > DISPLAY_TIMEOUT) {
+						g.dirty <- true
+					} else {
+						g.processButtonsOfPage(e, g.mainPage)
+						g.processButtonsOfPage(e, g.pages[g.activePageName])
+					}
+					g.timeout = 0
 					oldEvent = e
 				}
 			} else {
@@ -121,21 +140,23 @@ func (g *Gui) Run(tsEvent *chan touchscreen.TouchscreenEvent) {
 
 		case <- g.dirty:
 
-			doubleBuffer := draw.Image(image.NewRGBA(g.Bounds))
+			if g.timeout > DISPLAY_TIMEOUT {
+				draw.Draw(*g.target, g.Bounds, image.NewUniform(image.Black), image.ZP, draw.Src)
+			} else {
+				doubleBuffer := draw.Image(image.NewRGBA(g.Bounds))
 
-			mainPage := g.mainPage
-			if (mainPage != nil) {
-				(*mainPage).Draw(&doubleBuffer)
+				mainPage := g.mainPage
+				if (mainPage != nil) {
+					(*mainPage).Draw(&doubleBuffer)
+				}
+
+				currentPage := g.pages[g.activePageName]
+				if (currentPage != nil) {
+					(*currentPage).Draw(&doubleBuffer)
+				}
+
+				draw.Draw(*g.target, doubleBuffer.Bounds(), doubleBuffer, image.ZP, draw.Src)
 			}
-
-			currentPage := g.pages[g.activePageName]
-			if (currentPage != nil) {
-				(*currentPage).Draw(&doubleBuffer)
-			}
-
-			draw.Draw(*g.target, doubleBuffer.Bounds(), doubleBuffer, image.ZP, draw.Src)
-
 		}
-
 	}
 }

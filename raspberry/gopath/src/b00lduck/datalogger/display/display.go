@@ -25,8 +25,8 @@ func main() {
 	go ts.Run()
 
 	g := gui.NewGui(fb, ts)
-	g.SetMainPage(pages.CreateMainPage())
-	gasPage := pages.CreateGasPage()
+	g.SetMainPage(pages.NewMainPage())
+	gasPage := pages.NewGasPage()
 	g.SetPage("GAS_1", gasPage)
 	g.SelectPage("GAS_1")
 	go g.Run(&ts.Event)

@@ -12,7 +12,7 @@ type MainPage struct {
 	ButtonSys *elems.Button
 }
 
-func CreateMainPage() Page {
+func NewMainPage() Page {
 
 	mainPage := new(MainPage)
 	mainPage.BasePage = NewBasePage()
