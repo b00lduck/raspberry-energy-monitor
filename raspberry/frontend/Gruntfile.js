@@ -111,6 +111,7 @@ module.exports = function (grunt) {
         uglify: {
             frontend_dist_deps: {
                 options: {
+                    mangle: false,
                     preserveComments: 'some' // preserve copyrights in minified output
                 },
                 files: {

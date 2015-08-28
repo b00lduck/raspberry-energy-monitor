@@ -48,8 +48,15 @@ angular.module('dateTools', [])
              */
             getNextFullInterval: function (date, intervalType) {
                 var interval = this.getMillisByIntervalType(intervalType),
-                    offset = this.getOffsetByIntervalType(intervalType);
-                return Math.ceil(date / interval) * interval + offset;
+                    offset = this.getOffsetByIntervalType(intervalType),
+                    ret = Math.ceil(date / interval) * interval + offset;
+
+                if (date > ret) {
+                    // if offset is negative, use next interval
+                    ret += interval;
+                }
+
+                return ret;
             },
 
             /**

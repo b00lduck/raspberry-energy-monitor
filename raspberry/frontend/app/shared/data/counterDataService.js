@@ -96,6 +96,7 @@ angular.module('data', ['dateTools'])
                 getData: function (counterId, intervalType) {
                     return $q(function (resolve, reject) {
                         $http.get(API_BASEURL + "counter/" + counterId + "/events").then(function (payload) {
+                            console.log("Got payload from REST service with length " + payload.data.length);
                             var counterValues = createCounterValues(payload.data),
                                 deltaValues = createDeltaValues(payload.data, intervalType);
                             console.log("Got " + counterValues.length + " counter values and " + deltaValues.length +

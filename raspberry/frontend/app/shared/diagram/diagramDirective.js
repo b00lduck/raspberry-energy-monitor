@@ -76,7 +76,7 @@ angular.module('diagram', ['nvd3', 'dateTools', 'data'])
             }
 
             function getTickValues(d) {
-                var maxTickValues = 5,
+                var maxTickValues = 7,
                     hour = 3600000,
                     day = hour * 24,
                     week = day * 7,
@@ -98,24 +98,31 @@ angular.module('diagram', ['nvd3', 'dateTools', 'data'])
                 // 2 weeks      maxTickValues * 3600000 * 24 * 14
 
                 if (range < maxTickValues * hour) {
+                    console.log("hour tick");
                     return createTickArray(currentValue, lastValue, "hour");
                 }
                 if (range < maxTickValues * hour * 3) {
+                    console.log("3 hour tick");
                     return createTickArray(currentValue, lastValue, "3hour");
                 }
                 if (range < maxTickValues * hour * 6) {
+                    console.log("6 hour tick");
                     return createTickArray(currentValue, lastValue, "6hour");
                 }
                 if (range < maxTickValues * day) {
+                    console.log("day tick");
                     return createTickArray(currentValue, lastValue, "day");
                 }
                 if (range < maxTickValues * day * 2) {
+                    console.log("2 day tick");
                     return createTickArray(currentValue, lastValue, "2day");
                 }
                 if (range < maxTickValues * week) {
+                    console.log("week tick");
                     return createTickArray(currentValue, lastValue, "week");
                 }
                 if (range < maxTickValues * week * 2) {
+                    console.log("2 week tick");
                     return createTickArray(currentValue, lastValue, "2week");
                 }
             }
@@ -206,7 +213,6 @@ angular.module('diagram', ['nvd3', 'dateTools', 'data'])
 
             $scope.selectIntervalType = function (newIntervalType) {
                 $scope.intervalType = newIntervalType;
-                setOptions();
                 refreshData();
             };
 
