@@ -116,15 +116,15 @@ func processDatagram(data []byte) error {
     }
 
     adc_brauchwasser := parser.ParseADCSensorC(5, data)
-	adc_brauchwasser = Round(adc_brauchwasser / 0.2) * 0.2 // precision reduction
-    if math.Abs(float64(adc_brauchwasser - oldval_brauchwasser)) > 0.2 {
+	adc_brauchwasser = Round(adc_brauchwasser / 0.25) * 0.25 // precision reduction
+    if math.Abs(float64(adc_brauchwasser - oldval_brauchwasser)) > 0.25 {
 		sendReading("HEIZ_BRAUCHW", adc_brauchwasser)
 		oldval_brauchwasser = adc_brauchwasser
 	}
 
 	adc_aussen := parser.ParseADCSensorB(6, data)
-	adc_aussen  = Round(adc_aussen  / 0.2) * 0.2 // precision reduction
-	if math.Abs(float64(adc_aussen - oldval_aussen)) > 0.2 {
+	adc_aussen  = Round(adc_aussen  / 0.5) * 0.5 // precision reduction
+	if math.Abs(float64(adc_aussen - oldval_aussen)) > 0.5 {
 		sendReading("HEIZ_AUSSEN", adc_aussen)
 		oldval_aussen = adc_aussen
 	}
