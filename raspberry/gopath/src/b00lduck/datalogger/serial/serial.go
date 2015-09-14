@@ -150,7 +150,7 @@ func sendReading(code string, temp float32) {
 		return
 	}
 	request.ContentLength = 0
-	x, err = client.Do(request)
+	x, err := client.Do(request)
 	if err != nil {
 		fmt.Println("Error sending thermometer request to dataservice")
 		fmt.Println(err)
