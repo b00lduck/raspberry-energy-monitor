@@ -139,9 +139,13 @@ func processDatagram(data []byte) error {
     return nil
 }
 
+func Round(f float64) float64 {
+	return math.Floor(f + .5)
+}
+
 func sendReading(code string, temp float32) {
 
-	intval := fmt.Sprintf("%d", temp * 1000)
+	intval := fmt.Sprintf("%d", uint64(Round(temp * 1000)))
 
 	fmt.Println(intval)
 
