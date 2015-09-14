@@ -116,18 +116,21 @@ func processDatagram(data []byte) error {
 
     adc_brauchwasser := parser.ParseADCSensorC(5, data)
     if math.Abs(float64(adc_brauchwasser - oldval_brauchwasser)) > 0.2 {
+		sendReading("HEIZ_BRAUCHW", adc_brauchwasser)
 		fmt.Println("Brauchwasser: " + fmt.Sprintf("%.1f", adc_brauchwasser) + " C")
 		oldval_brauchwasser = adc_brauchwasser
 	}
 
 	adc_aussen := parser.ParseADCSensorB(6, data)
 	if math.Abs(float64(adc_aussen - oldval_aussen)) > 0.2 {
+		sendReading("HEIZ_AUSSEN", adc_aussen)
 		fmt.Println("Aussen: " + fmt.Sprintf("%.1f", adc_aussen) + " C")
 		oldval_aussen = adc_aussen
 	}
 
     adc_kessel := parser.ParseADCSensorA(7, data)
 	if math.Abs(float64(adc_kessel - oldval_kessel)) > 0.2 {
+		sendReading("HEIZ_KESSEL", adc_kessel)
 		fmt.Println("Kessel: " + fmt.Sprintf("%.1f", adc_kessel) + " C")
 		oldval_kessel = adc_kessel
 	}
@@ -135,19 +138,21 @@ func processDatagram(data []byte) error {
     return nil
 }
 
-func sendTick() {
+func sendReading(code string, temp float32) {
+
+	intval := fmt.Sprintf("%d", temp * 1000)
 
 	client := &http.Client{}
-	request, err := http.NewRequest("POST", "http://localhost:8080/counter/1/tick", strings.NewReader(""))
+	request, err := http.NewRequest("POST", "http://localhost:8080/thermometer/" + code + "/reading", strings.NewReader(intval))
 	if err != nil {
-		fmt.Println("Error creating tick request to dataservice")
+		fmt.Println("Error creating thermometer request to dataservice")
 		fmt.Println(err)
 		return
 	}
 	request.ContentLength = 0
 	_, err = client.Do(request)
 	if err != nil {
-		fmt.Println("Error sending tick request to dataservice")
+		fmt.Println("Error sending thermometer request to dataservice")
 		fmt.Println(err)
 	}
 
