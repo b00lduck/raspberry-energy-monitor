@@ -54,9 +54,7 @@ func (c *Context) QueryVarsMiddleware(rw web.ResponseWriter, r *web.Request, nex
 }
 
 func CorsMiddleware(rw web.ResponseWriter, r *web.Request, next web.NextMiddlewareFunc) {
-
 	rw.Header().Set("Access-Control-Allow-Origin", "*")
-
 	next(rw, r)
 }
 
@@ -96,21 +94,6 @@ func (c *Context) parseUintQueryParameter(rw web.ResponseWriter, name string) (r
 		log.Println(err)
 		rw.WriteHeader(http.StatusBadRequest)
 		rw.Write([]byte("Malformed parameter " + name))
-	}
-
-	return
-}
-
-func parseUintPathParameter(rw web.ResponseWriter, req *web.Request, name string) (id uint64, err error) {
-
-	s := req.PathParams[name]
-	id,err = parseUintFromString(s)
-
-	if (err != nil) {
-		log.Println("Error parsing uint64 " + name +": " + s)
-		log.Println(err)
-		rw.WriteHeader(http.StatusBadRequest)
-		rw.Write([]byte("Malformed path parameter"))
 	}
 
 	return

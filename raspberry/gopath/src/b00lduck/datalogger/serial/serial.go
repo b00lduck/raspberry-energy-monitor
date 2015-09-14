@@ -129,7 +129,7 @@ func processDatagram(data []byte) error {
 	}
 
     adc_kessel := parser.ParseADCSensorA(7, data)
-	if math.Abs(float64(adc_kessel - oldval_kessel)) > 0.2 {
+	if math.Abs(float64(adc_kessel - oldval_kessel)) > 0.5 {
 		sendReading("HEIZ_KESSEL", adc_kessel)
 		fmt.Println("Kessel: " + fmt.Sprintf("%.1f", adc_kessel) + " C")
 		oldval_kessel = adc_kessel
@@ -150,10 +150,12 @@ func sendReading(code string, temp float32) {
 		return
 	}
 	request.ContentLength = 0
-	_, err = client.Do(request)
+	x, err = client.Do(request)
 	if err != nil {
 		fmt.Println("Error sending thermometer request to dataservice")
 		fmt.Println(err)
 	}
+
+	fmt.Println(x)
 
 }
