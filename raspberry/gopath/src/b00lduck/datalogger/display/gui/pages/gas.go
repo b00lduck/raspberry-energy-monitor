@@ -91,7 +91,7 @@ func (p *GasPage) Process() bool {
 
 	var contents []byte
 
-	response, err := http.Get("http://localhost:8080/counter/1")
+	response, err := http.Get("http://localhost:8080/counter/GAS_1")
 	if err != nil {
 		fmt.Println(err)
 		return false
@@ -148,7 +148,7 @@ func (p *GasPage) sendCounterValue() {
 	client := &http.Client{}
 	sval := fmt.Sprintf("%d", p.Counter)
 	fmt.Println(sval)
-	request, err := http.NewRequest("PUT", "http://localhost:8080/counter/1/corr", strings.NewReader(sval))
+	request, err := http.NewRequest("PUT", "http://localhost:8080/counter/GAS_1/corr", strings.NewReader(sval))
 	if err != nil {
 		fmt.Println(err)
 		return
