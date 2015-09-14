@@ -116,23 +116,23 @@ func processDatagram(data []byte) error {
     }
 
     adc_brauchwasser := parser.ParseADCSensorC(5, data)
+	adc_brauchwasser = Round(adc_brauchwasser / 0.2) * 0.2 // precision reduction
     if math.Abs(float64(adc_brauchwasser - oldval_brauchwasser)) > 0.2 {
 		sendReading("HEIZ_BRAUCHW", adc_brauchwasser)
-		fmt.Println("Brauchwasser: " + fmt.Sprintf("%.1f", adc_brauchwasser) + " C")
 		oldval_brauchwasser = adc_brauchwasser
 	}
 
 	adc_aussen := parser.ParseADCSensorB(6, data)
+	adc_aussen  = Round(adc_aussen  / 0.2) * 0.2 // precision reduction
 	if math.Abs(float64(adc_aussen - oldval_aussen)) > 0.2 {
 		sendReading("HEIZ_AUSSEN", adc_aussen)
-		fmt.Println("Aussen: " + fmt.Sprintf("%.1f", adc_aussen) + " C")
 		oldval_aussen = adc_aussen
 	}
 
     adc_kessel := parser.ParseADCSensorA(7, data)
+	adc_kessel  = Round(adc_kessel  / 0.5) * 0.5 // precision reduction
 	if math.Abs(float64(adc_kessel - oldval_kessel)) > 0.5 {
 		sendReading("HEIZ_KESSEL", adc_kessel)
-		fmt.Println("Kessel: " + fmt.Sprintf("%.1f", adc_kessel) + " C")
 		oldval_kessel = adc_kessel
 	}
 
@@ -144,6 +144,8 @@ func Round(f float32) float32 {
 }
 
 func sendReading(code string, temp float32) {
+
+	fmt.Println(code + ": " + fmt.Sprintf("%.2f", temp) + " C")
 
 	intval := fmt.Sprintf("%d", uint64(Round(temp * 1000)))
 
