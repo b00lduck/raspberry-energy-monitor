@@ -7,6 +7,7 @@ import (
 	"time"
 	"net/http"
 	"strings"
+	"io/ioutil"
 )
 
 
@@ -65,10 +66,16 @@ func sendTick() {
 		return
 	}
 	request.ContentLength = 0
-	_, err = client.Do(request)
+	x, err := client.Do(request)
 	if err != nil {
 		fmt.Println("Error sending tick request to dataservice")
 		fmt.Println(err)
+	}
+
+	if x.StatusCode != 200 {
+		fmt.Println("Error sending tick request to dataservice")
+		str, _ := ioutil.ReadAll(x.Body)
+		fmt.Println( string(str) )
 	}
 
 }
