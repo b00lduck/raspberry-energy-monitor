@@ -11,6 +11,7 @@ import (
 	"strconv"
 	"math"
 	"b00lduck/datalogger/serial/parser"
+	"io/ioutil"
 )
 
 func main() {
@@ -158,7 +159,7 @@ func sendReading(code string, temp float32) {
 
 	if x.StatusCode != 200 {
 		fmt.Println("Error sending thermometer request to dataservice")
-		fmt.Println(x.Body)
+		fmt.Println( ioutil.ReadAll(x.Body) )
 	}
 
 
