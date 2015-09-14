@@ -139,8 +139,8 @@ func processDatagram(data []byte) error {
     return nil
 }
 
-func Round(f float64) float64 {
-	return math.Floor(f + .5)
+func Round(f float32) float32 {
+	return float32(math.Floor(float64(f + .5)))
 }
 
 func sendReading(code string, temp float32) {
