@@ -117,16 +117,19 @@ func processDatagram(data []byte) error {
     adc_brauchwasser := parser.ParseADCSensorC(5, data)
     if math.Abs(float64(adc_brauchwasser - oldval_brauchwasser)) > 0.2 {
 		fmt.Println("Brauchwasser: " + fmt.Sprintf("%.1f", adc_brauchwasser) + " C")
+		oldval_brauchwasser = adc_brauchwasser
 	}
 
 	adc_aussen := parser.ParseADCSensorB(6, data)
 	if math.Abs(float64(adc_aussen - oldval_aussen)) > 0.2 {
 		fmt.Println("Aussen: " + fmt.Sprintf("%.1f", adc_aussen) + " C")
+		oldval_aussen = adc_aussen
 	}
 
     adc_kessel := parser.ParseADCSensorA(7, data)
 	if math.Abs(float64(adc_kessel - oldval_kessel)) > 0.2 {
 		fmt.Println("Kessel: " + fmt.Sprintf("%.1f", adc_kessel) + " C")
+		oldval_kessel = adc_kessel
 	}
 
     return nil
