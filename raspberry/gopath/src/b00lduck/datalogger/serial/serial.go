@@ -159,7 +159,7 @@ func sendReading(code string, temp float32) {
 
 	if x.StatusCode != 200 {
 		fmt.Println("Error sending thermometer request to dataservice")
-		fmt.Println( ioutil.ReadAll(x.Body) )
+		fmt.Println( string(ioutil.ReadAll(x.Body)) )
 	}
 
 
