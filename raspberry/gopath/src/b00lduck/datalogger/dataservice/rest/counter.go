@@ -3,10 +3,9 @@ package rest
 import (
 	"github.com/gocraft/web"
 	"b00lduck/datalogger/dataservice/orm"
-	"github.com/jinzhu/gorm"
 	"net/http"
-	"fmt"
 	"io/ioutil"
+	"fmt"
 )
 
 // Get all counters
@@ -16,16 +15,12 @@ func (c *Context) CounterHandler(rw web.ResponseWriter, req *web.Request) {
 	marshal(rw, counters)
 }
 
-// Get specific counter by id
-func (c *Context) CounterByIdHandler(rw web.ResponseWriter, req *web.Request) {
+// Get specific counter by code
+func (c *Context) CounterByCodeHandler(rw web.ResponseWriter, req *web.Request) {
 
-	id,err := parseUintPathParameter(rw, req, "id")
-	if (err != nil) {
-		return
-	}
-
+	code := parseStringPathParameter(req, "code")
 	var counter orm.Counter
-	db.First(&counter, id)
+	db.Where(&orm.Counter{Code: code}).First(&counter)
 
 	if (counter.ID == 0) {
 		rw.WriteHeader(http.StatusNotFound)
@@ -36,16 +31,12 @@ func (c *Context) CounterByIdHandler(rw web.ResponseWriter, req *web.Request) {
 	marshal(rw, counter)
 }
 
-// Tick counter by id
-func (c *Context) CounterByIdTickHandler(rw web.ResponseWriter, req *web.Request) {
+// Tick counter by code
+func (c *Context) CounterByCodeTickHandler(rw web.ResponseWriter, req *web.Request) {
 
-	id,err := parseUintPathParameter(rw, req, "id")
-	if (err != nil) {
-		return
-	}
-
+	code := parseStringPathParameter(req, "code")
 	var counter orm.Counter
-	db.First(&counter, id)
+	db.Where(&orm.Counter{Code: code}).First(&counter)
 
 	if (counter.ID == 0) {
 		rw.WriteHeader(http.StatusNotFound)
@@ -62,16 +53,12 @@ func (c *Context) CounterByIdTickHandler(rw web.ResponseWriter, req *web.Request
 	marshal(rw, counterEvent)
 }
 
-// Correct counter by id
-func (c *Context) CounterByIdCorrectHandler(rw web.ResponseWriter, req *web.Request) {
+// Correct counter by code
+func (c *Context) CounterByCodeCorrectHandler(rw web.ResponseWriter, req *web.Request) {
 
-	id,err := parseUintPathParameter(rw, req, "id")
-	if (err != nil) {
-		return
-	}
-
+	code := parseStringPathParameter(req, "code")
 	var counter orm.Counter
-	db.First(&counter, id)
+	db.Where(&orm.Counter{Code: code}).First(&counter)
 
 	if (counter.ID == 0) {
 		rw.WriteHeader(http.StatusNotFound)
@@ -108,15 +95,11 @@ func (c *Context) CounterByIdCorrectHandler(rw web.ResponseWriter, req *web.Requ
 
 // Get counter events in a optionally given time range
 // Query parameters: start,end
-func (c *Context) CounterByIdEventsHandler(rw web.ResponseWriter, req *web.Request) {
+func (c *Context) CounterByCodeEventsHandler(rw web.ResponseWriter, req *web.Request) {
 
-	id,err := parseUintPathParameter(rw, req, "id")
-	if (err != nil) {
-		return
-	}
-
+	code := parseStringPathParameter(req, "code")
 	var counter orm.Counter
-	db.First(&counter, id)
+	db.Where(&orm.Counter{Code: code}).First(&counter)
 
 	if (counter.ID == 0) {
 		rw.WriteHeader(http.StatusNotFound)
@@ -135,20 +118,8 @@ func (c *Context) CounterByIdEventsHandler(rw web.ResponseWriter, req *web.Reque
 	}
 
 	var counterEvents []orm.CounterEvent
-	var q *gorm.DB
-
-	switch {
-	case start > 0 && end > 0:
-		q = db.Where("counter_id = ? AND timestamp >= ? AND timestamp <= ?", id, start, end)
-	case end > 0:
-		q = db.Where("counter_id = ? AND timestamp <= ?", id, end)
-	case start > 0:
-		q = db.Where("counter_id = ? AND timestamp >= ?", id, start)
-	default:
-		q = db.Where("counter_id = ?", id)
-	}
-
-	q.Order("timestamp").Find(&counterEvents)
+	orm.GetOrderedWindowedQuery(db, "counter_id", counter.ID, start, end).Find(&counterEvents)
+	marshal(rw, counterEvents)
 
 	lastEvent := orm.NewLastCounterEvent(counter)
 	if lastEvent.Timestamp > end {

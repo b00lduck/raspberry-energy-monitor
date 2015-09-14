@@ -1,5 +1,4 @@
 package orm
-import "time"
 
 type EventType uint8
 
@@ -17,10 +16,6 @@ type CounterEvent struct {
 	EventType 	EventType								// see above
 	Delta		int64 	 								// delta multiplied by 1000
 	Reading		uint64  								// reading multiplied by 1000
-}
-
-func getNow() uint64 {
-	return uint64(time.Now().UnixNano() / 1000000)
 }
 
 func NewLastCounterEvent(counter Counter) CounterEvent {

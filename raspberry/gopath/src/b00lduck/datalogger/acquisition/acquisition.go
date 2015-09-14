@@ -58,7 +58,7 @@ func main() {
 func sendTick() {
 
 	client := &http.Client{}
-	request, err := http.NewRequest("POST", "http://localhost:8080/counter/1/tick", strings.NewReader(""))
+	request, err := http.NewRequest("POST", "http://localhost:8080/counter/GAS_1/tick", strings.NewReader(""))
 	if err != nil {
 		fmt.Println("Error creating tick request to dataservice")
 		fmt.Println(err)

@@ -25,11 +25,15 @@ func StartServer(database *gorm.DB) {
 	Middleware((*Context).QueryVarsMiddleware).
 	Middleware(CorsMiddleware).
 
-	Get ("/counter", 			(*Context).CounterHandler).
-	Get ("/counter/:id", 		(*Context).CounterByIdHandler).
-	Post("/counter/:id/tick", 	(*Context).CounterByIdTickHandler).
-	Put ("/counter/:id/corr", 	(*Context).CounterByIdCorrectHandler).
-	Get ("/counter/:id/events",	(*Context).CounterByIdEventsHandler)
+	Get ("/counter", 					(*Context).CounterHandler).
+	Get ("/counter/:code", 				(*Context).CounterByCodeHandler).
+	Post("/counter/:code/tick", 		(*Context).CounterByCodeTickHandler).
+	Put ("/counter/:code/corr", 		(*Context).CounterByCodeCorrectHandler).
+	Get ("/counter/:code/events",		(*Context).CounterByCodeEventsHandler).
+	Get ("/thermometer", 				(*Context).ThermometerHandler).
+	Get ("/thermometer/:code", 			(*Context).ThermometerByCodeHandler).
+	Post("/thermometer/:code/reading", 	(*Context).ThermometerByCodeAddReadingHandler).
+	Get ("/thermometer/:code/readings",	(*Context).ThermometerByCodeGetReadingsHandler)
 
 	e := http.ListenAndServe(":8080", router)
 	tools.ErrorCheck(e)
@@ -110,6 +114,10 @@ func parseUintPathParameter(rw web.ResponseWriter, req *web.Request, name string
 	}
 
 	return
+}
+
+func parseStringPathParameter(req *web.Request, name string) string {
+	return req.PathParams[name]
 }
 
 func parseQueryParams(rw web.ResponseWriter, req *web.Request) (values url.Values, err error) {
