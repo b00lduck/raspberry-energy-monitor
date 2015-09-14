@@ -143,6 +143,8 @@ func sendReading(code string, temp float32) {
 
 	intval := fmt.Sprintf("%d", temp * 1000)
 
+	fmt.Println(intval)
+
 	client := &http.Client{}
 	request, err := http.NewRequest("POST", "http://localhost:8080/thermometer/" + code + "/reading", strings.NewReader(intval))
 	if err != nil {
