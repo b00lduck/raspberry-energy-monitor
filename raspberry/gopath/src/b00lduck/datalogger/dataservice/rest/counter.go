@@ -119,7 +119,6 @@ func (c *Context) CounterByCodeEventsHandler(rw web.ResponseWriter, req *web.Req
 
 	var counterEvents []orm.CounterEvent
 	orm.GetOrderedWindowedQuery(db, "counter_id", counter.ID, start, end).Find(&counterEvents)
-	marshal(rw, counterEvents)
 
 	lastEvent := orm.NewLastCounterEvent(counter)
 	if lastEvent.Timestamp > end {
