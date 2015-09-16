@@ -111,8 +111,6 @@ func processDatagram(data []byte) error {
 		return err
     }
 
-	fmt.Println(data)
-
 	// TODO: CRC check
 
 	thermBrauchwasser.SetNewReading(parser.ParseADCSensorC(5, data))
