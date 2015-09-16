@@ -3,11 +3,8 @@ package main
 import (
 	"github.com/kidoman/embd"
 	_ "github.com/kidoman/embd/host/all"
-	"fmt"
 	"time"
-	"net/http"
-	"strings"
-	"io/ioutil"
+	"b00lduck/datalogger/dataservice/client"
 )
 
 
@@ -48,7 +45,7 @@ func main() {
 		if count >= 3 {
 			state = true
 			count = 0
-			sendTick()
+			client.SendCounterTick("GAS_1")
 		}
 
 		time.Sleep(10 * time.Millisecond)
@@ -56,26 +53,3 @@ func main() {
     }
 }
 
-func sendTick() {
-
-	client := &http.Client{}
-	request, err := http.NewRequest("POST", "http://localhost:8080/counter/GAS_1/tick", strings.NewReader(""))
-	if err != nil {
-		fmt.Println("Error creating tick request to dataservice")
-		fmt.Println(err)
-		return
-	}
-	request.ContentLength = 0
-	x, err := client.Do(request)
-	if err != nil {
-		fmt.Println("Error sending tick request to dataservice")
-		fmt.Println(err)
-	}
-
-	if x.StatusCode != 200 {
-		fmt.Println("Error sending tick request to dataservice")
-		str, _ := ioutil.ReadAll(x.Body)
-		fmt.Println( string(str) )
-	}
-
-}

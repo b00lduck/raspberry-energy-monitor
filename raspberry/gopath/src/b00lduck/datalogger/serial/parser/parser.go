@@ -5,12 +5,12 @@ import (
 )
 
 type interpol struct {
-	t float32
-	u float32
+	t float64
+	u float64
 }
 
 // Sensor type A
-func ParseADCSensorA(ch int, data []byte) (ret float32) {
+func ParseADCSensorA(ch int, data []byte) (ret float64) {
 	points := []interpol {
 		interpol { 20, 2.47 },
 		interpol { 25, 2.37 },
@@ -30,7 +30,7 @@ func ParseADCSensorA(ch int, data []byte) (ret float32) {
 	return interpolate(volt, points)
 }
 
-func interpolate(u float32, table []interpol) float32 {
+func interpolate(u float64, table []interpol) float64 {
 
 	if u >= table[0].u {
 		return table[0].t
@@ -53,7 +53,7 @@ func interpolate(u float32, table []interpol) float32 {
 }
 
 // Sensor type B
-func ParseADCSensorB(ch int, data []byte) (ret float32) {
+func ParseADCSensorB(ch int, data []byte) (ret float64) {
 	points := []interpol {
 		interpol { -20, 4.54 },
 		interpol { -15, 4.42 },
@@ -70,7 +70,7 @@ func ParseADCSensorB(ch int, data []byte) (ret float32) {
 }
 
 // Sensor type C
-func ParseADCSensorC(ch int, data []byte) (ret float32) {
+func ParseADCSensorC(ch int, data []byte) (ret float64) {
 	points := []interpol {
 		interpol { 20, 2.60 },
 		interpol { 25, 2.47 },
@@ -90,8 +90,8 @@ func ParseADCSensorC(ch int, data []byte) (ret float32) {
 	return interpolate(volt, points)
 }
 
-func parseADCVolt(ch int, data []byte) (ret float32) {
-	return float32(parseADC(ch, data)) * (4.97 / 1024.0)
+func parseADCVolt(ch int, data []byte) (ret float64) {
+	return float64(parseADC(ch, data)) * (4.97 / 1024.0)
 }
 
 func parseADC(ch int, data []byte) (ret uint16) {
