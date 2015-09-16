@@ -128,7 +128,7 @@ func processDatagram(data []byte) error {
 	flagLadepumpe.SetNewState(parser.ParseDigitalIn(1, data))
 	flagWinter.SetNewState(parser.ParseDigitalIn(2, data))
 	flagUmwaelzpumpe.SetNewState(parser.ParseDigitalIn(3, data))
-	flagBrenner(parser.ParseDigitalIn(4, data))
+	flagBrenner.SetNewState(parser.ParseDigitalIn(4, data))
 	flagTag.SetNewState(parser.ParseDigitalIn(5, data))
 
     return nil
