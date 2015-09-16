@@ -125,6 +125,11 @@ func processDatagram(data []byte) error {
 	thermKessel.SetNewReading(parser.ParseADCSensorA(7, data))
 
 	flagZirkulationspumpe.SetNewState(parser.ParseDigitalIn(0, data))
+	flagLadepumpe.SetNewState(parser.ParseDigitalIn(1, data))
+	flagWinter.SetNewState(parser.ParseDigitalIn(2, data))
+	flagUmwaelzpumpe.SetNewState(parser.ParseDigitalIn(3, data))
+	flagBrenner(parser.ParseDigitalIn(4, data))
+	flagTag.SetNewState(parser.ParseDigitalIn(5, data))
 
     return nil
 }
