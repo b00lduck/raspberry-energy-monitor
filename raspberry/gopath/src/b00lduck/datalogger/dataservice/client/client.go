@@ -47,7 +47,7 @@ func SendCounterTick(code string) error {
 
 func SendThermometerReading(code string, temp float64) error {
 	fmt.Println(code + ": " + fmt.Sprintf("%.2f", temp) + " C")
-	svalue := fmt.Sprintf("%d", tools.Round(temp * 1000))
+	svalue := fmt.Sprintf("%.0f", tools.Round(temp * 1000))
 	return sendDataservicePost("thermometer/" + code + "/reading", svalue)
 }
 
