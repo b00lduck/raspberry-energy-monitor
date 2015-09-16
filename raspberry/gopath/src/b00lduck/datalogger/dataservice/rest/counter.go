@@ -48,6 +48,7 @@ func (c *Context) CounterByCodeTickHandler(rw web.ResponseWriter, req *web.Reque
 	db.Create(&counterEvent)
 
 	counter.Reading = counterEvent.Reading
+	counter.LastTick = counterEvent.Timestamp
 	db.Save(counter)
 
 	marshal(rw, counterEvent)

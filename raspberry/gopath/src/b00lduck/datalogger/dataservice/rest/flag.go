@@ -62,7 +62,7 @@ func (c *Context) FlagByCodeChangeStateHandler(rw web.ResponseWriter, req *web.R
 	db.Create(&flagState)
 
 	flag.State = uint8(state)
-	flag.LastChange = orm.GetNow()
+	flag.LastChange = flagState.Timestamp
 	db.Save(flag)
 
 	marshal(rw, flagState)

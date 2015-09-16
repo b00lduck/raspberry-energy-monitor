@@ -62,6 +62,7 @@ func (c *Context) ThermometerByCodeAddReadingHandler(rw web.ResponseWriter, req 
 	db.Create(&thermometerReading)
 
 	thermometer.Reading = uint64(reading)
+	thermometer.LastReading = thermometerReading.Timestamp
 	db.Save(thermometer)
 
 	marshal(rw, thermometerReading)
