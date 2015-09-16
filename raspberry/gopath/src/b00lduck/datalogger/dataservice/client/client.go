@@ -49,7 +49,7 @@ func SendThermometerReading(code string, temp float64) error {
 	return sendDataservicePost("thermometer/" + code + "/reading", svalue)
 }
 
-func SendCounterCorrection(code string, value int) error {
+func SendCounterCorrection(code string, value int32) error {
 	svalue := fmt.Sprintf("%d", value)
 	fmt.Println("Dataservice client: " + code + ": correction to " + svalue)
 	return sendDataservicePut("counter/" + code + "/corr", svalue)
