@@ -19,6 +19,14 @@ var thermometers = []orm.Thermometer {
 	{ Code:	"HEIZ_BRAUCHW", Name: "Heizung Brauchwassertemperatur"},
 }
 
+var flags = []orm.Flag {
+	{ Code: "HEIZ_BWZP", Name: "Heizung Brauchwasser Zirkulationspumpe"},
+	{ Code: "HEIZ_WINT", Name: "Heizung Winterbetrieb"},
+	{ Code: "HEIZ_UWP", Name: "Heizung Umwälzpumpe"},
+	{ Code: "HEIZ_BRENN", Name: "Heizung Brenner"},
+	{ Code: "HEIZ_TAG", Name: "Heizung Tagbetrieb (Nachtabsenkung aus)"},
+}
+
 func NewCounterChecker(db *gorm.DB) (counterChecker *CounterChecker) {
 	counterChecker = new(CounterChecker)
 	counterChecker.db = db
@@ -32,6 +40,9 @@ func (c *CounterChecker) CheckCounters() {
 	for i := range thermometers {
 		c.checkThermometer(thermometers[i])
 	}
+	for i := range flags {
+		c.checkFlag(flags[i])
+	}
 }
 
 // Check if the given counter exists in the database and create it if not
@@ -42,4 +53,9 @@ func (c *CounterChecker) checkCounter(counter orm.Counter) {
 // Check if the given thermometer exists in the database and create it if not
 func (c *CounterChecker) checkThermometer(thermometer orm.Thermometer) {
 	c.db.Where(orm.Thermometer{Code: thermometer.Code}).FirstOrCreate(&thermometer)
+}
+
+// Check if the given flag exists in the database and create it if not
+func (c *CounterChecker) checkFlag(flag orm.Flag) {
+	c.db.Where(orm.Flag{Code: flag.Code}).FirstOrCreate(&flag)
 }

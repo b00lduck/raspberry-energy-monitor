@@ -5,7 +5,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-func getNow() uint64 {
+func GetNow() uint64 {
 	return uint64(time.Now().UnixNano() / 1000000)
 }
 

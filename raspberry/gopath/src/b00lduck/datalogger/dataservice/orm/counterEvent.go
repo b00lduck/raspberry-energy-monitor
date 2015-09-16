@@ -21,7 +21,7 @@ type CounterEvent struct {
 func NewLastCounterEvent(counter Counter) CounterEvent {
 	return CounterEvent{
 		CounterID: uint(counter.ID),
-		Timestamp: getNow(),
+		Timestamp: GetNow(),
 		EventType: LAST,
 		Delta:     0,
 		Reading:   counter.Reading}
@@ -30,7 +30,7 @@ func NewLastCounterEvent(counter Counter) CounterEvent {
 func NewTickCounterEvent(counter Counter) CounterEvent {
 	return CounterEvent{
 		CounterID: uint(counter.ID),
-		Timestamp: getNow(),
+		Timestamp: GetNow(),
 		EventType: TICK,
 		Delta:     int64(counter.TickAmount),
 		Reading:   counter.Reading + counter.TickAmount}
@@ -39,7 +39,7 @@ func NewTickCounterEvent(counter Counter) CounterEvent {
 func NewAbsCorrCounterEvent(counter Counter, delta int64) CounterEvent {
 	return CounterEvent{
 		CounterID: uint(counter.ID),
-		Timestamp: getNow(),
+		Timestamp: GetNow(),
 		EventType: ABS_CORR,
 		Delta:     delta,
 		Reading:   uint64(int64(counter.Reading) + delta)}

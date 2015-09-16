@@ -30,10 +30,16 @@ func StartServer(database *gorm.DB) {
 	Post("/counter/:code/tick", 		(*Context).CounterByCodeTickHandler).
 	Put ("/counter/:code/corr", 		(*Context).CounterByCodeCorrectHandler).
 	Get ("/counter/:code/events",		(*Context).CounterByCodeEventsHandler).
+
 	Get ("/thermometer", 				(*Context).ThermometerHandler).
 	Get ("/thermometer/:code", 			(*Context).ThermometerByCodeHandler).
 	Post("/thermometer/:code/reading", 	(*Context).ThermometerByCodeAddReadingHandler).
-	Get ("/thermometer/:code/readings",	(*Context).ThermometerByCodeGetReadingsHandler)
+	Get ("/thermometer/:code/readings",	(*Context).ThermometerByCodeGetReadingsHandler).
+
+	Get ("/flag",						(*Context).FlagHandler).
+	Get ("/flag/:code",					(*Context).FlagByCodeHandler).
+	Post("/flag/:code/state", 			(*Context).FlagByCodeChangeStateHandler).
+	Get ("/flag/:code/states",			(*Context).FlagByCodeGetStatesHandler)
 
 	e := http.ListenAndServe(":8080", router)
 	tools.ErrorCheck(e)

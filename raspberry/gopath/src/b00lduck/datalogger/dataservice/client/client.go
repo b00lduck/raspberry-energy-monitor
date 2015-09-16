@@ -51,9 +51,8 @@ func SendThermometerReading(code string, temp float64) error {
 
 func SendFlagState(code string, state uint8) error {
 	fmt.Println(code + ": " + fmt.Sprintf("%d", state))
-	return nil
-	//svalue := fmt.Sprintf("%d", state)
-	//return sendDataservicePost("flag/" + code + "/state", svalue)
+	svalue := fmt.Sprintf("%d", state)
+	return sendDataservicePost("flag/" + code + "/state", svalue)
 }
 
 func SendCounterCorrection(code string, value int32) error {

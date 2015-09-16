@@ -15,10 +15,13 @@ func main() {
 
 	db.SingularTable(true)
 
-	db.AutoMigrate(&orm.Counter{}, &orm.CounterEvent{}, &orm.Thermometer{}, &orm.ThermometerReading{})
+	db.AutoMigrate(&orm.Counter{}, &orm.CounterEvent{},
+		&orm.Thermometer{}, &orm.ThermometerReading{},
+		&orm.Flag{}, &orm.FlagState{})
 
 	db.Model(&orm.CounterEvent{}).AddForeignKey("counter_id", "counter(id)", "RESTRICT", "RESTRICT")
 	db.Model(&orm.ThermometerReading{}).AddForeignKey("thermometer_id", "thermometer(id)", "RESTRICT", "RESTRICT")
+	db.Model(&orm.FlagState{}).AddForeignKey("flag_id", "flag(id)", "RESTRICT", "RESTRICT")
 
 	counterChecker := initialization.NewCounterChecker(&db)
 	counterChecker.CheckCounters()

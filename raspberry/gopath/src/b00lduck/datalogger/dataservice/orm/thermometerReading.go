@@ -10,6 +10,6 @@ type ThermometerReading struct {
 func NewThermometerReading(thermometer Thermometer, reading uint64) ThermometerReading {
 	return ThermometerReading{
 		ThermometerID: uint(thermometer.ID),
-		Timestamp: getNow(),
+		Timestamp: GetNow(),
 		Reading:   reading}
 }
