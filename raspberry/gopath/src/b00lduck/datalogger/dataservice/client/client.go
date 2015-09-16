@@ -12,6 +12,8 @@ func request(url string, method string, body string) error {
 
 	client := &http.Client{}
 
+	fmt.Println("Request: " + body)
+
 	req, err := http.NewRequest(method, url, strings.NewReader(body))
 	if err != nil {
 		return err
