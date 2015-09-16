@@ -56,6 +56,13 @@ var thermBrauchwasser = sensor.NewThermometer("HEIZ_BRAUCHW", 0.25)
 var thermAussen = sensor.NewThermometer("HEIZ_AUSSEN", 0.50)
 var thermKessel = sensor.NewThermometer("HEIZ_KESSEL", 0.50)
 
+var flagZirkulationspumpe = sensor.NewFlag("HEIZ_BWZP")
+var flagLadepumpe = sensor.NewFlag("HEIZ_BWLP")
+var flagWinter = sensor.NewFlag("HEIZ_WINT")
+var flagUmwaelzpumpe = sensor.NewFlag("HEIZ_UWP")
+var flagBrenner = sensor.NewFlag("HEIZ_BRENN")
+var flagTag = sensor.NewFlag("HEIZ_TAG")
+
 func processDatagram(data []byte) error {
 
     if data[37] != 10 {
@@ -116,6 +123,8 @@ func processDatagram(data []byte) error {
 	thermBrauchwasser.SetNewReading(parser.ParseADCSensorC(5, data))
     thermAussen.SetNewReading(parser.ParseADCSensorB(6, data))
 	thermKessel.SetNewReading(parser.ParseADCSensorA(7, data))
+
+	flagZirkulationspumpe.SetNewState(parser.ParseDigitalIn(0, data))
 
     return nil
 }

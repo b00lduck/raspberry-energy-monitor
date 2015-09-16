@@ -9,6 +9,14 @@ type interpol struct {
 	u float64
 }
 
+func ParseDigitalIn(ch uint8, data []byte) uint8 {
+	hex := parseHexDigit(32, data) * 256 + parseHexDigit(33, data)
+	if (hex & (1 << ch)) > 0 {
+		return 1
+	}
+	return 0
+}
+
 // Sensor type A
 func ParseADCSensorA(ch int, data []byte) (ret float64) {
 	points := []interpol {
@@ -29,6 +37,8 @@ func ParseADCSensorA(ch int, data []byte) (ret float64) {
 	volt := parseADCVolt(ch, data)
 	return interpolate(volt, points)
 }
+
+
 
 func interpolate(u float64, table []interpol) float64 {
 

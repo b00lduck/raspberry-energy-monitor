@@ -49,6 +49,12 @@ func SendThermometerReading(code string, temp float64) error {
 	return sendDataservicePost("thermometer/" + code + "/reading", svalue)
 }
 
+func SendFlagState(code string, state uint8) error {
+	fmt.Println(code + ": " + fmt.Sprintf("%d", state))
+	svalue := fmt.Sprintf("%d", state)
+	return sendDataservicePost("flag/" + code + "/state", svalue)
+}
+
 func SendCounterCorrection(code string, value int32) error {
 	svalue := fmt.Sprintf("%d", value)
 	fmt.Println("Dataservice client: " + code + ": correction to " + svalue)
