@@ -21,6 +21,7 @@ var thermometers = []orm.Thermometer {
 
 var flags = []orm.Flag {
 	{ Code: "HEIZ_BWZP", Name: "Heizung Brauchwasser Zirkulationspumpe"},
+	{ Code: "HEIZ_BWLP", Name: "Heizung Brauchwasser Ladepumpe"},
 	{ Code: "HEIZ_WINT", Name: "Heizung Winterbetrieb"},
 	{ Code: "HEIZ_UWP", Name: "Heizung Umwälzpumpe"},
 	{ Code: "HEIZ_BRENN", Name: "Heizung Brenner"},
