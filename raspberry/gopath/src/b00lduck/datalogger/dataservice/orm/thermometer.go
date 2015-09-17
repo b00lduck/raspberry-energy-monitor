@@ -8,5 +8,5 @@ type Thermometer struct {
 	Code			string			`sql:"index"`
 	Name			string			`sql:"index"`
 	Reading			uint64			// Reading multiplied by 1000
-	LastReading		int64			// Timestamp of last tick
+	LastReading		uint64			// Timestamp of last tick
 }

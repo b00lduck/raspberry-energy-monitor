@@ -10,5 +10,5 @@ type Counter struct {
 	Unit 			string
 	TickAmount		uint64			// Tick amount multiplied by 1000
 	Reading			uint64			// Reading multiplied by 1000
-	LastTick		int64			// Timestamp of last tick
+	LastTick		uint64			// Timestamp of last tick
 }
