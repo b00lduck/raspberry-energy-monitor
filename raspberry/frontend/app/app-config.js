@@ -3,8 +3,6 @@
 
 var baseUrl = document.location.protocol + "//" + document.location.hostname + "/";
 
-baseUrl = "https://192.168.2.107/";
-
 angular.module('app')
 
     .constant("API_BASEURL", baseUrl + "dataservice/")
