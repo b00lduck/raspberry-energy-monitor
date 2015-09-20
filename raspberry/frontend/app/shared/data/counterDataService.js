@@ -1,7 +1,7 @@
 /*jslint node: true */
 'use strict';
 
-angular.module('data', ['dateTools'])
+angular.module('data')
 
     .service('CounterDataService', ['$q', '$http', 'API_BASEURL', 'DateToolsService',
         function ($q, $http, API_BASEURL, DateToolsService) {
@@ -96,11 +96,8 @@ angular.module('data', ['dateTools'])
                 getData: function (counterId, intervalType) {
                     return $q(function (resolve, reject) {
                         $http.get(API_BASEURL + "counter/" + counterId + "/events").then(function (payload) {
-                            console.log("Got payload from REST service with length " + payload.data.length);
                             var counterValues = createCounterValues(payload.data),
                                 deltaValues = createDeltaValues(payload.data, intervalType);
-                            console.log("Got " + counterValues.length + " counter values and " + deltaValues.length +
-                                " delta values for interval type " + intervalType + ".");
                             resolve({
                                 counterValues: counterValues,
                                 deltaValues: deltaValues

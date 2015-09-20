@@ -31,14 +31,25 @@
         <script src="app-config.js"></script>
 
         <!-- main controller -->
-        <script src="components/welcome/welcomeController.js"></script>
-        <script src="shared/diagram/diagramDirective.js"></script>
+        <script src="components/counter/counterController.js"></script>
+
+        <script src="components/thermometer/thermometerController.js"></script>
+
+        <script src="shared/counterDiagram/counterDiagramDirective.js"></script>
+        <script src="shared/thermometerDiagram/thermometerDiagramDirective.js"></script>
+
         <script src="shared/display/displayDirective.js"></script>
         <script src="shared/dateTools/dateTools.js"></script>
+
+        <script src="shared/data/module.js"></script>
         <script src="shared/data/counterDataService.js"></script>
+        <script src="shared/data/thermometerDataService.js"></script>
+
+        <script src="shared/navigation/navigationDirective.js"></script>
 
     </head>
     <body>
+        <my-navigation></my-navigation>
         <div ng-view></div>
         <script src="//localhost:35729/livereload.js"></script>
     </body>

@@ -1,14 +1,14 @@
 /*jslint node: true */
 'use strict';
 
-angular.module('diagram', ['nvd3', 'dateTools', 'data'])
+angular.module('counterDiagram', ['nvd3', 'dateTools', 'data'])
 
-    .directive('myDiagram', [
+    .directive('myCounterDiagram', [
         function () {
             return {
                 restrict: 'E',
-                templateUrl: 'shared/diagram/diagramView.html',
-                controller: 'MyDiagramController',
+                templateUrl: 'shared/counterDiagram/counterDiagramView.html',
+                controller: 'MyCounterDiagramController',
                 scope: {
                     title: '@',
                     counter: '@',
@@ -18,7 +18,7 @@ angular.module('diagram', ['nvd3', 'dateTools', 'data'])
         }
     ])
 
-    .controller('MyDiagramController', ['$scope', 'DateToolsService', 'CounterDataService',
+    .controller('MyCounterDiagramController', ['$scope', 'DateToolsService', 'CounterDataService',
 
         function ($scope, DateToolsService, CounterDataService) {
 

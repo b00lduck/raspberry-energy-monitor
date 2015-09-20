@@ -1,16 +1,19 @@
 /*jslint unparam: true, node: true */
 'use strict';
 
-var app = angular.module('app', ['ngRoute', 'welcome', 'templates']);
+var app = angular.module('app', ['ngRoute', 'thermometer', 'counter', 'templates', 'navigation']);
 
 app.config(['$routeProvider', function ($routeProvider) {
 
-    $routeProvider.when('/', {
-        controller: 'WelcomeController',
-        templateUrl: 'components/welcome/welcomeView.html'
+    $routeProvider.when('/counter', {
+        controller: 'CounterController',
+        templateUrl: 'components/counter/counterView.html'
     })
-
-        .otherwise({redirectTo: '/'});
+    .when('/thermometer', {
+        controller: 'ThermometerController',
+        templateUrl: 'components/thermometer/thermometerView.html'
+    })
+    .otherwise({redirectTo: '/thermometer'});
 
 }]);
 
