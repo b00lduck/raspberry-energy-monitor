@@ -3,7 +3,7 @@
 
 var baseUrl = document.location.protocol + "//" + document.location.hostname + "/";
 
-baseUrl = "http://192.168.2.107/";
+baseUrl = "https://192.168.2.107/";
 
 angular.module('app')
 
