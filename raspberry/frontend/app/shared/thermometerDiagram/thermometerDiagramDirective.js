@@ -83,8 +83,6 @@ angular.module('thermometerDiagram', ['nvd3', 'dateTools', 'data'])
 
             function refreshData() {
 
-                console.log($scope.interval);
-
                 ThermometerDataService.getData($scope.thermometer, $scope.interval)
                     .then(function (payload) {
                         $scope.data = [{
