@@ -94,5 +94,21 @@ func (c *Context) ThermometerByCodeGetReadingsHandler(rw web.ResponseWriter, req
 
 	var thermometerReadings []orm.ThermometerReading
 	orm.GetOrderedWindowedQuery(db, "thermometer_id", thermometer.ID, start, end).Find(&thermometerReadings)
+
+	startReading := orm.ThermometerReading{
+		Reading: thermometerReadings[0].Reading,
+		Timestamp: start,
+		ThermometerID: thermometer.ID,
+	}
+
+	endReading := orm.ThermometerReading{
+		Reading: thermometerReadings[len(thermometerReadings)-1].Reading,
+		Timestamp: end,
+		ThermometerID: thermometer.ID,
+	}
+
+	thermometerReadings = append([]orm.ThermometerReading{startReading}, thermometerReadings...)
+	thermometerReadings = append(thermometerReadings, endReading)
+
 	marshal(rw, thermometerReadings)
 }
