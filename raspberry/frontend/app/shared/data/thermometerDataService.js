@@ -24,10 +24,10 @@ angular.module('data')
 
             return {
 
-                getData: function (thermometerId, intervalType) {
+                getData: function (thermometerId, interval) {
                     return $q(function (resolve, reject) {
 
-                        var start = getStartByIntervalType(intervalType),
+                        var start = getEnd() - interval,
                             end = getEnd();
 
                         $http.get(API_BASEURL + "thermometer/" + thermometerId + "/readings?start=" + start + "&end=" + end).then(function (payload) {

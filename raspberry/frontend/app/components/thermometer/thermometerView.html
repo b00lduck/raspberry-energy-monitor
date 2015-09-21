@@ -1,6 +1,15 @@
 <h1>Thermometer view</h1>
 <div>
-    <my-thermometer-diagram title="Brauchwasser" thermometer="HEIZ_BRAUCHW" interval="day"></my-thermometer-diagram>
-    <my-thermometer-diagram title="Aussen" thermometer="HEIZ_AUSSEN" interval="day"></my-thermometer-diagram>
-    <my-thermometer-diagram title="Kessel" thermometer="HEIZ_KESSEL" interval="day"></my-thermometer-diagram>
+    <button ng-click="selectInterval(3600)">last hour</button>
+    <button ng-click="selectInterval(3600 * 6)">last 6 hours</button>
+    <button ng-click="selectInterval(3600 * 12)">last 12 hours</button>
+    <button ng-click="selectInterval(3600 * 24)">last day</button>
+    <button ng-click="selectInterval(3600 * 48)">last 2 days</button>
+    <button ng-click="selectInterval(3600 * 24 * 7)">last week</button>
+    <button ng-click="selectInterval(3600 * 24 * 14)">last 2 weeks</button>
+</div>
+<div>
+    <my-thermometer-diagram title="Brauchwasser" thermometer="HEIZ_BRAUCHW" interval="interval"></my-thermometer-diagram>
+    <my-thermometer-diagram title="Aussen" thermometer="HEIZ_AUSSEN" interval="interval"></my-thermometer-diagram>
+    <my-thermometer-diagram title="Kessel" thermometer="HEIZ_KESSEL" interval="interval"></my-thermometer-diagram>
 </div>

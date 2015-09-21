@@ -12,15 +12,15 @@ angular.module('thermometerDiagram', ['nvd3', 'dateTools', 'data'])
                 scope: {
                     title: '@',
                     thermometer: '@',
-                    interval: '@'
+                    interval: '='
                 }
             };
         }
     ])
 
-    .controller('MyThermometerDiagramController', ['$scope', 'DateToolsService', 'ThermometerDataService',
+    .controller('MyThermometerDiagramController', ['$scope', '$rootScope', 'DateToolsService', 'ThermometerDataService',
 
-        function ($scope, DateToolsService, ThermometerDataService) {
+        function ($scope, $rootScope, DateToolsService, ThermometerDataService) {
 
             function formatTemperature(x) {
                 return sprintf("%0.1f", x / 1000);
@@ -83,9 +83,10 @@ angular.module('thermometerDiagram', ['nvd3', 'dateTools', 'data'])
 
             function refreshData() {
 
+                console.log($scope.interval);
+
                 ThermometerDataService.getData($scope.thermometer, $scope.interval)
                     .then(function (payload) {
-                        console.log(payload)
                         $scope.data = [{
                             values: payload,
                             key: '°C',
@@ -97,6 +98,11 @@ angular.module('thermometerDiagram', ['nvd3', 'dateTools', 'data'])
             }
 
             setOptions();
-            refreshData();
+
+            $scope.$watch(function(scope) {
+                return scope.interval;
+            }, function() {
+                refreshData();
+            });
 
         }]);
