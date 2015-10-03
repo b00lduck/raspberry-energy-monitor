@@ -1,7 +1,7 @@
 /*jslint node: true */
 'use strict';
 
-angular.module('thermometer', ['nvd3', 'ui.bootstrap', 'thermometerDiagram', 'flagDiagram'])
+angular.module('thermometer', ['nvd3', 'ui.bootstrap', 'thermometerDiagram', 'flagDiagram', 'thermoFlagDiagram'])
 
     .controller('ThermometerController', ['$scope',
         function ($scope) {

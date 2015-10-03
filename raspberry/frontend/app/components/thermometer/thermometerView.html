@@ -10,7 +10,21 @@
 </div>
 <div>
 
-    <my-thermometer-diagram title="Brauchwasser" thermometer="HEIZ_BRAUCHW" interval="interval"></my-thermometer-diagram>
+    <my-thermo-flag-diagram thermometer="HEIZ_BRAUCHW" title="Brauchwasser"
+                            flag1="HEIZ_BWLP" flag1title="Ladepumpe"
+                            flag2="HEIZ_BWZP" flag2title="Zirkulationspumpe"
+                            interval="interval"></my-thermo-flag-diagram>
+
+    <my-thermo-flag-diagram thermometer="HEIZ_AUSSEN" title="Aussen"
+                            flag1="HEIZ_WINT" flag1title="Winterbetrieb"
+                            interval="interval"></my-thermo-flag-diagram>
+
+    <my-thermo-flag-diagram thermometer="HEIZ_KESSEL" title="Kessel"
+                            flag1="HEIZ_BRENN" flag1title="Brenner"
+                            flag2="HEIZ_UWP" flag2title="Umwälzpumpe"
+                            interval="interval"></my-thermo-flag-diagram>
+
+    <!--
     <my-thermometer-diagram title="Aussen" thermometer="HEIZ_AUSSEN" interval="interval"></my-thermometer-diagram>
     <my-thermometer-diagram title="Kessel" thermometer="HEIZ_KESSEL" interval="interval"></my-thermometer-diagram>
     <my-flag-diagram title="Ladepumpe Brauchwasser" flag="HEIZ_BWLP" interval="interval"></my-flag-diagram>
@@ -19,4 +33,5 @@
     <my-flag-diagram title="Umwälzpumpe" flag="HEIZ_UWP" interval="interval"></my-flag-diagram>
     <my-flag-diagram title="Brenner" flag="HEIZ_BRENN" interval="interval"></my-flag-diagram>
     <my-flag-diagram title="Tagbetrieb" flag="HEIZ_TAG" interval="interval"></my-flag-diagram>
+    -->
 </div>

@@ -79,8 +79,8 @@ angular.module('flagDiagram', ['nvd3', 'dateTools', 'data'])
                     .then(function (payload) {
                         $scope.data = [{
                             values: payload,
-                            key: '°C',
-                            color: '#ff0000'
+                            key: 'ON/OFF',
+                            color: '#000000'
                         }];
                     }, function (error) {
                         console.log(error);

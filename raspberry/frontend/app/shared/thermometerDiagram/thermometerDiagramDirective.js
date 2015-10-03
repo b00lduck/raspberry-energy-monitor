@@ -67,7 +67,7 @@ angular.module('thermometerDiagram', ['nvd3', 'dateTools', 'data'])
                             },
                             axisLabelDistance: 450
                         },
-                        yAxis: {
+                        yAxis1: {
                             axisLabel: 'Temperature (°C)',
                             tickFormat: formatTemperature,
                             axisLabelDistance: 0
