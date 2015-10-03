@@ -10,7 +10,7 @@ type interpol struct {
 }
 
 func ParseDigitalIn(ch uint8, data []byte) uint8 {
-	hex := parseHexDigit(32, data) * 256 + parseHexDigit(33, data)
+	hex := parseHexDigit(32, data) * 16 + parseHexDigit(33, data)
 	if (hex & (1 << ch)) > 0 {
 		return 1
 	}
