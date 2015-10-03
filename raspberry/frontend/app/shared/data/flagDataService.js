@@ -26,7 +26,7 @@ angular.module('data')
                                 if ((1 < i) && (i < len - 1)) {
                                     out.push({
                                         Timestamp: payload.data[i].Timestamp - 1,
-                                        State: Math.abs(payload.data[i].State - 1)
+                                        State: Math.abs(payload.data[i-1].State)
                                     });
                                 }
 
