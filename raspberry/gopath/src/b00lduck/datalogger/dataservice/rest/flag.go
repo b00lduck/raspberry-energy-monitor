@@ -92,7 +92,23 @@ func (c *Context) FlagByCodeGetStatesHandler(rw web.ResponseWriter, req *web.Req
 		return
 	}
 
-	var flagReadings []orm.FlagState
-	orm.GetOrderedWindowedQuery(db, "flag_id", flag.ID, start, end).Find(&flagReadings)
-	marshal(rw, flagReadings)
+	var flagStates []orm.FlagState
+	orm.GetOrderedWindowedQuery(db, "flag_id", flag.ID, start, end).Find(&flagStates)
+
+	startReading := orm.FlagState{
+		State: flagStates[0].State,
+		Timestamp: start,
+		FlagID: flag.ID,
+	}
+
+	endReading := orm.FlagState{
+		State: flagStates[len(flagStates)-1].State,
+		Timestamp: end,
+		FlagID: flag.ID,
+	}
+
+	flagStates = append([]orm.FlagState{startReading}, flagStates...)
+	flagStates = append(flagStates, endReading)
+
+	marshal(rw, flagStates)
 }
