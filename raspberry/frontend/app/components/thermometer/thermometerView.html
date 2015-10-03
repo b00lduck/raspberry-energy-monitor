@@ -9,7 +9,14 @@
     <button ng-click="selectInterval(3600 * 24 * 14)">last 2 weeks</button>
 </div>
 <div>
+
     <my-thermometer-diagram title="Brauchwasser" thermometer="HEIZ_BRAUCHW" interval="interval"></my-thermometer-diagram>
     <my-thermometer-diagram title="Aussen" thermometer="HEIZ_AUSSEN" interval="interval"></my-thermometer-diagram>
     <my-thermometer-diagram title="Kessel" thermometer="HEIZ_KESSEL" interval="interval"></my-thermometer-diagram>
+    <my-flag-diagram title="Ladepumpe Brauchwasser" flag="HEIZ_BWLP" interval="interval"></my-flag-diagram>
+    <my-flag-diagram title="Zirkulation Brauchwasser" flag="HEIZ_BWZP" interval="interval"></my-flag-diagram>
+    <my-flag-diagram title="Winterbetrieb" flag="HEIZ_WINT" interval="interval"></my-flag-diagram>
+    <my-flag-diagram title="Umwälzpumpe" flag="HEIZ_UWP" interval="interval"></my-flag-diagram>
+    <my-flag-diagram title="Brenner" flag="HEIZ_BRENN" interval="interval"></my-flag-diagram>
+    <my-flag-diagram title="Tagbetrieb" flag="HEIZ_TAG" interval="interval"></my-flag-diagram>
 </div>

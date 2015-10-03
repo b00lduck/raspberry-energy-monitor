@@ -102,5 +102,6 @@ angular.module('dateTools', [])
                 }
                 return 0;
             }
+
         };
     });
