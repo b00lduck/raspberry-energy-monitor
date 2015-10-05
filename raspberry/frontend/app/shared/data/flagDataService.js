@@ -34,8 +34,6 @@ angular.module('data')
 
                             }
 
-                            console.log(out);
-
                             resolve(out);
                         }, function (error) {
                             reject(error);

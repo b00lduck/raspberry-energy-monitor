@@ -82,7 +82,7 @@ angular.module('thermoFlagDiagram', ['nvd3', 'dateTools', 'data'])
                 };
             }
 
-            function refreshFlagPromise(code, title) {
+            function refreshFlagPromise(code, title, color) {
                 return $q(function (resolve, reject) {
                     if ('undefined' === typeof code) {
                         resolve(null);
@@ -104,7 +104,7 @@ angular.module('thermoFlagDiagram', ['nvd3', 'dateTools', 'data'])
                                 yAxis: 1,
                                 values: transformed,
                                 key: title,
-                                color: '#ff4444'
+                                color: color
                             });
                         }, function (error) {
                             console.log(error);
@@ -140,23 +140,67 @@ angular.module('thermoFlagDiagram', ['nvd3', 'dateTools', 'data'])
                 });
             }
 
+            function flagMerge(primary, secondary) {
+
+                var primIndex = 0,
+                    primLen = primary.values.length,
+                    secIndex = 0,
+                    secLen = secondary.values.length,
+                    out = {
+                        type: primary.type,
+                        yAxis: primary.yAxis,
+                        values: [],
+                        key: primary.key,
+                        color: primary.color
+                    };
+
+                while(primIndex < primLen) {
+
+                    if (primary.values[primIndex].x === secondary.values[secIndex].x) {
+                        out.values.push(primary.values[primIndex]);
+                        primIndex++;
+                        secIndex++;
+                    } else if (primary.values[primIndex].x < secondary.values[secIndex].x) {
+                        out.values.push(primary.values[primIndex]);
+                        primIndex++;
+                    } else {
+                        out.values.push({
+                            y: primary.values[primIndex - 1].y,
+                            x: secondary.values[secIndex].x
+                        });
+                        secIndex++;
+                    }
+                }
+
+                console.log(primary);
+                console.log(secondary);
+                console.log(out);
+
+                return out;
+
+            }
+
             function refreshData() {
 
                 var promises = {
                     thermo: refreshThermoPromise($scope.thermometer),
-                    flag1: refreshFlagPromise($scope.flag1, $scope.flag1title),
-                    flag2: refreshFlagPromise($scope.flag2, $scope.flag2title)
+                    flag1: refreshFlagPromise($scope.flag1, $scope.flag1title, '#ff5599'),
+                    flag2: refreshFlagPromise($scope.flag2, $scope.flag2title, '#99ff55')
                 };
 
                 $q.all(promises).then(function(payload) {
                     var data = [payload.thermo];
 
-                    if (null !== payload.flag1) {
-                        data.push(payload.flag1);
-                    }
-
-                    if (null !== payload.flag2) {
-                  //      data.push(payload.flag2);
+                    if (null !== payload.flag1 && null !== payload.flag2) {
+                        data.push(flagMerge(payload.flag1, payload.flag2));
+                        data.push(flagMerge(payload.flag2, payload.flag1));
+                    } else {
+                        if (null !== payload.flag1) {
+                            data.push(payload.flag1);
+                        }
+                        if (null !== payload.flag2) {
+                            data.push(payload.flag2);
+                        }
                     }
 
                     $scope.data = data;
