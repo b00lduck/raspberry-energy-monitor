@@ -96,7 +96,7 @@ func (c *Context) FlagByCodeGetStatesHandler(rw web.ResponseWriter, req *web.Req
 	orm.GetOrderedWindowedQuery(db, "flag_id", flag.ID, start, end).Find(&flagStates)
 
 	var startReading orm.FlagState
-	if db.Where("timestamp < ?", start).Order("timestamp desc").First(&startReading).RecordNotFound() {
+	if db.Where("timestamp < ? and flag_id = ?", start, flag.ID).Order("timestamp desc").First(&startReading).RecordNotFound() {
 		startReading = orm.FlagState{
 			State: flagStates[0].State,
 			Timestamp: start,
@@ -105,7 +105,7 @@ func (c *Context) FlagByCodeGetStatesHandler(rw web.ResponseWriter, req *web.Req
 	}
 
 	var endReading orm.FlagState
-	if db.Where("timestamp > ?", start).Order("timestamp asc").First(&endReading).RecordNotFound() {
+	if db.Where("timestamp > ? and flag_id = ?", start, flag.ID).Order("timestamp asc").First(&endReading).RecordNotFound() {
 		endReading = orm.FlagState{
 			State: flagStates[len(flagStates) - 1].State,
 			Timestamp: end,
