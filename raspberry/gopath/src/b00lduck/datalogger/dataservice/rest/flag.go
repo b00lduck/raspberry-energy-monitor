@@ -105,7 +105,7 @@ func (c *Context) FlagByCodeGetStatesHandler(rw web.ResponseWriter, req *web.Req
 	}
 
 	var endReading orm.FlagState
-	if db.Where("timestamp > ? and flag_id = ?", start, flag.ID).Order("timestamp asc").First(&endReading).RecordNotFound() {
+	if db.Where("timestamp > ? and flag_id = ?", end, flag.ID).Order("timestamp asc").First(&endReading).RecordNotFound() {
 		endReading = orm.FlagState{
 			State: flagStates[len(flagStates) - 1].State,
 			Timestamp: end,
