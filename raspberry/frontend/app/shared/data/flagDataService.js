@@ -23,16 +23,18 @@ angular.module('data')
 
                             for (i = 0; i < len; i++) {
 
-                                if ((1 < i) && (i < len - 1)) {
+                                if ((0 < i) && (i < len - 1)) {
                                     out.push({
                                         Timestamp: payload.data[i].Timestamp - 1,
-                                        State: Math.abs(payload.data[i-1].State)
+                                        State: payload.data[i-1].State
                                     });
                                 }
 
                                 out.push(payload.data[i]);
 
                             }
+
+                            console.log(out);
 
                             resolve(out);
                         }, function (error) {
