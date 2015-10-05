@@ -102,6 +102,8 @@ func (c *Context) FlagByCodeGetStatesHandler(rw web.ResponseWriter, req *web.Req
 			Timestamp: start,
 			FlagID: flag.ID,
 		}
+	} else {
+		startReading.Timestamp = start
 	}
 
 	var endReading orm.FlagState
@@ -111,6 +113,8 @@ func (c *Context) FlagByCodeGetStatesHandler(rw web.ResponseWriter, req *web.Req
 			Timestamp: end,
 			FlagID: flag.ID,
 		}
+	} else {
+		endReading.Timestamp = end
 	}
 
 	flagStates = append([]orm.FlagState{startReading}, flagStates...)
