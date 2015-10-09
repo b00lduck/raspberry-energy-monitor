@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"io/ioutil"
 	"strconv"
+	"fmt"
 )
 
 // Get all flags
@@ -94,6 +95,8 @@ func (c *Context) FlagByCodeGetStatesHandler(rw web.ResponseWriter, req *web.Req
 
 	var flagStates []orm.FlagState
 	orm.GetOrderedWindowedQuery(db, "flag_id", flag.ID, start, end).Find(&flagStates)
+
+	fmt.Println(flagStates)
 
 	var startReading orm.FlagState
 	if db.Where("timestamp < ? and flag_id = ?", start, flag.ID).Order("timestamp desc").First(&startReading).RecordNotFound() {
