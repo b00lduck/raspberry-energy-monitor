@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"io/ioutil"
 	"strconv"
-	"fmt"
 )
 
 // Get all flags
