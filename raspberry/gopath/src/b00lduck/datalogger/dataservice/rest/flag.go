@@ -96,32 +96,50 @@ func (c *Context) FlagByCodeGetStatesHandler(rw web.ResponseWriter, req *web.Req
 	var flagStates []orm.FlagState
 	orm.GetOrderedWindowedQuery(db, "flag_id", flag.ID, start, end).Find(&flagStates)
 
-	fmt.Println(flagStates)
-
 	var startReading orm.FlagState
-	if db.Where("timestamp < ? and flag_id = ?", start, flag.ID).Order("timestamp desc").First(&startReading).RecordNotFound() {
+	var endReading orm.FlagState
+
+	if len(flagStates) == 0 {
+
 		startReading = orm.FlagState{
-			State: flagStates[0].State,
+			State: flag.State,
 			Timestamp: start,
 			FlagID: flag.ID,
 		}
-	} else {
-		startReading.Timestamp = start
-	}
 
-	var endReading orm.FlagState
-	if db.Where("timestamp > ? and flag_id = ?", end, flag.ID).Order("timestamp asc").First(&endReading).RecordNotFound() {
 		endReading = orm.FlagState{
-			State: flagStates[len(flagStates) - 1].State,
+			State: flag.State,
 			Timestamp: end,
 			FlagID: flag.ID,
 		}
+
 	} else {
-		endReading.Timestamp = end
+
+		if db.Where("timestamp < ? and flag_id = ?", start, flag.ID).Order("timestamp desc").First(&startReading).RecordNotFound() {
+			startReading = orm.FlagState{
+				State: flagStates[0].State,
+				Timestamp: start,
+				FlagID: flag.ID,
+			}
+		} else {
+			startReading.Timestamp = start
+		}
+
+		if db.Where("timestamp > ? and flag_id = ?", end, flag.ID).Order("timestamp asc").First(&endReading).RecordNotFound() {
+			endReading = orm.FlagState{
+				State: flagStates[len(flagStates) - 1].State,
+				Timestamp: end,
+				FlagID: flag.ID,
+			}
+		} else {
+			endReading.Timestamp = end
+		}
+
 	}
 
 	flagStates = append([]orm.FlagState{startReading}, flagStates...)
 	flagStates = append(flagStates, endReading)
 
 	marshal(rw, flagStates)
+
 }
