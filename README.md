@@ -19,9 +19,8 @@ A residential energy consumption logger with the Raspberry PI 2
  
 ### Software
  - go in /home/pi/go
- - mysql 5.5
- - gradle
- - nodejs 
+ - mysql 5.4+
+ - nodejs
    For installation of nodejs see https://github.com/joyent/node/wiki/installing-node.js-via-package-manager
  - grunt-cli
    sudo npm install -g grunt-cli
@@ -34,7 +33,7 @@ A residential energy consumption logger with the Raspberry PI 2
 
 # Architecture
 
- - Spring-Based dataservice for RESTful layer above the mySQL database with embedded tomcat
+ - go based dataservice for RESTful layer above the mySQL database
  - AngularJS based frontend for graphing and remote control 
  - go based display and touchscreen daemon
  - go based data acquisition daemon
